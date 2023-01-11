@@ -1,8 +1,11 @@
+"use client";
+
 import styled from "styled-components";
 import Image from "next/image";
-import Logo from "../../public/logo.png";
-import IntroButton from "./button/introButton";
+import Logo from "../../../../public/logo.png";
+import IntroButton from "../../commons/button/introButton";
 import theme from "@src/utils/theme";
+import { useRouter } from "next/router";
 const Main = styled.div`
   width: 100%;
   height: 100vh;
@@ -35,9 +38,13 @@ const ButtonBox = styled.div`
 `;
 
 const Intro = () => {
+  const router = useRouter();
+  const linkHandler = (link: string) => {
+    router.push(link);
+  };
   return (
     <Main>
-      <MainBox>
+      <MainBox id="Main">
         <LogoBox>
           <Image
             src={Logo}
@@ -56,6 +63,7 @@ const Intro = () => {
               fontWeight: 700,
             }}
             title="회원가입"
+            handler={() => linkHandler("signup")}
           />
           <IntroButton
             title="로그인"
@@ -65,6 +73,7 @@ const Intro = () => {
               titleColor: theme.colors.white,
               fontWeight: 700,
             }}
+            handler={() => linkHandler("signin")}
           />
         </ButtonBox>
       </MainBox>

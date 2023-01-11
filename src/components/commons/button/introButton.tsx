@@ -1,3 +1,4 @@
+"use client";
 import styled, { css } from "styled-components";
 import { flexBox } from "@src/utils/flexBox";
 interface IProps {
@@ -9,9 +10,11 @@ interface IProps {
     fontWeight?: number;
   };
   title?: string;
+  handler?: () => void;
 }
 
 const Button = styled.div<IProps>`
+  cursor: pointer;
   ${flexBox("row", "center", "center")}
   width: 100%;
   height: 100%;
@@ -22,6 +25,7 @@ const Button = styled.div<IProps>`
     return props.addStyle?.marginBottom;
   }};
   border-radius: 20px;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 `;
 
 const ButtonTitle = styled.div<IProps>`
@@ -37,9 +41,9 @@ const ButtonTitle = styled.div<IProps>`
 `;
 
 const IntroButton = (props: IProps) => {
-  const { addStyle = {}, title } = props;
+  const { addStyle = {}, title, handler } = props;
   return (
-    <Button addStyle={addStyle}>
+    <Button addStyle={addStyle} onClick={handler}>
       <ButtonTitle addStyle={addStyle}>{title}</ButtonTitle>
     </Button>
   );

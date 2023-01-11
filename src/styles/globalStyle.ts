@@ -1,3 +1,5 @@
+"use client";
+
 import { createGlobalStyle } from "styled-components";
 import reset from "styled-reset";
 
@@ -7,7 +9,6 @@ ${reset}
   body {
     width: 100%;
     height: 100%;
-    
   }
   html {
     font-size: 62.5%;
