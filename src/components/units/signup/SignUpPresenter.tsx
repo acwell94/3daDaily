@@ -1,12 +1,21 @@
 "use client";
 import UserFlowButton from "@src/components/commons/button/userFlowButton";
 import UserFlowInput from "@src/components/commons/inputs/userFlowInput";
+import {
+  CommonMain,
+  CommonMainBox,
+} from "@src/components/commons/styles/commonStyles";
 import UserFlowTitle from "@src/components/commons/title/userFlowTitle";
 import * as S from "./SignUpStyles";
-const SignUpPresenter = () => {
+
+interface IProps {
+  linkHandler: () => void;
+}
+
+const SignUpPresenter = ({ linkHandler }: IProps) => {
   return (
-    <S.Main>
-      <S.MainBox>
+    <CommonMain>
+      <CommonMainBox>
         <UserFlowTitle title="회원가입" />
         <S.InputBox>
           <UserFlowInput
@@ -26,11 +35,11 @@ const SignUpPresenter = () => {
         </S.InputBox>
         <S.QuestionBox>
           <S.Question>이미 회원이신가요?</S.Question>
-          <S.LinkToLogin>로그인하러가기</S.LinkToLogin>
+          <S.LinkToLogin onClick={linkHandler}>로그인하러가기</S.LinkToLogin>
         </S.QuestionBox>
         <UserFlowButton title="회원가입" isComplete={false} />
-      </S.MainBox>
-    </S.Main>
+      </CommonMainBox>
+    </CommonMain>
   );
 };
 

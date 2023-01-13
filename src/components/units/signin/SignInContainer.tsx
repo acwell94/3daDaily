@@ -1,12 +1,15 @@
 "use client";
-import * as S from "./SignInStyles";
+import { useRouter } from "next/router";
+import SignInPresenter from "./SignInPresenter";
 
 const SignInContainer = () => {
-  return (
-    <S.Main>
-      <div>로그인 페이지</div>
-    </S.Main>
-  );
+  const router = useRouter();
+
+  const linkHandler = (url: string) => {
+    router.push(url);
+  };
+
+  return <SignInPresenter linkHandler={linkHandler} />;
 };
 
 export default SignInContainer;

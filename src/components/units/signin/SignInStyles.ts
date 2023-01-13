@@ -1,6 +1,27 @@
 "use client";
+import { flexBox } from "@src/utils/flexBox";
+import theme from "@src/utils/theme";
 import styled from "styled-components";
 
-export const Main = styled.div`
-  border: 1px solid red;
+export const InputBox = styled.div`
+  ${flexBox("col", "center", "center")}
+  margin-bottom: 4rem;
+`;
+
+export const UserSelectBox = styled.div`
+  ${flexBox("row", "center", "center")}
+  margin-top: 4rem;
+`;
+
+export const UserSelectText = styled.div`
+  font-size: 2rem;
+  font-weight: 400;
+  line-height: 2.5rem;
+  color: ${theme.colors.lightGray};
+  cursor: pointer;
+`;
+export const SignUpText = styled(UserSelectText)`
+  border-left: 2px solid ${theme.colors.lightGray};
+  margin-left: 3rem;
+  padding-left: 3rem;
 `;
