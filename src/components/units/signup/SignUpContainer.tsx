@@ -1,12 +1,9 @@
 "use client";
-import * as S from "./SignUpStyles";
+
+import SignUpPresenter from "./SignUpPresenter";
 
 const SignUpContainer = () => {
-  return (
-    <S.Main>
-      <div>회원가입 페이지</div>
-    </S.Main>
-  );
+  return <SignUpPresenter />;
 };
 
 export default SignUpContainer;

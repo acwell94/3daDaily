@@ -29,12 +29,12 @@ const MainBox = styled.div`
 `;
 
 const LogoBox = styled.div`
-  margin-right: 200px;
+  margin-right: 20rem;
 `;
 
 const ButtonBox = styled.div`
-  width: 460px;
-  height: 100px;
+  width: 46rem;
+  height: 10rem;
 `;
 
 const Intro = () => {
@@ -56,9 +56,9 @@ const Intro = () => {
         <ButtonBox>
           <IntroButton
             addStyle={{
-              marginBottom: "60px",
+              marginBottom: "6rem",
               backgroundColor: theme.colors.white,
-              fontSize: "30px",
+              fontSize: "3rem",
               titleColor: theme.colors.darkPurple,
               fontWeight: 700,
             }}
@@ -69,7 +69,7 @@ const Intro = () => {
             title="로그인"
             addStyle={{
               backgroundColor: theme.colors.darkPurple,
-              fontSize: "30px",
+              fontSize: "3rem",
               titleColor: theme.colors.white,
               fontWeight: 700,
             }}

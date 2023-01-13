@@ -11,7 +11,7 @@ ${reset}
     height: 100%;
   }
   html {
-    font-size: 62.5%;
+    font-size: 10px;
     
   }
   #root {
@@ -27,7 +27,9 @@ ${reset}
     background-color: transparent;
     -webkit-tap-highlight-color : transparent;
   }
-  
+  input{
+    outline: none;
+  }
   a, a:visited {
     text-decoration: none;
     color: black;
