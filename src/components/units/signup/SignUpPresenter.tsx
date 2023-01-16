@@ -9,7 +9,7 @@ import UserFlowTitle from "@src/components/commons/title/userFlowTitle";
 import * as S from "./SignUpStyles";
 
 interface IProps {
-  linkHandler: () => void;
+  linkHandler: (link: string) => void;
 }
 
 const SignUpPresenter = ({ linkHandler }: IProps) => {
@@ -35,9 +35,15 @@ const SignUpPresenter = ({ linkHandler }: IProps) => {
         </S.InputBox>
         <S.QuestionBox>
           <S.Question>이미 회원이신가요?</S.Question>
-          <S.LinkToLogin onClick={linkHandler}>로그인하러가기</S.LinkToLogin>
+          <S.LinkToLogin onClick={() => linkHandler("/signin")}>
+            로그인하러가기
+          </S.LinkToLogin>
         </S.QuestionBox>
-        <UserFlowButton title="회원가입" isComplete={false} />
+        <UserFlowButton
+          handler={() => linkHandler("/signup/complete")}
+          title="회원가입"
+          isComplete={false}
+        />
       </CommonMainBox>
     </CommonMain>
   );

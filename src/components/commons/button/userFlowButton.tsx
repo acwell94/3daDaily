@@ -4,6 +4,7 @@ import styled from "styled-components";
 interface IProps {
   title?: string;
   isComplete?: boolean;
+  handler?: (a?: any) => void;
 }
 
 interface StyleProps {
@@ -24,8 +25,12 @@ const Button = styled.button<StyleProps>`
   font-weight: 400;
 `;
 
-const UserFlowButton = ({ title, isComplete }: IProps) => {
-  return <Button background={isComplete}>{title}</Button>;
+const UserFlowButton = ({ title, isComplete, handler }: IProps) => {
+  return (
+    <Button onClick={handler} background={isComplete}>
+      {title}
+    </Button>
+  );
 };
 
 export default UserFlowButton;

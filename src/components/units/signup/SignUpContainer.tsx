@@ -6,8 +6,8 @@ import SignUpPresenter from "./SignUpPresenter";
 const SignUpContainer = () => {
   const router = useRouter();
 
-  const linkToSignIn = () => {
-    router.push("/signin");
+  const linkToSignIn = (link: string) => {
+    router.push(link);
   };
 
   return <SignUpPresenter linkHandler={linkToSignIn} />;
