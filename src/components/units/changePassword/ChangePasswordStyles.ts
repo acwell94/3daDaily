@@ -1,3 +1,4 @@
+"use client";
 import { flexBox } from "@src/utils/flexBox";
 import styled from "styled-components";
 

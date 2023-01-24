@@ -2,6 +2,12 @@
 import styled, { css } from "styled-components";
 import { flexBox } from "@src/utils/flexBox";
 interface IProps {
+  addStyle?: {};
+  title?: string;
+  handler?: () => void;
+}
+
+interface StyleProps {
   addStyle?: {
     marginBottom?: string;
     backgroundColor?: string;
@@ -9,11 +15,9 @@ interface IProps {
     fontSize?: string;
     fontWeight?: number;
   };
-  title?: string;
-  handler?: () => void;
 }
 
-const Button = styled.div<IProps>`
+const Button = styled.div<StyleProps>`
   cursor: pointer;
   ${flexBox("row", "center", "center")}
   width: 100%;
@@ -28,7 +32,7 @@ const Button = styled.div<IProps>`
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 `;
 
-const ButtonTitle = styled.div<IProps>`
+const ButtonTitle = styled.div<StyleProps>`
   font-size: ${(props) => {
     return props.addStyle?.fontSize;
   }};
@@ -40,8 +44,7 @@ const ButtonTitle = styled.div<IProps>`
   }};
 `;
 
-const IntroButton = (props: IProps) => {
-  const { addStyle = {}, title, handler } = props;
+const IntroButton = ({ addStyle = {}, title, handler }: IProps) => {
   return (
     <Button addStyle={addStyle} onClick={handler}>
       <ButtonTitle addStyle={addStyle}>{title}</ButtonTitle>

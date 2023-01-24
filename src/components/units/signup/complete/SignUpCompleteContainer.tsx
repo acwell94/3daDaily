@@ -1,3 +1,4 @@
+"use client";
 import SignUpCompletePresenter from "./SignUpCompletePresenter";
 
 const SignUpCompleteContainer = () => {

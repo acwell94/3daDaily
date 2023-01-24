@@ -1,3 +1,4 @@
+"use client";
 import UserFlowButton from "@src/components/commons/button/userFlowButton";
 import UserFlowInput from "@src/components/commons/inputs/userFlowInput";
 import {

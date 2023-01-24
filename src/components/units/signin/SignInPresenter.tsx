@@ -1,6 +1,7 @@
 "use client";
 import UserFlowButton from "@src/components/commons/button/userFlowButton";
 import UserFlowInput from "@src/components/commons/inputs/userFlowInput";
+import ConfirmModal from "@src/components/commons/modal/confirmModal";
 import {
   CommonMain,
   CommonMainBox,
@@ -10,12 +11,34 @@ import * as S from "./SignInStyles";
 
 interface IProps {
   linkHandler: (arg: string) => void;
+  emailModalHandler: () => void;
+  emailErrorModalVisible: boolean;
+  passwordModalHandler: () => void;
+  passwordErrorModalVisible: boolean;
 }
 
-const SignInPresenter = ({ linkHandler }: IProps) => {
+const SignInPresenter = ({
+  linkHandler,
+  emailModalHandler,
+  emailErrorModalVisible,
+  passwordModalHandler,
+  passwordErrorModalVisible,
+}: IProps) => {
   return (
     <CommonMain>
       <CommonMainBox>
+        <ConfirmModal
+          title="이메일이 올바르지 않습니다."
+          type="email"
+          isVisible={emailErrorModalVisible}
+          handler={emailModalHandler}
+        />
+        <ConfirmModal
+          title="비밀번호가 올바르지 않습니다."
+          type="password"
+          isVisible={passwordErrorModalVisible}
+          handler={passwordModalHandler}
+        />
         <UserFlowTitle title="로그인" />
         <S.InputBox>
           <UserFlowInput

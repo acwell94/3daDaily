@@ -1,4 +1,5 @@
-import { flexBox } from "@src/utils/flexBox";
+"use client";
+
 import theme from "@src/utils/theme";
 import styled from "styled-components";
 interface IProps {
