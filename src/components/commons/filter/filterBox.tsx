@@ -57,6 +57,7 @@ const DownArrowBox = styled.div<IStyleProps>`
   height: 1.8rem;
   margin-left: 6rem;
   transform: ${(props) => (props.open ? "rotate(180deg)" : "")};
+  cursor: pointer;
 `;
 
 const DownArrow = styled(Image)`
