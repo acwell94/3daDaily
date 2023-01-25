@@ -51,7 +51,11 @@ const SignInPresenter = ({
           />
         </S.InputBox>
 
-        <UserFlowButton title="로그인" isComplete={false} />
+        <UserFlowButton
+          title="로그인"
+          isComplete={false}
+          handler={() => linkHandler("/mypage/123")}
+        />
         <S.UserSelectBox>
           <S.UserSelectText onClick={() => linkHandler("/changepassword")}>
             비밀번호 재설정
