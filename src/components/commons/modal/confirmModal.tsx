@@ -5,7 +5,7 @@ import styled from "styled-components";
 import ModalButton from "../button/modalButton";
 
 interface IProps {
-  title: String;
+  title: string;
   type: string;
   isVisible: boolean;
   handler: () => void;
