@@ -2,7 +2,7 @@
 import styled, { css } from "styled-components";
 import { flexBox } from "@src/utils/flexBox";
 interface IProps {
-  addStyle?: {};
+  addStyle?: object;
   title?: string;
   handler?: () => void;
 }
