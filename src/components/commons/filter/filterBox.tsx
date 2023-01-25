@@ -127,7 +127,7 @@ const FilterBox = () => {
           </OptionLeftBox>
           <OptionRightBox>
             {Feeling.map((el) => (
-              <OptionImg src={el.img} alt={el.title} />
+              <OptionImg src={el.img} alt={el.title} key={el.id} />
             ))}
           </OptionRightBox>
         </Option>
@@ -137,7 +137,7 @@ const FilterBox = () => {
           </OptionLeftBox>
           <OptionRightBox>
             {Weather.map((el) => (
-              <OptionImg src={el.img} alt={el.title} />
+              <OptionImg src={el.img} alt={el.title} key={el.id} />
             ))}
           </OptionRightBox>
         </Option>
@@ -147,7 +147,7 @@ const FilterBox = () => {
           </OptionLeftBox>
           <OptionRightBox>
             {WithWhom.map((el) => (
-              <OptionImg src={el.img} alt={el.title} />
+              <OptionImg src={el.img} alt={el.title} key={el.id} />
             ))}
           </OptionRightBox>
         </Option>
