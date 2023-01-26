@@ -22,8 +22,8 @@ export const CommonMainBox = styled.div`
 
 export const LogoMain = styled.div`
   ${flexBox("col", "start", "center")}
-  padding: 10rem 20rem;
+  padding: 10rem 20rem 0 20rem;
   background-color: ${theme.colors.ashBlue};
-  height: 100%;
+  height: 100vh;
   position: relative;
 `;

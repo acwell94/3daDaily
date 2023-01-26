@@ -6,6 +6,7 @@ import Profile from "../../../../public/profile.png";
 import * as S from "./MyPageStyles";
 import WriteButton from "@src/components/commons/button/writeButton";
 import FilterBox from "@src/components/commons/filter/filterBox";
+import MyPageStory from "@src/components/commons/items/myPageStory";
 
 const MyPagePresenter = () => {
   return (
@@ -28,6 +29,26 @@ const MyPagePresenter = () => {
           </>
         </S.InfoBox>
         <FilterBox />
+        {/* <S.FeedBox>
+          <MyPageStory />
+          <MyPageStory />
+          <MyPageStory />
+          <MyPageStory />
+          <MyPageStory />
+          <MyPageStory />
+          <MyPageStory />
+          <MyPageStory />
+          <MyPageStory />
+          <MyPageStory />
+        </S.FeedBox> */}
+        {/* 피드가 없을 경우 */}
+        <S.NoneDailyBox>
+          <S.NoneDailyText>아직 일기가 없습니다.</S.NoneDailyText>
+          <S.NoneDailyTextSecond>
+            첫 번째 일기를 작성해 주세요.
+          </S.NoneDailyTextSecond>
+          <WriteButton />
+        </S.NoneDailyBox>
       </S.MainBox>
     </LogoMain>
   );
