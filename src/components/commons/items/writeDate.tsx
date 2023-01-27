@@ -1,3 +1,4 @@
+"use client";
 import theme from "@src/utils/theme";
 import styled from "styled-components";
 import DatePicker from "react-datepicker";
@@ -7,24 +8,8 @@ import { forwardRef, useState } from "react";
 import { flexBox } from "@src/utils/flexBox";
 import WriteCtrButton from "../button/writeCtrButton";
 import LogoItem from "./logoItem";
-
-interface IProps {
-  nextHandler: () => void;
-}
-
-const Container = styled.div`
-  ${flexBox("col", "start", "center")}
-  width: 100%;
-  height: 100vh;
-`;
-
-const Title = styled.div`
-  color: ${theme.colors.lightGray};
-  font-size: 3rem;
-  font-weight: 500;
-  line-height: 3.8rem;
-  margin-bottom: 4rem;
-`;
+import { IWriteProps } from "@src/components/units/write/WritePresenter";
+import { WriteContainer, WriteTitle } from "../styles/commonStyles";
 
 const DatePickerBox = styled.div`
   ${flexBox("col", "start", "center")}
@@ -119,16 +104,16 @@ const DatePickerBox = styled.div`
     margin: 0;
   }
 `;
-const WriteDate = ({ nextHandler }: IProps, ref: any) => {
+const WriteDate = ({ nextHandler }: IWriteProps, ref: any) => {
   const [startDate, setStartDate] = useState(new Date());
   const onChange = (dates: any) => {
     setStartDate(dates);
   };
 
   return (
-    <Container ref={ref}>
+    <WriteContainer ref={ref}>
       <LogoItem />
-      <Title>날짜를 선택해주세요</Title>
+      <WriteTitle>날짜를 선택해주세요</WriteTitle>
       <DatePickerBox>
         <DatePicker
           selected={startDate}
@@ -138,7 +123,7 @@ const WriteDate = ({ nextHandler }: IProps, ref: any) => {
         />
       </DatePickerBox>
       <WriteCtrButton rightTitle="다음" rightHandler={nextHandler} />
-    </Container>
+    </WriteContainer>
   );
 };
 

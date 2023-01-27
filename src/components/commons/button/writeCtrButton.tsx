@@ -1,3 +1,4 @@
+"use client";
 import { flexBox } from "@src/utils/flexBox";
 import theme from "@src/utils/theme";
 import styled from "styled-components";
@@ -39,7 +40,11 @@ const WriteCtrButton = ({
 }: IProps) => {
   return (
     <Container>
-      {leftTitle ? <LeftBtn>{leftTitle}</LeftBtn> : <div></div>}
+      {leftTitle ? (
+        <LeftBtn onClick={leftHandler}>{leftTitle}</LeftBtn>
+      ) : (
+        <div></div>
+      )}
       <RightBtn onClick={rightHandler}>{rightTitle}</RightBtn>
     </Container>
   );

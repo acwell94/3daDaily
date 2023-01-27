@@ -1,5 +1,6 @@
 "use client";
 
+import theme from "@src/utils/theme";
 import { createGlobalStyle } from "styled-components";
 import reset from "styled-reset";
 
@@ -34,6 +35,16 @@ ${reset}
     text-decoration: none;
     color: black;
   }
+  &::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+    background: transparent;
+  }
+  &::-webkit-scrollbar-thumb {
+    background-color: ${theme.colors.mainPurple};
+    border-radius: 50px;
+  }
+
 `;
 
 export default GlobalStyle;

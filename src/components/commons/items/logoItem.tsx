@@ -1,13 +1,14 @@
+"use client";
 import Image from "next/image";
 import styled from "styled-components";
 import useLink from "../hooks/useLink";
 import TitleLogo from "../../../../public/titleLogo.png";
 import { memo } from "react";
 const LogoBox = styled.div`
-  padding-top: 10rem;
+  padding-top: 5rem;
   position: relative;
   width: 30rem;
-  margin-bottom: 4rem;
+  margin-bottom: 5rem;
   cursor: pointer;
 `;
 

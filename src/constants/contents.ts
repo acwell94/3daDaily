@@ -1,3 +1,4 @@
+"use client";
 import cry from "../../public/feeling/cry.png";
 import good from "../../public/feeling/good.png";
 import happy from "../../public/feeling/happy.png";
@@ -22,6 +23,25 @@ import couple from "../../public/WithWhom/couple.png";
 import family from "../../public/WithWhom/family.png";
 import friend from "../../public/WithWhom/friend.png";
 import pet from "../../public/WithWhom/pet.png";
+
+import date from "../../public/what/date.png";
+import secret from "../../public/what/secret.png";
+import exercise from "../../public/what/exercise.png";
+import game from "../../public/what/game.png";
+import sleep from "../../public/what/sleep.png";
+import petging from "../../public/what/petging.png";
+import cooking from "../../public/what/cooking.png";
+import reading from "../../public/what/reading.png";
+import trip from "../../public/what/trip.png";
+import walk from "../../public/what/walk.png";
+import work from "../../public/what/work.png";
+import cleaning from "../../public/what/cleaning.png";
+import cafe from "../../public/what/cafe.png";
+import conference from "../../public/what/conference.png";
+import programming from "../../public/what/programming.png";
+import music from "../../public/what/music.png";
+import movies from "../../public/what/movies.png";
+import studying from "../../public/what/studying.png";
 
 export interface IData {
   id: number;
@@ -59,4 +79,25 @@ export const WithWhom: IData[] = [
   { id: 3, title: "가족", img: family, checked: false },
   { id: 4, title: "동물", img: pet, checked: false },
   { id: 5, title: "동료", img: company, checked: false },
+];
+
+export const What: IData[] = [
+  { id: 0, title: "데이트", img: date, checked: false },
+  { id: 1, title: "ㅎㅎㅎ", img: secret, checked: false },
+  { id: 2, title: "운동", img: exercise, checked: false },
+  { id: 3, title: "게임", img: game, checked: false },
+  { id: 4, title: "잠", img: sleep, checked: false },
+  { id: 5, title: "개산책", img: petging, checked: false },
+  { id: 6, title: "요리", img: cooking, checked: false },
+  { id: 7, title: "독서", img: reading, checked: false },
+  { id: 8, title: "여행", img: trip, checked: false },
+  { id: 9, title: "산책", img: walk, checked: false },
+  { id: 10, title: "업무", img: work, checked: false },
+  { id: 11, title: "청소", img: cleaning, checked: false },
+  { id: 12, title: "카페", img: cafe, checked: false },
+  { id: 13, title: "회의", img: conference, checked: false },
+  { id: 14, title: "코딩", img: programming, checked: false },
+  { id: 15, title: "음악", img: music, checked: false },
+  { id: 16, title: "영화", img: movies, checked: false },
+  { id: 17, title: "공부", img: studying, checked: false },
 ];

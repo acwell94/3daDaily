@@ -1,3 +1,4 @@
+"use client";
 const colors = {
   mainPurple: "#9496C5",
   darkPurple: "#7477C3",
