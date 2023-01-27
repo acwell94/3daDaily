@@ -19,7 +19,7 @@ const FilterContainer = styled.div`
   border-radius: 8px;
   padding: 3rem 14rem;
   margin-bottom: 4rem;
-  box-shadow: 0 4px 4px 4px rgba(97, 100, 187, 0.1);
+  box-shadow: 0 0.4rem 0.4rem 0.4rem rgba(97, 100, 187, 0.1);
 `;
 
 const Filter = styled.div`

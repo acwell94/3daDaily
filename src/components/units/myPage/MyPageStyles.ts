@@ -4,24 +4,6 @@ import Image from "next/image";
 import { flexBox } from "@src/utils/flexBox";
 import theme from "@src/utils/theme";
 
-export const MainBox = styled.div`
-  ${flexBox("col", "start", "center")}
-  width: 100%;
-  height: 100%;
-  max-width: 124rem;
-`;
-
-export const LogoBox = styled.div`
-  position: relative;
-  width: 300px;
-  margin-bottom: 4rem;
-`;
-
-export const Logo = styled(Image)`
-  width: 100%;
-  height: auto;
-`;
-
 export const InfoBox = styled.div`
   ${flexBox("row", "between", "center")}
   margin-bottom: 4rem;
@@ -69,7 +51,7 @@ export const NoneDailyBox = styled.div`
   padding: 12rem 0;
   background-color: ${theme.colors.white};
   border-radius: 8px;
-  box-shadow: 0 4px 4px 4px rgba(97, 100, 187, 0.1);
+  box-shadow: 0 0.4rem 0.4rem 0.4rem rgba(97, 100, 187, 0.1);
 `;
 
 export const NoneDailyText = styled.div`

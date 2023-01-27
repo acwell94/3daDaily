@@ -1,5 +1,6 @@
 "use client";
 import UserFlowButton from "@src/components/commons/button/userFlowButton";
+import useLink from "@src/components/commons/hooks/useLink";
 import UserFlowInput from "@src/components/commons/inputs/userFlowInput";
 import ConfirmModal from "@src/components/commons/modal/confirmModal";
 import {
@@ -10,7 +11,6 @@ import UserFlowTitle from "@src/components/commons/title/userFlowTitle";
 import * as S from "./SignInStyles";
 
 interface IProps {
-  linkHandler: (arg: string) => void;
   emailModalHandler: () => void;
   emailErrorModalVisible: boolean;
   passwordModalHandler: () => void;
@@ -18,7 +18,6 @@ interface IProps {
 }
 
 const SignInPresenter = ({
-  linkHandler,
   emailModalHandler,
   emailErrorModalVisible,
   passwordModalHandler,
@@ -54,13 +53,13 @@ const SignInPresenter = ({
         <UserFlowButton
           title="로그인"
           isComplete={false}
-          handler={() => linkHandler("/mypage/123")}
+          handler={useLink("/mypage/123")}
         />
         <S.UserSelectBox>
-          <S.UserSelectText onClick={() => linkHandler("/changepassword")}>
+          <S.UserSelectText onClick={useLink("/changepassword")}>
             비밀번호 재설정
           </S.UserSelectText>
-          <S.SignUpText onClick={() => linkHandler("/signup")}>
+          <S.SignUpText onClick={useLink("/signup")}>
             이메일 회원가입
           </S.SignUpText>
         </S.UserSelectBox>

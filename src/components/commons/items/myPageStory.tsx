@@ -16,7 +16,7 @@ const Container = styled.div`
   width: 100%;
   height: 20rem;
   background-color: ${theme.colors.white};
-  box-shadow: 0 4px 4px 4px rgba(97, 100, 187, 0.1);
+  box-shadow: 0 0.4rem 0.4rem 0.4rem rgba(97, 100, 187, 0.1);
   border-radius: 8px;
   margin-bottom: 4rem;
   cursor: pointer;

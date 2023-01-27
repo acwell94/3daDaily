@@ -1,5 +1,6 @@
 "use client";
 import UserFlowButton from "@src/components/commons/button/userFlowButton";
+import useLink from "@src/components/commons/hooks/useLink";
 import UserFlowInput from "@src/components/commons/inputs/userFlowInput";
 import {
   CommonMain,
@@ -8,11 +9,7 @@ import {
 import UserFlowTitle from "@src/components/commons/title/userFlowTitle";
 import * as S from "./SignUpStyles";
 
-interface IProps {
-  linkHandler: (link: string) => void;
-}
-
-const SignUpPresenter = ({ linkHandler }: IProps) => {
+const SignUpPresenter = () => {
   return (
     <CommonMain>
       <CommonMainBox>
@@ -35,12 +32,12 @@ const SignUpPresenter = ({ linkHandler }: IProps) => {
         </S.InputBox>
         <S.QuestionBox>
           <S.Question>이미 회원이신가요?</S.Question>
-          <S.LinkToLogin onClick={() => linkHandler("/signin")}>
+          <S.LinkToLogin onClick={useLink("/signin")}>
             로그인하러가기
           </S.LinkToLogin>
         </S.QuestionBox>
         <UserFlowButton
-          handler={() => linkHandler("/signup/complete")}
+          handler={useLink("/signup/complete")}
           title="회원가입"
           isComplete={false}
         />
