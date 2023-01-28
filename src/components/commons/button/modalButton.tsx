@@ -1,32 +1,40 @@
 "use client";
+import { flexBox } from "@src/utils/flexBox";
 import theme from "@src/utils/theme";
 import styled from "styled-components";
 
 interface IProps {
-  handler: () => void;
+  handler?: () => void;
+  title: string;
+  isCancel?: boolean;
 }
 
-const Button = styled.div`
+interface IStyleProps {
+  isCancel?: boolean;
+}
+
+const Button = styled.div<IStyleProps>`
+  ${flexBox("row", "center", "center")}
   width: 40%;
   padding: 1rem 0;
-  background-color: ${theme.colors.lightGray};
+  background-color: ${(props) =>
+    props.isCancel ? `${theme.colors.gray}` : `${theme.colors.lightGray}`};
   border-radius: 8px;
-  margin-top: 30px;
   cursor: pointer;
 `;
 
-const ButtonTitle = styled.div`
-  color: ${theme.colors.white};
-  text-align: center;
+const ButtonTitle = styled.div<IStyleProps>`
+  color: ${(props) =>
+    props.isCancel ? `${theme.colors.lightGray}` : `${theme.colors.white}`};
   font-weight: 500;
   font-size: 1.4rem;
   line-height: 1.8rem;
 `;
 
-const ModalButton = ({ handler }: IProps) => {
+const ModalButton = ({ handler, title, isCancel }: IProps) => {
   return (
-    <Button onClick={handler}>
-      <ButtonTitle>확인</ButtonTitle>
+    <Button onClick={handler} isCancel={isCancel}>
+      <ButtonTitle isCancel={isCancel}>{title}</ButtonTitle>
     </Button>
   );
 };

@@ -31,12 +31,14 @@ const SignInPresenter = ({
           type="email"
           isVisible={emailErrorModalVisible}
           handler={emailModalHandler}
+          buttonTitle="확인"
         />
         <ConfirmModal
           title="비밀번호가 올바르지 않습니다."
           type="password"
           isVisible={passwordErrorModalVisible}
           handler={passwordModalHandler}
+          buttonTitle="확인"
         />
         <UserFlowTitle title="로그인" />
         <S.InputBox>
@@ -56,7 +58,8 @@ const SignInPresenter = ({
           handler={useLink("/mypage/123")}
         />
         <S.UserSelectBox>
-          <S.UserSelectText onClick={useLink("/changepassword")}>
+          {/* <S.UserSelectText onClick={useLink("/changepassword")}> */}
+          <S.UserSelectText onClick={emailModalHandler}>
             비밀번호 재설정
           </S.UserSelectText>
           <S.SignUpText onClick={useLink("/signup")}>

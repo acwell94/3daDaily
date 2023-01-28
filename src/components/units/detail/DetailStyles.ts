@@ -5,10 +5,17 @@ import styled from "styled-components";
 
 export const MainContainer = styled.div`
   ${flexBox("col", "start", "center")}
-  padding: 10rem 20rem;
+
   background-color: ${theme.colors.ashBlue};
   height: 100vh;
   position: relative;
+`;
+
+export const MainPage = styled.div`
+  ${flexBox("col", "start", "center")}
+  padding: 10rem 0;
+  width: 40%;
+  height: 100%;
 `;
 
 export const DetailLightTitle = styled.div`
@@ -28,7 +35,7 @@ export const DetailBoldTitle = styled.div`
 `;
 
 export const DetailContentsBox = styled.div`
-  ${flexBox("col")}
+  ${flexBox("col", "between", "between")}
   width: 100%;
   height: 100%;
   background-color: ${theme.colors.white};

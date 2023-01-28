@@ -1,22 +1,19 @@
-"use client";
 import { flexBox } from "@src/utils/flexBox";
 import theme from "@src/utils/theme";
 import styled from "styled-components";
 import ModalButton from "../button/modalButton";
 
 interface IProps {
+  isVisible: boolean;
   title: string;
-  type?: string;
-  isVisible: boolean;
-  handler: () => void;
-  buttonTitle: string;
+  warning?: string;
 }
 
-interface StyleProps {
-  isVisible: boolean;
+interface IStyleProps {
+  isVisible?: boolean;
 }
 
-const Container = styled.div<StyleProps>`
+const Container = styled.div<IStyleProps>`
   ${flexBox("row", "center", "center")}
   display: ${(props) => (props.isVisible ? "flex" : "none")};
   width: 100%;
@@ -29,6 +26,7 @@ const Container = styled.div<StyleProps>`
 
 const Modal = styled.div`
   ${flexBox("col", "center", "center")}
+  width: 100%;
   max-width: 340px;
   max-height: 240px;
   padding: 4rem 3rem;
@@ -42,25 +40,34 @@ const ModalTitle = styled.div`
   font-size: 2rem;
   text-align: center;
   width: 100%;
-  margin-bottom: 3rem;
+  margin-bottom: 1rem;
 `;
 
-const ConfirmModal = ({
-  title,
-  type,
-  isVisible,
-  handler,
-  buttonTitle,
-}: IProps) => {
-  console.log(isVisible);
+const ModalWarning = styled.div`
+  font-weight: 400;
+  font-size: 1.4rem;
+  line-height: 1.8rem;
+  margin-bottom: 2rem;
+`;
+
+const ModalButtonBox = styled.div`
+  ${flexBox("row", "around", "center")}
+  width: 100%;
+`;
+
+const AskModal = ({ isVisible, title, warning }: IProps) => {
   return (
     <Container isVisible={isVisible}>
       <Modal>
         <ModalTitle>{title}</ModalTitle>
-        <ModalButton handler={handler} title={buttonTitle} />
+        {warning && <ModalWarning>{warning}</ModalWarning>}
+        <ModalButtonBox>
+          <ModalButton title="취소" isCancel={true} />
+          <ModalButton title="확인" />
+        </ModalButtonBox>
       </Modal>
     </Container>
   );
 };
 
-export default ConfirmModal;
+export default AskModal;
