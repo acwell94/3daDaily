@@ -11,17 +11,25 @@ import UserFlowTitle from "@src/components/commons/title/userFlowTitle";
 import * as S from "./SignInStyles";
 
 interface IProps {
+  register: any;
+  handleSubmit: any;
+  signInHandler: (data: any) => void;
   emailModalHandler: () => void;
   emailErrorModalVisible: boolean;
   passwordModalHandler: () => void;
   passwordErrorModalVisible: boolean;
+  isComplete: boolean;
 }
 
 const SignInPresenter = ({
+  register,
+  handleSubmit,
+  signInHandler,
   emailModalHandler,
   emailErrorModalVisible,
   passwordModalHandler,
   passwordErrorModalVisible,
+  isComplete,
 }: IProps) => {
   return (
     <CommonMain>
@@ -41,31 +49,34 @@ const SignInPresenter = ({
           buttonTitle="확인"
         />
         <UserFlowTitle title="로그인" />
-        <S.InputBox>
-          <UserFlowInput
-            placeholder="이메일"
-            error="이메일은 2자 이상 입력해야 합니다."
-          />
-          <UserFlowInput
-            placeholder="비밀번호"
-            error="일치하는 정보가 없습니다. 다시 입력해주세요."
-          />
-        </S.InputBox>
+        <form onSubmit={handleSubmit(signInHandler)}>
+          <S.InputBox>
+            <UserFlowInput
+              type="text"
+              placeholder="이메일"
+              register={register("email")}
+            />
+            <UserFlowInput
+              type="password"
+              placeholder="비밀번호"
+              register={register("password")}
+            />
+          </S.InputBox>
 
-        <UserFlowButton
-          title="로그인"
-          isComplete={false}
-          handler={useLink("/mypage/123")}
-        />
-        <S.UserSelectBox>
-          {/* <S.UserSelectText onClick={useLink("/changepassword")}> */}
-          <S.UserSelectText onClick={emailModalHandler}>
-            비밀번호 재설정
-          </S.UserSelectText>
-          <S.SignUpText onClick={useLink("/signup")}>
-            이메일 회원가입
-          </S.SignUpText>
-        </S.UserSelectBox>
+          <UserFlowButton
+            type="submit"
+            title="로그인"
+            isComplete={isComplete}
+          />
+          <S.UserSelectBox>
+            <S.UserSelectText onClick={useLink("/changepassword")}>
+              비밀번호 재설정
+            </S.UserSelectText>
+            <S.SignUpText onClick={useLink("/signup")}>
+              이메일 회원가입
+            </S.SignUpText>
+          </S.UserSelectBox>
+        </form>
       </CommonMainBox>
     </CommonMain>
   );

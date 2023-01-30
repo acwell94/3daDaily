@@ -3,13 +3,15 @@ import theme from "@src/utils/theme";
 import styled from "styled-components";
 
 interface IProps {
+  type?: any;
   placeholder?: string;
   error?: string;
   isLast?: boolean;
+  register?: any;
 }
 
 const InputBox = styled.div<IProps>`
-  margin-bottom: ${(props) => (props.isLast ? "0px" : "3rem")};
+  /* margin-bottom: ${(props) => (props.isLast ? "0px" : "3rem")}; */
 `;
 
 const Input = styled.input`
@@ -25,18 +27,27 @@ const Input = styled.input`
     color: ${theme.colors.blackGray};
   }
 `;
-const Error = styled.div`
+const Error = styled.div<IProps>`
+  visibility: ${(props) => (props.error ? "visible" : "hidden")};
   color: ${theme.colors.red};
+  height: 1.6rem;
   font-weight: 400;
   font-size: 1.6rem;
   line-height: 2rem;
+  margin-bottom: 3rem;
 `;
 
-const UserFlowInput = ({ placeholder, error, isLast }: IProps) => {
+const UserFlowInput = ({
+  type,
+  placeholder,
+  error,
+  isLast,
+  register,
+}: IProps) => {
   return (
     <InputBox isLast={isLast}>
-      <Input placeholder={placeholder} />
-      <Error>{error}</Error>
+      <Input type={type} placeholder={placeholder} {...register} />
+      <Error error={error}>{error}</Error>
     </InputBox>
   );
 };

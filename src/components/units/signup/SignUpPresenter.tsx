@@ -7,40 +7,71 @@ import {
   CommonMainBox,
 } from "@src/components/commons/styles/commonStyles";
 import UserFlowTitle from "@src/components/commons/title/userFlowTitle";
+import Link from "next/link";
+import { UseFormRegisterReturn } from "react-hook-form";
 import * as S from "./SignUpStyles";
 
-const SignUpPresenter = () => {
+interface IProps {
+  register: any;
+  handleSubmit: any;
+  formState: any;
+  signUpHandler: (data: any) => void;
+  isComplete: boolean;
+}
+
+const SignUpPresenter = ({
+  register,
+  handleSubmit,
+  formState,
+  signUpHandler,
+  isComplete,
+}: IProps) => {
+  console.log(isComplete);
   return (
     <CommonMain>
       <CommonMainBox>
         <UserFlowTitle title="회원가입" />
-        <S.InputBox>
-          <UserFlowInput
-            placeholder="닉네임(10자 이내)"
-            error="닉네임은 2자 이상 입력해야 합니다."
+        <form onSubmit={handleSubmit(signUpHandler)}>
+          <S.InputBox>
+            <UserFlowInput
+              type="text"
+              register={register("name")}
+              placeholder="닉네임(10자 이내)"
+              error={formState.errors.name?.message}
+            />
+            <UserFlowInput
+              type="text"
+              register={register("email")}
+              placeholder="이메일"
+              error={formState.errors.email?.message}
+            />
+            <UserFlowInput
+              type="password"
+              register={register("password")}
+              placeholder="비밀번호"
+              error={formState.errors.password?.message}
+            />
+            <UserFlowInput
+              type="password"
+              register={register("passwordConfirm")}
+              placeholder="비밀번호 확인"
+              error={formState.errors.passwordConfirm?.message}
+              isLast={true}
+            />
+          </S.InputBox>
+          <S.QuestionBox>
+            <S.Question>이미 회원이신가요?</S.Question>
+            <S.LinkToLogin onClick={useLink("/signin")}>
+              로그인하러가기
+            </S.LinkToLogin>
+          </S.QuestionBox>
+
+          <UserFlowButton
+            type="submit"
+            title="회원가입"
+            isComplete={isComplete}
           />
-          <UserFlowInput
-            placeholder="이메일"
-            error="올바르지 않은 이메일 형식입니다."
-          />
-          <UserFlowInput placeholder="비밀번호" />
-          <UserFlowInput
-            placeholder="비밀번호 확인"
-            error="입력된 비밀번호와 다릅니다."
-            isLast={true}
-          />
-        </S.InputBox>
-        <S.QuestionBox>
-          <S.Question>이미 회원이신가요?</S.Question>
-          <S.LinkToLogin onClick={useLink("/signin")}>
-            로그인하러가기
-          </S.LinkToLogin>
-        </S.QuestionBox>
-        <UserFlowButton
-          handler={useLink("/signup/complete")}
-          title="회원가입"
-          isComplete={false}
-        />
+        </form>
       </CommonMainBox>
     </CommonMain>
   );
