@@ -6,23 +6,29 @@ import {
   CommonMainBox,
 } from "@src/components/commons/styles/commonStyles";
 import UserFlowTitle from "@src/components/commons/title/userFlowTitle";
-import * as S from "./ChangePasswordStyles";
-const ChangePasswordPresenter = () => {
+import { ChangeEvent } from "react";
+import * as S from "./FindIdStyles";
+
+interface IProps {
+  findNameHandler: (e: ChangeEvent<HTMLInputElement>) => void;
+  name: string;
+}
+
+const FindIdPresenter = ({ findNameHandler, name }: IProps) => {
   return (
     <CommonMain>
       <CommonMainBox>
-        <UserFlowTitle title="비밀번호 재설정" />
+        <UserFlowTitle title="아이디 찾기" />
         <S.InputBox>
           <UserFlowInput
-            isLast={true}
-            placeholder="이메일"
-            error="일치하는 정보가 없습니다. 다시 입력해 주세요."
+            placeholder="이름"
+            inputHandler={(e) => findNameHandler(e)}
           />
         </S.InputBox>
-        <UserFlowButton title="비밀번호 재설정" />
+        <UserFlowButton title="비밀번호 재설정" isComplete={!!name} />
       </CommonMainBox>
     </CommonMain>
   );
 };
 
-export default ChangePasswordPresenter;
+export default FindIdPresenter;

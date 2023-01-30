@@ -1,5 +1,6 @@
 "use client";
 import theme from "@src/utils/theme";
+import { ChangeEvent } from "react";
 import styled from "styled-components";
 
 interface IProps {
@@ -8,6 +9,7 @@ interface IProps {
   error?: string;
   isLast?: boolean;
   register?: any;
+  inputHandler?: (data: ChangeEvent<HTMLInputElement>) => void;
 }
 
 const InputBox = styled.div<IProps>`
@@ -43,10 +45,16 @@ const UserFlowInput = ({
   error,
   isLast,
   register,
+  inputHandler,
 }: IProps) => {
   return (
     <InputBox isLast={isLast}>
-      <Input type={type} placeholder={placeholder} {...register} />
+      <Input
+        type={type}
+        placeholder={placeholder}
+        {...register}
+        onChange={inputHandler}
+      />
       <Error error={error}>{error}</Error>
     </InputBox>
   );

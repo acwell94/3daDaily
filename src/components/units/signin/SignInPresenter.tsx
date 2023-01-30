@@ -69,7 +69,7 @@ const SignInPresenter = ({
             isComplete={isComplete}
           />
           <S.UserSelectBox>
-            <S.UserSelectText onClick={useLink("/changepassword")}>
+            <S.UserSelectText onClick={useLink("/findId")}>
               비밀번호 재설정
             </S.UserSelectText>
             <S.SignUpText onClick={useLink("/signup")}>
