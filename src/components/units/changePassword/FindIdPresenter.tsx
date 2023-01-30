@@ -25,7 +25,7 @@ const FindIdPresenter = ({ findNameHandler, name }: IProps) => {
             inputHandler={(e) => findNameHandler(e)}
           />
         </S.InputBox>
-        <UserFlowButton title="비밀번호 재설정" isComplete={!!name} />
+        <UserFlowButton title="아이디 찾기" isComplete={!!name} />
       </CommonMainBox>
     </CommonMain>
   );

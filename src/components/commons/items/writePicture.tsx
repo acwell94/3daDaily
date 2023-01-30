@@ -12,10 +12,10 @@ import Image from "next/image";
 const PicturePickBox = styled.div`
   ${flexBox("col", "center", "center")}
   background-color: ${theme.colors.white};
-  box-shadow: 0px 0px 2rem rgba(97, 100, 187, 0.3);
+  box-shadow: 0px 0px 1rem rgba(97, 100, 187, 0.3);
   border-radius: 8px;
   padding: 6rem 20rem;
-  width: 100%;
+  width: 98%;
   height: 100%;
   max-height: 50rem;
 `;

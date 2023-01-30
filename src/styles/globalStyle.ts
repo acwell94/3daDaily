@@ -36,6 +36,7 @@ ${reset}
     color: black;
   }
   &::-webkit-scrollbar {
+    display: none;
     width: 10px;
     height: 10px;
     background: transparent;

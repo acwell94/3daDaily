@@ -1,6 +1,5 @@
 "use client";
 import { useRefClick } from "@src/components/commons/hooks/useRefCtr";
-import LogoItem from "@src/components/commons/items/logoItem";
 import WriteDaily from "@src/components/commons/items/writeDaily";
 import WriteDate from "@src/components/commons/items/writeDate";
 import WriteFeeling from "@src/components/commons/items/writeFeeling";

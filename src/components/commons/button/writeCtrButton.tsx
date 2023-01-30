@@ -12,7 +12,7 @@ interface IProps {
 
 const Container = styled.div`
   ${flexBox("row", "between", "center")}
-  width: 100%;
+  width: 98%;
   margin-top: 6rem;
 `;
 

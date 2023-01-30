@@ -9,12 +9,12 @@ import theme from "@src/utils/theme";
 import { flexBox } from "@src/utils/flexBox";
 
 const TitleInputBox = styled.div`
-  width: 100%;
+  width: 98%;
   padding: 2rem 5rem;
   background-color: ${theme.colors.white};
   border-radius: 8px;
   margin-bottom: 4rem;
-  box-shadow: 0px 0px 2rem rgba(97, 100, 187, 0.3);
+  box-shadow: 0px 0px 1rem rgba(97, 100, 187, 0.3);
 `;
 
 const TitleInput = styled.input`
@@ -29,22 +29,23 @@ const TitleInput = styled.input`
 `;
 
 const DailyPickBox = styled.div`
-  ${flexBox("col", "start", "center")}
+  ${flexBox("col", "around", "center")}
   background-color: ${theme.colors.white};
-  box-shadow: 0px 0px 2rem rgba(97, 100, 187, 0.3);
+  box-shadow: 0px 0px 1rem rgba(97, 100, 187, 0.3);
   border-radius: 8px;
-  padding: 6rem 10rem;
-  width: 100%;
+  padding: 5rem 10rem;
+  width: 98%;
   height: 100%;
   max-height: 50rem;
 `;
 
-const DailyContents = styled.textarea`
+const DailyContents = styled.input`
   outline: none;
   border: none;
-  resize: none;
+  border-bottom: 1px solid ${theme.colors.mainPurple};
+  padding-bottom: 1rem;
   width: 100%;
-  height: 90%;
+  /* height: 90%; */
   font-size: 1.6rem;
   ::placeholder {
     color: ${theme.colors.sliverGray};
@@ -61,7 +62,9 @@ const WriteDaily = ({ prevHandler, nextHandler }: IWriteProps, ref: any) => {
         <TitleInput placeholder="제목을 입력해주세요." />
       </TitleInputBox>
       <DailyPickBox>
-        <DailyContents placeholder="내용을 입력해주세요." />
+        <DailyContents placeholder="첫 번째 줄을 입력해주세요." />
+        <DailyContents placeholder="두 번째 줄을 입력해주세요." />
+        <DailyContents placeholder="세 번째 줄을 입력해주세요." />
       </DailyPickBox>
       <WriteCtrButton
         leftTitle="이전"

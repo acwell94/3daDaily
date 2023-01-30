@@ -70,7 +70,7 @@ const SignInPresenter = ({
           />
           <S.UserSelectBox>
             <S.UserSelectText onClick={useLink("/findId")}>
-              비밀번호 재설정
+              아이디 찾기
             </S.UserSelectText>
             <S.SignUpText onClick={useLink("/signup")}>
               이메일 회원가입
