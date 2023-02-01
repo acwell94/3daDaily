@@ -1,5 +1,4 @@
-import { IWriteProps } from "@src/components/units/write/WritePresenter";
-import { forwardRef } from "react";
+import { forwardRef, MouseEvent } from "react";
 import { WriteContainer, WriteTitle } from "../styles/commonStyles";
 import LogoItem from "./logoItem";
 import styled from "styled-components";
@@ -8,7 +7,11 @@ import theme from "@src/utils/theme";
 import WriteCtrButton from "../button/writeCtrButton";
 import Image from "next/image";
 import { What } from "@src/constants/contents";
-
+interface IWriteProps {
+  prevHandler?: () => void;
+  nextHandler?: () => void;
+  handler: (e: MouseEvent<HTMLDivElement>, name: string) => void;
+}
 const WhatPickBox = styled.div`
   ${flexBox("col", "start", "center")}
   background-color: ${theme.colors.white};
@@ -47,7 +50,10 @@ const WhatImgTitle = styled.div`
   font-weight: 700;
 `;
 
-const WriteWhat = ({ prevHandler, nextHandler }: IWriteProps, ref: any) => {
+const WriteWhat = (
+  { prevHandler, nextHandler, handler }: IWriteProps,
+  ref: any,
+) => {
   return (
     <WriteContainer ref={ref}>
       <LogoItem />
@@ -55,7 +61,11 @@ const WriteWhat = ({ prevHandler, nextHandler }: IWriteProps, ref: any) => {
       <WhatPickBox>
         <WhatImgBox>
           {What.map((el) => (
-            <WhatItem key={el.id}>
+            <WhatItem
+              key={el.id}
+              onClick={(e) => handler(e, "what")}
+              id={`${el.id}`}
+            >
               <WhatImg src={el.img} alt={el.title} />
               <WhatImgTitle>{el.title}</WhatImgTitle>
             </WhatItem>

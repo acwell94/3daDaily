@@ -7,13 +7,9 @@ import TestStatusImg1 from "../../../../public/weather/sunny.png";
 import TestStatusImg2 from "../../../../public/feeling/cry.png";
 import TestStatusImg3 from "../../../../public/withWhom/alone.png";
 
-interface IStyleProps {
-  middle?: boolean;
-}
-
 const Container = styled.div`
   ${flexBox("row", "start", "center")}
-  width: 100%;
+  width: 98%;
   height: 20rem;
   background-color: ${theme.colors.white};
   box-shadow: 0 0.4rem 0.4rem 0.4rem rgba(97, 100, 187, 0.1);
@@ -59,13 +55,6 @@ const StoryImg = styled(Image)`
   border-radius: 0 8px 8px 0;
 `;
 
-const DailyStatusImg = styled(Image)<IStyleProps>`
-  margin: ${(props) => (props.middle ? `0px 6rem` : null)};
-  width: 6rem;
-  height: 6rem;
-  z-index: 999;
-`;
-
 const MyPageStory = () => {
   return (
     <Container>
@@ -76,9 +65,6 @@ const MyPageStory = () => {
       </DateBox>
       <ImgBox>
         <StoryImg src={TestImg} alt="피드이미지" fill={true} />
-        <DailyStatusImg src={TestStatusImg1} alt="날씨" />
-        <DailyStatusImg src={TestStatusImg2} alt="기분" middle={true} />
-        <DailyStatusImg src={TestStatusImg3} alt="누구" />
       </ImgBox>
     </Container>
   );

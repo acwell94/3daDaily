@@ -11,6 +11,7 @@ import Head from "next/head";
 const Main = styled.div`
   width: 100%;
   height: 100vh;
+  /* position: relative; */
 `;
 const myFont = localFont({
   src: "../public/fonts/SpoqaHanSansNeo-Regular.otf",

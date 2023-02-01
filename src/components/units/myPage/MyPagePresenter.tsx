@@ -13,7 +13,7 @@ import LogoItem from "@src/components/commons/items/logoItem";
 
 const MyPagePresenter = () => {
   return (
-    <LogoMain>
+    <S.LogoMain>
       <LogoMainBox>
         <LogoItem />
         <S.InfoBox>
@@ -30,7 +30,7 @@ const MyPagePresenter = () => {
           </>
         </S.InfoBox>
         <FilterBox />
-        {/* <S.FeedBox>
+        <S.FeedBox>
           <MyPageStory />
           <MyPageStory />
           <MyPageStory />
@@ -41,17 +41,17 @@ const MyPagePresenter = () => {
           <MyPageStory />
           <MyPageStory />
           <MyPageStory />
-        </S.FeedBox> */}
+        </S.FeedBox>
         {/* 피드가 없을 경우 */}
-        <S.NoneDailyBox>
+        {/* <S.NoneDailyBox>
           <S.NoneDailyText>아직 일기가 없습니다.</S.NoneDailyText>
           <S.NoneDailyTextSecond>
             첫 번째 일기를 작성해 주세요.
           </S.NoneDailyTextSecond>
           <WriteButton handler={useLink("/write")} />
-        </S.NoneDailyBox>
+        </S.NoneDailyBox> */}
       </LogoMainBox>
-    </LogoMain>
+    </S.LogoMain>
   );
 };
 

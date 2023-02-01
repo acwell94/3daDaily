@@ -4,10 +4,24 @@ import Image from "next/image";
 import { flexBox } from "@src/utils/flexBox";
 import theme from "@src/utils/theme";
 
+export const LogoMain = styled.div`
+  ${flexBox("col", "start", "center")}
+  padding: 10rem 20rem 0 20rem;
+  background-color: ${theme.colors.ashBlue};
+  height: 100vh;
+  position: relative;
+  overflow-y: scroll;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+  ::-webkit-scrollbar {
+    display: none;
+  }
+`;
+
 export const InfoBox = styled.div`
   ${flexBox("row", "between", "center")}
   margin-bottom: 4rem;
-  width: 100%;
+  width: 98%;
 `;
 
 export const UserBox = styled.div`
@@ -36,18 +50,13 @@ export const UserName = styled.div`
 `;
 
 export const FeedBox = styled.div`
+  ${flexBox("col", "center", "center")}
   width: 100%;
-  overflow-y: scroll;
-  -ms-overflow-style: none;
-  scrollbar-width: none;
-  ::-webkit-scrollbar {
-    display: none;
-  }
 `;
 
 export const NoneDailyBox = styled.div`
   ${flexBox("col", "center", "center")}
-  width: 100%;
+  width: 98%;
   padding: 12rem 0;
   background-color: ${theme.colors.white};
   border-radius: 8px;

@@ -52,7 +52,6 @@ const ConfirmModal = ({
   handler,
   buttonTitle,
 }: IProps) => {
-  console.log(isVisible);
   return (
     <Container isVisible={isVisible}>
       <Modal>

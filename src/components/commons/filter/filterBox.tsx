@@ -14,7 +14,7 @@ interface IStyleProps {
 
 const FilterContainer = styled.div`
   ${flexBox("col", "center", "center")}
-  width: 100%;
+  width: 98%;
   background-color: ${theme.colors.white};
   border-radius: 8px;
   padding: 3rem 14rem;

@@ -1,11 +1,9 @@
 "use client";
-import { IWriteProps } from "@src/components/units/write/WritePresenter";
+
 import { WithWhom } from "@src/constants/contents";
-import { flexBox } from "@src/utils/flexBox";
-import theme from "@src/utils/theme";
-import Image from "next/image";
-import { forwardRef } from "react";
-import styled from "styled-components";
+
+import { forwardRef, MouseEvent } from "react";
+
 import WriteCtrButton from "../button/writeCtrButton";
 import {
   WriteContainer,
@@ -17,8 +15,15 @@ import {
   WriteTitle,
 } from "../styles/commonStyles";
 import LogoItem from "./logoItem";
-
-const WriteWho = ({ prevHandler, nextHandler }: IWriteProps, ref: any) => {
+interface IWriteProps {
+  prevHandler?: () => void;
+  nextHandler?: () => void;
+  handler: (e: MouseEvent<HTMLDivElement>, name: string) => void;
+}
+const WriteWho = (
+  { prevHandler, nextHandler, handler }: IWriteProps,
+  ref: any,
+) => {
   return (
     <WriteContainer ref={ref}>
       <LogoItem />
@@ -26,7 +31,11 @@ const WriteWho = ({ prevHandler, nextHandler }: IWriteProps, ref: any) => {
       <WritePickBox>
         <WriteImgBox>
           {WithWhom.map((el) => (
-            <WriteItem key={el.id}>
+            <WriteItem
+              key={el.id}
+              onClick={(e) => handler(e, "withWhom")}
+              id={`${el.id}`}
+            >
               <WriteImg src={el.img} alt={el.title} />
               <WriteImgTitle>{el.title}</WriteImgTitle>
             </WriteItem>

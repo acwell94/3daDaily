@@ -1,6 +1,5 @@
-import { IWriteProps } from "@src/components/units/write/WritePresenter";
 import { Feeling } from "@src/constants/contents";
-import { forwardRef } from "react";
+import { forwardRef, MouseEvent } from "react";
 import WriteCtrButton from "../button/writeCtrButton";
 import {
   WriteContainer,
@@ -12,7 +11,15 @@ import {
   WriteTitle,
 } from "../styles/commonStyles";
 import LogoItem from "./logoItem";
-const WriteFeeling = ({ prevHandler, nextHandler }: IWriteProps, ref: any) => {
+interface IWriteProps {
+  prevHandler?: () => void;
+  nextHandler?: () => void;
+  handler: (e: MouseEvent<HTMLDivElement>, name: string) => void;
+}
+const WriteFeeling = (
+  { prevHandler, nextHandler, handler }: IWriteProps,
+  ref: any,
+) => {
   return (
     <WriteContainer ref={ref}>
       <LogoItem />
@@ -20,7 +27,11 @@ const WriteFeeling = ({ prevHandler, nextHandler }: IWriteProps, ref: any) => {
       <WritePickBox>
         <WriteImgBox>
           {Feeling.map((el) => (
-            <WriteItem key={el.id}>
+            <WriteItem
+              key={el.id}
+              onClick={(e) => handler(e, "feeling")}
+              id={`${el.id}`}
+            >
               <WriteImg src={el.img} alt={el.title} />
               <WriteImgTitle>{el.title}</WriteImgTitle>
             </WriteItem>

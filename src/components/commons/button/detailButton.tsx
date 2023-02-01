@@ -6,6 +6,7 @@ interface IProps {
   title: string;
   isLast?: boolean;
   isDark?: boolean;
+  handler: () => void;
 }
 
 interface IStyleProps {
@@ -19,9 +20,9 @@ const ButtonContainer = styled.div<IStyleProps>`
   background-color: ${(props) =>
     props.isDark ? `${theme.colors.deepPurple}` : `${theme.colors.mainPurple}`};
   border-radius: 8px;
-
-  padding: 2rem 0;
   margin-right: ${(props) => (props.isLast ? 0 : "2rem")};
+  padding: 2rem 0;
+  cursor: pointer;
 `;
 const ButtonTitle = styled.div`
   font-size: 2rem;
@@ -30,9 +31,9 @@ const ButtonTitle = styled.div`
   color: ${theme.colors.white};
 `;
 
-const DetailButton = ({ title, isLast, isDark }: IProps) => {
+const DetailButton = ({ title, isLast, isDark, handler }: IProps) => {
   return (
-    <ButtonContainer isLast={isLast} isDark={isDark}>
+    <ButtonContainer isLast={isLast} isDark={isDark} onClick={handler}>
       <ButtonTitle>{title}</ButtonTitle>
     </ButtonContainer>
   );

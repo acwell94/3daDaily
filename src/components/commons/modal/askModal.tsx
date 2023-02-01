@@ -7,6 +7,8 @@ interface IProps {
   isVisible: boolean;
   title: string;
   warning?: string;
+  cancelHandler: () => void;
+  successHandler: () => void;
 }
 
 interface IStyleProps {
@@ -55,15 +57,21 @@ const ModalButtonBox = styled.div`
   width: 100%;
 `;
 
-const AskModal = ({ isVisible, title, warning }: IProps) => {
+const AskModal = ({
+  isVisible,
+  title,
+  warning,
+  cancelHandler,
+  successHandler,
+}: IProps) => {
   return (
     <Container isVisible={isVisible}>
       <Modal>
         <ModalTitle>{title}</ModalTitle>
         {warning && <ModalWarning>{warning}</ModalWarning>}
         <ModalButtonBox>
-          <ModalButton title="취소" isCancel={true} />
-          <ModalButton title="확인" />
+          <ModalButton title="취소" isCancel={true} handler={cancelHandler} />
+          <ModalButton title="확인" handler={successHandler} />
         </ModalButtonBox>
       </Modal>
     </Container>

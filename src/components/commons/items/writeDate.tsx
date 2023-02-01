@@ -4,12 +4,18 @@ import styled from "styled-components";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import ko from "date-fns/locale/ko";
-import { forwardRef, useState } from "react";
+import { forwardRef } from "react";
 import { flexBox } from "@src/utils/flexBox";
 import WriteCtrButton from "../button/writeCtrButton";
 import LogoItem from "./logoItem";
-import { IWriteProps } from "@src/components/units/write/WritePresenter";
+
 import { WriteContainer, WriteTitle } from "../styles/commonStyles";
+
+interface IProps {
+  currentDate: Date;
+  changeDateHandler: (data: Date) => void;
+  nextHandler: () => void;
+}
 
 const DatePickerBox = styled.div`
   ${flexBox("col", "start", "center")}
@@ -78,6 +84,7 @@ const DatePickerBox = styled.div`
     ${flexBox("row", "center", "center")}
     width: 100%;
     height: 100%;
+    padding: 5px;
     font-size: 1.4rem;
     font-weight: 700;
     margin: 0;
@@ -104,21 +111,19 @@ const DatePickerBox = styled.div`
     margin: 0;
   }
 `;
-const WriteDate = ({ nextHandler }: IWriteProps, ref: any) => {
-  const [startDate, setStartDate] = useState(new Date());
-  const onChange = (dates: any) => {
-    setStartDate(dates);
-  };
-
+const WriteDate = (
+  { currentDate, changeDateHandler, nextHandler }: IProps,
+  ref: any,
+) => {
   return (
     <WriteContainer ref={ref}>
       <LogoItem />
       <WriteTitle>날짜를 선택해주세요</WriteTitle>
       <DatePickerBox>
         <DatePicker
-          selected={startDate}
+          selected={currentDate}
           locale={ko}
-          onChange={onChange}
+          onChange={changeDateHandler}
           inline
         />
       </DatePickerBox>

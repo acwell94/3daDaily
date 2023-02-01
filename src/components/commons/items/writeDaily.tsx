@@ -1,5 +1,4 @@
-import { IWriteProps } from "@src/components/units/write/WritePresenter";
-import { forwardRef } from "react";
+import { ChangeEvent, forwardRef } from "react";
 import WriteCtrButton from "../button/writeCtrButton";
 
 import { WriteContainer, WriteTitle } from "../styles/commonStyles";
@@ -7,6 +6,12 @@ import LogoItem from "./logoItem";
 import styled from "styled-components";
 import theme from "@src/utils/theme";
 import { flexBox } from "@src/utils/flexBox";
+
+interface IWriteProps {
+  prevHandler?: () => void;
+  nextHandler?: () => void;
+  changeHandler: (e: ChangeEvent<HTMLInputElement>, name: string) => void;
+}
 
 const TitleInputBox = styled.div`
   width: 98%;
@@ -45,7 +50,6 @@ const DailyContents = styled.input`
   border-bottom: 1px solid ${theme.colors.mainPurple};
   padding-bottom: 1rem;
   width: 100%;
-  /* height: 90%; */
   font-size: 1.6rem;
   ::placeholder {
     color: ${theme.colors.sliverGray};
@@ -53,18 +57,33 @@ const DailyContents = styled.input`
   }
 `;
 
-const WriteDaily = ({ prevHandler, nextHandler }: IWriteProps, ref: any) => {
+const WriteDaily = (
+  { prevHandler, nextHandler, changeHandler }: IWriteProps,
+  ref: any,
+) => {
   return (
     <WriteContainer ref={ref}>
       <LogoItem />
       <WriteTitle>오늘 남기고 싶은 이야기를 적어주세요!</WriteTitle>
       <TitleInputBox>
-        <TitleInput placeholder="제목을 입력해주세요." />
+        <TitleInput
+          placeholder="제목을 입력해주세요."
+          onChange={(e) => changeHandler(e, "title")}
+        />
       </TitleInputBox>
       <DailyPickBox>
-        <DailyContents placeholder="첫 번째 줄을 입력해주세요." />
-        <DailyContents placeholder="두 번째 줄을 입력해주세요." />
-        <DailyContents placeholder="세 번째 줄을 입력해주세요." />
+        <DailyContents
+          placeholder="첫 번째 줄을 입력해주세요."
+          onChange={(e) => changeHandler(e, "firstContents")}
+        />
+        <DailyContents
+          placeholder="두 번째 줄을 입력해주세요."
+          onChange={(e) => changeHandler(e, "secondContents")}
+        />
+        <DailyContents
+          placeholder="세 번째 줄을 입력해주세요."
+          onChange={(e) => changeHandler(e, "thirdContents")}
+        />
       </DailyPickBox>
       <WriteCtrButton
         leftTitle="이전"
