@@ -16,6 +16,7 @@ const colors = {
   modalBackGround: "#00000080",
   white: "#ffffff",
   red: "#FD2E00",
+  inputBorder: "#999999",
 };
 
 const theme = {

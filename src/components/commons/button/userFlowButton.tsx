@@ -29,7 +29,6 @@ const Button = styled.button<StyleProps>`
 `;
 
 const UserFlowButton = ({ type, title, isComplete, handler }: IProps) => {
-  console.log("2");
   return (
     <Button type={type || "button"} onClick={handler} background={isComplete}>
       {title}
