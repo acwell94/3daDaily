@@ -3,7 +3,7 @@
 import { flexBox } from "@src/utils/flexBox";
 import theme from "@src/utils/theme";
 
-import { forwardRef, useMemo, useState } from "react";
+import { forwardRef, useEffect, useMemo, useState } from "react";
 import styled from "styled-components";
 import WriteCtrButton from "../button/writeCtrButton";
 import { WriteContainer, WriteTitle } from "../styles/commonStyles";
@@ -13,6 +13,7 @@ import usePlacesAutocomplete, {
   getGeocode,
   getLatLng,
 } from "use-places-autocomplete";
+
 // import type { NextPage } from "next";
 
 interface IWriteProps {
@@ -94,6 +95,20 @@ const WriteWhere = (
 ) => {
   const [lat, setLat] = useState(37.5666805);
   const [lng, setLng] = useState(126.9784147);
+
+  useEffect(() => {
+    const success = (position: GeolocationPosition) => {
+      setLat(position.coords.latitude);
+      setLng(position.coords.longitude);
+    };
+
+    const fail = () => {
+      alert("위치 정보를 찾을 수 없습니다.");
+    };
+
+    navigator.geolocation.getCurrentPosition(success, fail);
+  }, []);
+
   const libraries = useMemo(() => ["places"], []);
   const mapCenter = useMemo(() => ({ lat: lat, lng: lng }), [lat, lng]);
   const mapOptions = useMemo<google.maps.MapOptions>(
@@ -178,7 +193,7 @@ const PlacesAutocomplete = ({
     debounce: 300,
     cache: 86400,
   });
-  // console.log(value);
+
   const renderSuggestions = () => {
     return data.map((suggestion) => {
       const {
@@ -208,7 +223,7 @@ const PlacesAutocomplete = ({
         value={value}
         disabled={!ready}
         onChange={(e) => setValue(e.target.value)}
-        placeholder="검색"
+        placeholder="어디에 있었나요?"
       />
       <SearchedDataBox>
         {status === "OK" && renderSuggestions()}
