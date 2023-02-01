@@ -6,7 +6,7 @@ import theme from "@src/utils/theme";
 import Image from "next/image";
 import { useState } from "react";
 import styled from "styled-components";
-import downArrow from "../../../../public/downArrow.png";
+import downArrow from "../../../../public/icon/downArrow.png";
 
 interface IStyleProps {
   open?: boolean;

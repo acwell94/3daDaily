@@ -3,7 +3,7 @@ import { forwardRef } from "react";
 import WriteCtrButton from "../button/writeCtrButton";
 import { WriteContainer, WriteTitle } from "../styles/commonStyles";
 import LogoItem from "./logoItem";
-import fileUpload from "../../../../public/fileUpload.png";
+import fileUpload from "../../../../public/icon/fileUpload.png";
 import styled from "styled-components";
 import { flexBox } from "@src/utils/flexBox";
 import theme from "@src/utils/theme";

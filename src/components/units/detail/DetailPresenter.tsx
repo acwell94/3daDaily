@@ -1,6 +1,6 @@
 import * as S from "./DetailStyles";
 import Test from "../../../../public/testImg/tImg.jpg";
-import Pin from "../../../../public/pin.png";
+import Pin from "../../../../public/icon/pin.png";
 import DetailButton from "@src/components/commons/button/detailButton";
 import AskModal from "@src/components/commons/modal/askModal";
 import ConfirmModal from "@src/components/commons/modal/confirmModal";

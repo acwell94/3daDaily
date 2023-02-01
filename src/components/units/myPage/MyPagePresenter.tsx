@@ -3,7 +3,7 @@ import {
   LogoMain,
   LogoMainBox,
 } from "@src/components/commons/styles/commonStyles";
-import Profile from "../../../../public/profile.png";
+import Profile from "../../../../public/icon/profile.png";
 import * as S from "./MyPageStyles";
 import WriteButton from "@src/components/commons/button/writeButton";
 import FilterBox from "@src/components/commons/filter/filterBox";
