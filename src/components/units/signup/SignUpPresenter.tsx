@@ -2,6 +2,7 @@
 import UserFlowButton from "@src/components/commons/button/userFlowButton";
 import useLink from "@src/components/commons/hooks/useLink";
 import UserFlowInput from "@src/components/commons/inputs/userFlowInput";
+import ImageUpload from "@src/components/commons/items/imageUpload";
 import {
   CommonMain,
   CommonMainBox,
@@ -30,6 +31,7 @@ const SignUpPresenter = ({
         <UserFlowTitle title="회원가입" />
         <form onSubmit={handleSubmit(signUpHandler)}>
           <S.InputBox>
+            <ImageUpload />
             <UserFlowInput
               type="text"
               register={register("name")}
