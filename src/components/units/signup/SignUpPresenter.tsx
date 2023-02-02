@@ -16,7 +16,6 @@ interface IProps {
   handleSubmit: any;
   formState: any;
   signUpHandler: (data: any) => void;
-  isComplete: boolean;
 }
 
 const SignUpPresenter = ({
@@ -24,9 +23,7 @@ const SignUpPresenter = ({
   handleSubmit,
   formState,
   signUpHandler,
-  isComplete,
 }: IProps) => {
-  console.log(isComplete);
   return (
     <CommonMain>
       <CommonMainBox>
@@ -66,11 +63,7 @@ const SignUpPresenter = ({
             </S.LinkToLogin>
           </S.QuestionBox>
 
-          <UserFlowButton
-            type="submit"
-            title="회원가입"
-            isComplete={isComplete}
-          />
+          <UserFlowButton type="submit" title="회원가입" isComplete={true} />
         </form>
       </CommonMainBox>
     </CommonMain>

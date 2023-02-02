@@ -22,7 +22,6 @@ const DetailPresenter = ({
   askModalSuccessHandler,
 }: IProps) => {
   const renderPage = useCallback(() => {
-    console.log(1);
     return (
       <S.MainPage>
         <S.DetailLightTitle>
@@ -49,13 +48,7 @@ const DetailPresenter = ({
         </S.DetailContentsBox>
         <S.ButtonBox>
           <DetailButton title="목록" handler={useLink(`/mypage/${123}`)} />
-          <DetailButton
-            title="수정"
-            handler={() => {
-              console.log(2);
-            }}
-            isDark={true}
-          />
+          <DetailButton title="수정" handler={() => {}} isDark={true} />
           <DetailButton
             title="삭제"
             handler={askModalVisibleHandler}

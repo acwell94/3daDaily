@@ -1,7 +1,7 @@
 import { atom } from "recoil";
-
+import { v4 as uuidv4 } from "uuid";
 export const writeFormState = atom({
-  key: "writeFormState",
+  key: `${uuidv4()}`,
   default: {
     title: "",
     firstContents: "",

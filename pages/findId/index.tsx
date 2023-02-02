@@ -1,4 +1,4 @@
-import FindIdContainer from "@src/components/units/changePassword/FindIdContainer";
+import FindIdContainer from "@src/components/units/findId/FindIdContainer";
 
 const FindIdPage = () => {
   return <FindIdContainer />;

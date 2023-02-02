@@ -4,6 +4,8 @@ import { useForm } from "react-hook-form";
 import SignUpPresenter from "./SignUpPresenter";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { useEffect, useState } from "react";
+import useLink from "@src/components/commons/hooks/useLink";
+import { useRouter } from "next/router";
 const schema = yup.object({
   email: yup
     .string()
@@ -35,44 +37,13 @@ interface FormValue {
   passwordConfirm: string;
 }
 const SignUpContainer = () => {
-  const [isComplete, setIsComplete] = useState(false);
-  const { register, handleSubmit, formState, watch } = useForm<FormValue>({
+  const { register, handleSubmit, formState } = useForm<FormValue>({
     resolver: yupResolver(schema),
     mode: "onChange",
   });
-
-  const { name, email, password, passwordConfirm } = watch();
-
-  useEffect(() => {
-    if (
-      name &&
-      email &&
-      password &&
-      passwordConfirm &&
-      formState &&
-      !formState.errors.name &&
-      !formState.errors.email &&
-      !formState.errors.password &&
-      !formState.errors.passwordConfirm
-    ) {
-      setIsComplete((prev) => !prev);
-    } else {
-      setIsComplete((prev) => !prev);
-    }
-  }, [
-    name &&
-      email &&
-      password &&
-      passwordConfirm &&
-      formState &&
-      !formState.errors.name &&
-      !formState.errors.email &&
-      !formState.errors.password &&
-      !formState.errors.passwordConfirm,
-  ]);
-
+  const router = useRouter();
   const signUpHandler = (data: FormValue) => {
-    console.log("1");
+    router.push("/signin");
     // api요청 signup
   };
 
@@ -82,7 +53,6 @@ const SignUpContainer = () => {
       handleSubmit={handleSubmit}
       formState={formState}
       signUpHandler={signUpHandler}
-      isComplete={isComplete}
     />
   );
 };
