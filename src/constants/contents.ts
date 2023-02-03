@@ -40,12 +40,12 @@ export const Weather: IData[] = [
 ];
 
 export const WithWhom: IData[] = [
-  { id: 0, title: "혼자", img: "/WithWhom/alone.png", checked: false },
-  { id: 1, title: "친구", img: "/WithWhom/friend.png", checked: false },
-  { id: 2, title: "연인", img: "/WithWhom/couple.png", checked: false },
-  { id: 3, title: "가족", img: "/WithWhom/family.png", checked: false },
-  { id: 4, title: "동물", img: "/WithWhom/pet.png", checked: false },
-  { id: 5, title: "동료", img: "/WithWhom/company.png", checked: false },
+  { id: 0, title: "혼자", img: "/withWhom/alone.png", checked: false },
+  { id: 1, title: "친구", img: "/withWhom/friend.png", checked: false },
+  { id: 2, title: "연인", img: "/withWhom/couple.png", checked: false },
+  { id: 3, title: "가족", img: "/withWhom/family.png", checked: false },
+  { id: 4, title: "동물", img: "/withWhom/pet.png", checked: false },
+  { id: 5, title: "동료", img: "/withWhom/company.png", checked: false },
 ];
 
 export const What: IData[] = [
