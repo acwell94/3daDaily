@@ -82,10 +82,16 @@ export const WriteItem = styled.div`
   cursor: pointer;
 `;
 
-export const WriteImg = styled(Image)`
+export const WriteImgLimit = styled.div`
   width: 10rem;
   height: 10rem;
   margin-bottom: 2rem;
+  position: relative;
+`;
+
+export const WriteImg = styled(Image)`
+  width: 100%;
+  height: 100%;
 `;
 
 export const WriteImgTitle = styled.div`

@@ -5,6 +5,7 @@ import {
   WriteContainer,
   WriteImg,
   WriteImgBox,
+  WriteImgLimit,
   WriteImgTitle,
   WriteItem,
   WritePickBox,
@@ -32,7 +33,9 @@ const WriteFeeling = (
               onClick={(e) => handler(e, "feeling")}
               id={`${el.id}`}
             >
-              <WriteImg src={el.img} alt={el.title} />
+              <WriteImgLimit>
+                <WriteImg src={el.img} alt={el.title} fill={true} />
+              </WriteImgLimit>
               <WriteImgTitle>{el.title}</WriteImgTitle>
             </WriteItem>
           ))}

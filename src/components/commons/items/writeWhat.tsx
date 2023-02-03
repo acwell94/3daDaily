@@ -38,10 +38,16 @@ const WhatItem = styled.div`
   cursor: pointer;
 `;
 
-const WhatImg = styled(Image)`
+const WhatImgLimit = styled.div`
   width: 9rem;
   height: 9rem;
   margin-bottom: 2rem;
+  position: relative;
+`;
+
+const WhatImg = styled(Image)`
+  width: 100%;
+  height: 100%;
 `;
 
 const WhatImgTitle = styled.div`
@@ -66,7 +72,9 @@ const WriteWhat = (
               onClick={(e) => handler(e, "what")}
               id={`${el.id}`}
             >
-              <WhatImg src={el.img} alt={el.title} />
+              <WhatImgLimit>
+                <WhatImg src={el.img} alt={el.title} fill={true} />
+              </WhatImgLimit>
               <WhatImgTitle>{el.title}</WhatImgTitle>
             </WhatItem>
           ))}

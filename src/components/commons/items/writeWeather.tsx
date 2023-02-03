@@ -11,6 +11,7 @@ import {
   WriteContainer,
   WriteImg,
   WriteImgBox,
+  WriteImgLimit,
   WriteImgTitle,
   WriteItem,
   WritePickBox,
@@ -37,7 +38,9 @@ const WriteWeather = (
               onClick={(e) => handler(e, "weather")}
               id={`${el.id}`}
             >
-              <WriteImg src={el.img} alt={el.title} />
+              <WriteImgLimit>
+                <WriteImg src={el.img} alt={el.title} fill={true} />
+              </WriteImgLimit>
               <WriteImgTitle>{el.title}</WriteImgTitle>
             </WriteItem>
           ))}

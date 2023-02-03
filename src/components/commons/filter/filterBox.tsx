@@ -98,10 +98,16 @@ const OptionRightBox = styled.div`
   flex: 8;
 `;
 
-const OptionImg = styled(Image)`
+const OptionImgBox = styled.div`
   width: 3rem;
   height: 3rem;
   margin-right: 3rem;
+  position: relative;
+`;
+
+const OptionImg = styled(Image)`
+  width: 100%;
+  height: 100%;
 `;
 
 const FilterBox = () => {
@@ -130,7 +136,14 @@ const FilterBox = () => {
           </OptionLeftBox>
           <OptionRightBox>
             {Feeling.map((el) => (
-              <OptionImg src={el.img} alt={el.title} key={el.id} />
+              <OptionImgBox>
+                <OptionImg
+                  src={el.img}
+                  alt={el.title}
+                  key={el.id}
+                  fill={true}
+                />
+              </OptionImgBox>
             ))}
           </OptionRightBox>
         </Option>
@@ -140,7 +153,14 @@ const FilterBox = () => {
           </OptionLeftBox>
           <OptionRightBox>
             {Weather.map((el) => (
-              <OptionImg src={el.img} alt={el.title} key={el.id} />
+              <OptionImgBox>
+                <OptionImg
+                  src={el.img}
+                  alt={el.title}
+                  key={el.id}
+                  fill={true}
+                />
+              </OptionImgBox>
             ))}
           </OptionRightBox>
         </Option>
@@ -150,7 +170,14 @@ const FilterBox = () => {
           </OptionLeftBox>
           <OptionRightBox>
             {WithWhom.map((el) => (
-              <OptionImg src={el.img} alt={el.title} key={el.id} />
+              <OptionImgBox>
+                <OptionImg
+                  src={el.img}
+                  alt={el.title}
+                  key={el.id}
+                  fill={true}
+                />
+              </OptionImgBox>
             ))}
           </OptionRightBox>
         </Option>
