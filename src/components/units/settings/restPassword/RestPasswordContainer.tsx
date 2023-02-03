@@ -32,7 +32,9 @@ const RestPasswordContainer = () => {
     mode: "onChange",
   });
 
-  const resetPassword = () => {};
+  const resetPassword = () => {
+    console.log("resetPW");
+  };
 
   return (
     <RestPasswordPresenter

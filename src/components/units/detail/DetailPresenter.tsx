@@ -48,7 +48,13 @@ const DetailPresenter = ({
         </S.DetailContentsBox>
         <S.ButtonBox>
           <DetailButton title="목록" handler={useLink(`/mypage/${123}`)} />
-          <DetailButton title="수정" handler={() => {}} isDark={true} />
+          <DetailButton
+            title="수정"
+            handler={() => {
+              console.log(1);
+            }}
+            isDark={true}
+          />
           <DetailButton
             title="삭제"
             handler={askModalVisibleHandler}
