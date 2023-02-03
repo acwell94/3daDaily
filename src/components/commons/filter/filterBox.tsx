@@ -60,6 +60,7 @@ const DownArrowBox = styled.div<IStyleProps>`
   margin-left: 6rem;
   transform: ${(props) => (props.open ? "rotate(180deg)" : "")};
   cursor: pointer;
+  position: relative;
 `;
 
 const DownArrow = styled(Image)`
@@ -118,7 +119,7 @@ const FilterBox = () => {
         <RightBox>
           날씨별, 기분별, 누구와 함께 했는지로 추억을 찾아보세요!
           <DownArrowBox onClick={optionOpenHandler} open={optionOpen}>
-            <DownArrow src={downArrow} alt="downArrow" />
+            <DownArrow src="/icon/downArrow.png" alt="downArrow" fill={true} />
           </DownArrowBox>
         </RightBox>
       </Filter>
