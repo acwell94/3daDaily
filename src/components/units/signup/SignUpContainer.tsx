@@ -3,9 +3,11 @@ import * as yup from "yup";
 import { useForm } from "react-hook-form";
 import SignUpPresenter from "./SignUpPresenter";
 import { yupResolver } from "@hookform/resolvers/yup";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import useLink from "@src/components/commons/hooks/useLink";
 import { useRouter } from "next/router";
+import useFileUpload from "@src/components/commons/hooks/useFileUpload";
+import fileUploadDefault from "../../../../public/icon/profileForm.png";
 const schema = yup.object({
   email: yup
     .string()
@@ -37,13 +39,23 @@ interface FormValue {
   passwordConfirm: string;
 }
 const SignUpContainer = () => {
+  const router = useRouter();
   const { register, handleSubmit, formState } = useForm<FormValue>({
     resolver: yupResolver(schema),
     mode: "onChange",
   });
-  const router = useRouter();
+  const filePickerRef = useRef<any>();
+  const { file, previewFile, pickedHandler } = useFileUpload(fileUploadDefault);
+
+  const pickImageHandler = () => {
+    if (!filePickerRef.current.click()) {
+      return;
+    }
+    filePickerRef.current.click();
+  };
   const signUpHandler = (data: FormValue) => {
-    router.push("/signin");
+    // console.log(data, "data");
+    // router.push("/signin");
     // api요청 signup
   };
 
@@ -53,6 +65,10 @@ const SignUpContainer = () => {
       handleSubmit={handleSubmit}
       formState={formState}
       signUpHandler={signUpHandler}
+      filePickerRef={filePickerRef}
+      previewFile={previewFile}
+      pickedHandler={pickedHandler}
+      pickImageHandler={pickImageHandler}
     />
   );
 };

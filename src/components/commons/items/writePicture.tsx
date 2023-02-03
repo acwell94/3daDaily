@@ -1,14 +1,19 @@
-import { IWriteProps } from "@src/components/units/write/WritePresenter";
-import { forwardRef } from "react";
+import { forwardRef, useEffect, useRef } from "react";
 import WriteCtrButton from "../button/writeCtrButton";
 import { WriteContainer, WriteTitle } from "../styles/commonStyles";
 import LogoItem from "./logoItem";
-import fileUpload from "../../../../public/icon/fileUpload.png";
+import fileUploadDefault from "../../../../public/icon/fileUpload.png";
+
 import styled from "styled-components";
 import { flexBox } from "@src/utils/flexBox";
 import theme from "@src/utils/theme";
 import Image from "next/image";
-
+import useFileUpload from "../hooks/useFileUpload";
+interface IWriteProps {
+  prevHandler?: () => void;
+  nextHandler?: () => void;
+  handler?: any;
+}
 const PicturePickBox = styled.div`
   ${flexBox("col", "center", "center")}
   background-color: ${theme.colors.white};
@@ -19,11 +24,23 @@ const PicturePickBox = styled.div`
   height: 100%;
   max-height: 50rem;
 `;
+const DefaultImageBox = styled.div`
+  width: 12rem;
+  height: 12rem;
+  position: relative;
+  margin-bottom: 3rem;
+`;
+
+const UploadedFileImageBox = styled.div`
+  width: 50rem;
+  height: 50rem;
+  position: relative;
+  margin-bottom: 3rem;
+`;
 
 const FileUploadImg = styled(Image)`
-  width: 12.8rem;
-  height: 12.8rem;
-  margin-bottom: 3rem;
+  cursor: pointer;
+  border-radius: 8px;
 `;
 
 const FileUploadTitle = styled.div`
@@ -31,15 +48,57 @@ const FileUploadTitle = styled.div`
   color: ${theme.colors.middleGray};
 `;
 
-const WritePicture = ({ prevHandler, nextHandler }: IWriteProps, ref: any) => {
+const WritePicture = (
+  { prevHandler, nextHandler, handler }: IWriteProps,
+  ref: any,
+) => {
+  const filePickerRef = useRef<any>();
+  const { file, previewFile, pickedHandler } = useFileUpload(fileUploadDefault);
+
+  useEffect(() => {
+    handler(file);
+  }, [file]);
+
+  const pickImageHandler = () => {
+    if (!filePickerRef.current.click()) {
+      return;
+    }
+    filePickerRef.current.click();
+  };
+
   return (
     <WriteContainer ref={ref}>
       <LogoItem />
       <WriteTitle>오늘을 기념할 사진이 있나요?</WriteTitle>
       <PicturePickBox>
-        <FileUploadImg src={fileUpload} alt="파일업로드" />
+        {previewFile ? (
+          <UploadedFileImageBox>
+            <FileUploadImg
+              src={previewFile}
+              alt="profile"
+              onClick={pickImageHandler}
+              fill={true}
+            />
+          </UploadedFileImageBox>
+        ) : (
+          <DefaultImageBox>
+            <FileUploadImg
+              src={fileUploadDefault}
+              alt="default"
+              onClick={pickImageHandler}
+              fill={true}
+            />
+          </DefaultImageBox>
+        )}
+        <input
+          ref={filePickerRef}
+          type="file"
+          accept=".jpg,.png,.jpeg"
+          onChange={pickedHandler}
+          style={{ display: "none" }}
+        />
         <FileUploadTitle>
-          이미지는 5M이하인 JPG, PNG 형식만 가능합니다.
+          이미지는 JPG, JPEG, PNG 형식만 가능합니다.
         </FileUploadTitle>
       </PicturePickBox>
       <WriteCtrButton

@@ -42,6 +42,13 @@ const WriteContainer = () => {
     [writeState.address],
   );
 
+  const changePictureHandler = useCallback(
+    (image: any) => {
+      setWriteState((prev) => ({ ...prev, image: image }));
+    },
+    [writeState.image],
+  );
+
   console.log(writeState);
   return (
     <WritePresenter
@@ -50,6 +57,7 @@ const WriteContainer = () => {
       changeSelectImgHandler={changeSelectImgHandler}
       changeLocationHandler={changeLocationHandler}
       changeDailyHandler={changeDailyHandler}
+      changePictureHandler={changePictureHandler}
     />
   );
 };

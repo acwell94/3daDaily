@@ -8,8 +8,9 @@ import {
   CommonMainBox,
 } from "@src/components/commons/styles/commonStyles";
 import UserFlowTitle from "@src/components/commons/title/userFlowTitle";
-import Link from "next/link";
-import { UseFormRegisterReturn } from "react-hook-form";
+import fileUploadDefault from "../../../../public/icon/profileForm.png";
+import { forwardRef } from "react";
+
 import * as S from "./SignUpStyles";
 
 interface IProps {
@@ -17,21 +18,57 @@ interface IProps {
   handleSubmit: any;
   formState: any;
   signUpHandler: (data: any) => void;
+  filePickerRef: any;
+  previewFile: any;
+  pickedHandler: any;
+  pickImageHandler: any;
 }
 
-const SignUpPresenter = ({
-  register,
-  handleSubmit,
-  formState,
-  signUpHandler,
-}: IProps) => {
+const SignUpPresenter = (
+  {
+    register,
+    handleSubmit,
+    formState,
+    signUpHandler,
+    filePickerRef,
+    previewFile,
+    pickedHandler,
+    pickImageHandler,
+  }: IProps,
+  ref: any,
+) => {
   return (
     <CommonMain>
       <CommonMainBox>
         <UserFlowTitle title="회원가입" />
         <form onSubmit={handleSubmit(signUpHandler)}>
           <S.InputBox>
-            <ImageUpload />
+            {previewFile ? (
+              <S.ImageBox>
+                <S.DefaultImage
+                  src={previewFile}
+                  alt="유저 프로필"
+                  onClick={pickImageHandler}
+                  fill={true}
+                />
+              </S.ImageBox>
+            ) : (
+              <S.ImageBox>
+                <S.DefaultImage
+                  src={fileUploadDefault}
+                  alt="기본 프로필"
+                  onClick={pickImageHandler}
+                  fill={true}
+                />
+              </S.ImageBox>
+            )}
+            <input
+              ref={filePickerRef}
+              type="file"
+              accept=".jpg,.png,.jpeg"
+              onChange={pickedHandler}
+              style={{ display: "none" }}
+            />
             <UserFlowInput
               type="text"
               register={register("name")}
@@ -72,4 +109,4 @@ const SignUpPresenter = ({
   );
 };
 
-export default SignUpPresenter;
+export default forwardRef(SignUpPresenter);

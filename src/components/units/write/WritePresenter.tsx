@@ -26,12 +26,13 @@ interface IProps {
     withWhom: string;
     what: string;
     feeling: string;
-    image: string;
+    image: any;
   };
   changeDateHandler: (data: Date) => void;
   changeSelectImgHandler: (e: MouseEvent<HTMLDivElement>, name: string) => void;
   changeLocationHandler: (address: string) => void;
   changeDailyHandler: (e: ChangeEvent<HTMLInputElement>, name: string) => void;
+  changePictureHandler: (image: any) => void;
 }
 
 export interface IWriteProps {
@@ -45,6 +46,7 @@ const WritePresenter = ({
   changeSelectImgHandler,
   changeLocationHandler,
   changeDailyHandler,
+  changePictureHandler,
 }: IProps) => {
   const dateRef = useRef<HTMLInputElement>(null);
   const weatherRef = useRef<HTMLInputElement>(null);
@@ -98,6 +100,7 @@ const WritePresenter = ({
           ref={pictureRef}
           prevHandler={useRefClick(feelRef)}
           nextHandler={useRefClick(dailyRef)}
+          handler={changePictureHandler}
         />
         <WriteDaily
           ref={dailyRef}

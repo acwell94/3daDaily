@@ -1,8 +1,12 @@
-import { ChangeEvent, useEffect, useRef, useState } from "react";
+import { ChangeEvent, useRef, useState } from "react";
 import DefaultProfile from "../../../../public/icon/profileForm.png";
 import styled from "styled-components";
 import Image from "next/image";
 import imageCompression from "browser-image-compression";
+
+interface IProps {
+  profileImg?: any;
+}
 
 const ImageBox = styled.div`
   width: 12rem;
@@ -15,12 +19,12 @@ const DefaultImage = styled(Image)`
   cursor: pointer;
   border-radius: 50%;
 `;
-const ImageUpload = () => {
+const ImageUpload = ({ profileImg }: IProps) => {
   const filePickerRef = useRef<any>();
   // api요청 데이터
-  const [file, setFile] = useState<any>();
+  const [file, setFile] = useState<any>(profileImg || null);
   // 미리보기 데이터
-  const [previewFile, setPreviewFile] = useState<any>();
+  const [previewFile, setPreviewFile] = useState<any>(profileImg || null);
 
   const pickedHandler = async (event: ChangeEvent<HTMLInputElement>) => {
     if (!event.currentTarget.files) {
@@ -31,7 +35,7 @@ const ImageUpload = () => {
     console.log(imageFile);
     const options = {
       maxSizeMB: 0.5,
-      maxWidthOrHeight: 120,
+      maxWidthOrHeight: 1920,
       useWebWorker: true,
     };
     try {
