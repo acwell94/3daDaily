@@ -1,8 +1,8 @@
 "use client";
 
-import axios, { AxiosError } from "axios";
+import axios from "axios";
 import { useRouter } from "next/router";
-import { useCallback, useEffect, useState } from "react";
+import { useCallback, useState } from "react";
 import { useForm } from "react-hook-form";
 import { useRecoilState } from "recoil";
 import { accessTokenState } from "store";
@@ -28,7 +28,7 @@ const SignInContainer = () => {
   const { register, handleSubmit } = useForm<FormValue>({
     mode: "onChange",
   });
-
+  console.log(accessToken);
   const errorModalHandler = useCallback(() => {
     setErrorModalVisible((prev) => !prev);
   }, []);
@@ -42,6 +42,7 @@ const SignInContainer = () => {
           password: form.password,
         },
       );
+      localStorage.setItem("token", JSON.stringify(data.token));
       setAccessToken({
         userId: data.userId,
         email: data.email,

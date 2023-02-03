@@ -6,6 +6,8 @@ const flexDirection = (value?: string) => {
       return "column";
     case "row":
       return "row";
+    case "row-reverse":
+      return "row-reverse";
   }
 };
 

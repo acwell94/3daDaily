@@ -13,7 +13,6 @@ const Container = styled.div`
   ${flexBox("row", "between", "center")}
 
   padding: 1rem;
-  /* margin-bottom: 2rem; */
 `;
 
 const InfoBox = styled.div`
@@ -33,7 +32,7 @@ const UserEmail = styled.div`
   line-height: 2.75rem;
 `;
 
-const FriendList = ({ data, id, buttonTitle }: IProps) => {
+const FriendList = ({ data, buttonTitle }: IProps) => {
   return (
     <Container>
       <InfoBox>

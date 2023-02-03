@@ -17,11 +17,11 @@ const SettingsPresenter = () => {
         <SettingsBox src={Profile} handler={useLink("/settings/profile/123")}>
           프로필 관리
         </SettingsBox>
-        <SettingsBox src={Profile} handler={useLink("/settings/friend/123")}>
+        <SettingsBox src={Friend} handler={useLink("/settings/friend/123")}>
           친구 관리
         </SettingsBox>
         <SettingsBox
-          src={Profile}
+          src={Password}
           handler={useLink("/settings/resetpassword/123")}
         >
           비밀번호 재설정

@@ -3,13 +3,7 @@ import theme from "@src/utils/theme";
 // import { Configuration, OpenAIApi } from "openai";
 import styled from "styled-components";
 import axios from "axios";
-import React, {
-  ChangeEvent,
-  KeyboardEvent,
-  useEffect,
-  useRef,
-  useState,
-} from "react";
+import React, { ChangeEvent, KeyboardEvent, useState } from "react";
 import { v4 as uuidv4 } from "uuid";
 import Loading from "../../../../public/icon/loading.gif";
 import Image from "next/image";
@@ -42,6 +36,7 @@ const Main = styled.div<IProps>`
   top: 50%;
   transform: translateY(-50%);
   z-index: 9;
+  box-shadow: 0px 0.4rem 0.4rem rgba(0, 0, 0, 0.25);
 `;
 
 const Box = styled.div`
@@ -76,7 +71,7 @@ const AnswerChat = styled.div`
   margin-bottom: 1rem;
   padding: 1rem;
   font-size: 1.6rem;
-  background-color: ${theme.colors.lightPurple};
+  background-color: ${theme.colors.lightPink};
   border-radius: 16px;
 `;
 
@@ -104,6 +99,12 @@ const ChatProfileBox = styled.div`
   height: 3rem;
   position: relative;
   margin-right: 1rem;
+`;
+const ChatUserProfileBox = styled.div`
+  width: 3rem;
+  height: 3rem;
+  position: relative;
+  margin-left: 1rem;
 `;
 const ChatProfile = styled(Image)``;
 
@@ -146,6 +147,7 @@ const ChatBot = ({ isVisible, chatBotHandler }: IProps) => {
           },
         },
       );
+      console.log(pos);
 
       setChat((prev: any) => [
         ...prev,
@@ -156,6 +158,8 @@ const ChatBot = ({ isVisible, chatBotHandler }: IProps) => {
       console.log(error);
       setWaitAnswer((prev) => !prev);
       alert("오류가 발생하였습니다.");
+      setQuestions("");
+      setChat([]);
     }
   };
 
@@ -192,10 +196,10 @@ const ChatBot = ({ isVisible, chatBotHandler }: IProps) => {
           <React.Fragment key={el.id}>
             {idx % 2 === 0 ? (
               <ChatBox>
-                <ChatProfileBox>
-                  <ChatProfile src={User} alt="User" fill={true} />
-                </ChatProfileBox>
                 <Chat>{el.text}</Chat>
+                <ChatUserProfileBox>
+                  <ChatProfile src={User} alt="User" fill={true} />
+                </ChatUserProfileBox>
               </ChatBox>
             ) : (
               <ChatBox>

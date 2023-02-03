@@ -1,6 +1,5 @@
 "use client";
 import * as yup from "yup";
-import { useEffect, useState } from "react";
 import RestPasswordPresenter from "./RestPasswordPresenter";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";

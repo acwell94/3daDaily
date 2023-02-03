@@ -24,6 +24,7 @@ const ImageUpload = ({ profileImg }: IProps) => {
   // api요청 데이터
   const [file, setFile] = useState<any>(profileImg || null);
   // 미리보기 데이터
+  console.log(file);
   const [previewFile, setPreviewFile] = useState<any>(profileImg || null);
 
   const pickedHandler = async (event: ChangeEvent<HTMLInputElement>) => {

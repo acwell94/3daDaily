@@ -2,14 +2,13 @@
 import UserFlowButton from "@src/components/commons/button/userFlowButton";
 import useLink from "@src/components/commons/hooks/useLink";
 import UserFlowInput from "@src/components/commons/inputs/userFlowInput";
-import ImageUpload from "@src/components/commons/items/imageUpload";
+
 import {
   CommonMain,
   CommonMainBox,
 } from "@src/components/commons/styles/commonStyles";
 import UserFlowTitle from "@src/components/commons/title/userFlowTitle";
 import fileUploadDefault from "../../../../public/icon/profileForm.png";
-import { forwardRef } from "react";
 
 import * as S from "./SignUpStyles";
 
@@ -24,19 +23,16 @@ interface IProps {
   pickImageHandler: any;
 }
 
-const SignUpPresenter = (
-  {
-    register,
-    handleSubmit,
-    formState,
-    signUpHandler,
-    filePickerRef,
-    previewFile,
-    pickedHandler,
-    pickImageHandler,
-  }: IProps,
-  ref: any,
-) => {
+const SignUpPresenter = ({
+  register,
+  handleSubmit,
+  formState,
+  signUpHandler,
+  filePickerRef,
+  previewFile,
+  pickedHandler,
+  pickImageHandler,
+}: IProps) => {
   return (
     <CommonMain>
       <CommonMainBox>
@@ -109,4 +105,4 @@ const SignUpPresenter = (
   );
 };
 
-export default forwardRef(SignUpPresenter);
+export default SignUpPresenter;

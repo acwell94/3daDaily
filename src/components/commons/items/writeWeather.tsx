@@ -1,11 +1,9 @@
 "use client";
-import { flexBox } from "@src/utils/flexBox";
-import theme from "@src/utils/theme";
+
 import { forwardRef, MouseEvent } from "react";
-import styled from "styled-components";
+
 import LogoItem from "./logoItem";
 import { Weather } from "../../../constants/contents";
-import Image from "next/image";
 
 import WriteCtrButton from "../button/writeCtrButton";
 

@@ -1,8 +1,5 @@
 "use client";
-import {
-  LogoMain,
-  LogoMainBox,
-} from "@src/components/commons/styles/commonStyles";
+import { LogoMainBox } from "@src/components/commons/styles/commonStyles";
 import Profile from "../../../../public/icon/profile.png";
 import * as S from "./MyPageStyles";
 import WriteButton from "@src/components/commons/button/writeButton";

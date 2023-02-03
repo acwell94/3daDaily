@@ -1,5 +1,6 @@
 "use client";
-import { useRouter } from "next/router";
+import useAuth from "@src/components/commons/hooks/useAuth";
+
 import { useState } from "react";
 import MyPagePresenter from "./MyPagePresenter";
 
@@ -9,7 +10,7 @@ const MyPageContainer = () => {
   const chatBotHandler = () => {
     setIsChatBotVisible((prev) => !prev);
   };
-
+  useAuth();
   return (
     <MyPagePresenter
       isChatBotVisible={isChatBotVisible}

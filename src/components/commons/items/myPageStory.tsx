@@ -3,9 +3,6 @@ import theme from "@src/utils/theme";
 import Image from "next/image";
 import styled from "styled-components";
 import TestImg from "../../../../public/testImg/tImg.jpg";
-import TestStatusImg1 from "../../../../public/weather/sunny.png";
-import TestStatusImg2 from "../../../../public/feeling/cry.png";
-import TestStatusImg3 from "../../../../public/withWhom/alone.png";
 
 const Container = styled.div`
   ${flexBox("row", "start", "center")}

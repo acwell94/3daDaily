@@ -1,5 +1,5 @@
 "use client";
-import { ChangeEvent, MouseEvent, useCallback, useState } from "react";
+import { ChangeEvent, MouseEvent, useCallback } from "react";
 import { useRecoilState } from "recoil";
 import { writeFormState } from "store";
 import WritePresenter from "./WritePresenter";

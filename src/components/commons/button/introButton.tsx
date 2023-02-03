@@ -1,5 +1,5 @@
 "use client";
-import styled, { css } from "styled-components";
+import styled from "styled-components";
 import { flexBox } from "@src/utils/flexBox";
 interface IProps {
   addStyle?: object;

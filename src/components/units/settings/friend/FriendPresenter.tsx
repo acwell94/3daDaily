@@ -1,9 +1,9 @@
 import LogoItem from "@src/components/commons/items/logoItem";
 import SettingsSearchInput from "@src/components/commons/items/settingsSearchInput";
-import { LogoMainBox } from "@src/components/commons/styles/commonStyles";
+
 import SettingsSubTitle from "@src/components/commons/title/settingsSubTitle";
 import SettingsTitle from "@src/components/commons/title/settingsTitle";
-import { LogoMain } from "../../myPage/MyPageStyles";
+
 import Test from "../../../../../public/testImg/tImg.jpg";
 import * as S from "./FriendStyles";
 import FriendList from "@src/components/commons/items/friendList";
