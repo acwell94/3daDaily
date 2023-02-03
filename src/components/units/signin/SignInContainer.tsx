@@ -1,7 +1,11 @@
 "use client";
 
+import axios, { AxiosError } from "axios";
+import { useRouter } from "next/router";
 import { useCallback, useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
+import { useRecoilState } from "recoil";
+import { accessTokenState } from "store";
 import SignInPresenter from "./SignInPresenter";
 
 interface FormValue {
@@ -9,33 +13,45 @@ interface FormValue {
   password: string;
 }
 
-const SignInContainer = () => {
-  const [isComplete, setIsComplete] = useState(false);
-  const [emailErrorModalVisible, setEmailErrorModalVisible] = useState(false);
-  const [passwordErrorModalVisible, setPasswordErrorModalVisible] =
-    useState(false);
+export interface ILogin {
+  userId: string;
+  email: string;
+  accessToken: string;
+}
 
-  const { register, handleSubmit, watch } = useForm<FormValue>({
+const SignInContainer = () => {
+  const [errorModalVisible, setErrorModalVisible] = useState(false);
+  const [errorMsg, setErrorMsg] = useState("");
+  const router = useRouter();
+  const [accessToken, setAccessToken] =
+    useRecoilState<ILogin>(accessTokenState);
+  const { register, handleSubmit } = useForm<FormValue>({
     mode: "onChange",
   });
 
-  const { email, password } = watch();
+  const errorModalHandler = useCallback(() => {
+    setErrorModalVisible((prev) => !prev);
+  }, []);
 
-  useEffect(() => {
-    if (email && password) {
-      setIsComplete((prev) => !prev);
+  const signInHandler = async (form: FormValue) => {
+    try {
+      const { data } = await axios.post(
+        `${process.env.NEXT_PUBLIC_API}users/login`,
+        {
+          email: form.email,
+          password: form.password,
+        },
+      );
+      setAccessToken({
+        userId: data.userId,
+        email: data.email,
+        accessToken: data.token,
+      });
+      router.push(`/mypage/${data.userId}`);
+    } catch (error: any) {
+      setErrorMsg(error.response?.data?.message);
+      errorModalHandler();
     }
-  }, [email && password]);
-
-  const emailModalHandler = useCallback(() => {
-    setEmailErrorModalVisible((prev) => !prev);
-  }, []);
-  const passwordModalHandler = useCallback(() => {
-    setPasswordErrorModalVisible((prev) => !prev);
-  }, []);
-
-  const signInHandler = (data: any) => {
-    console.log(data);
   };
 
   return (
@@ -43,11 +59,9 @@ const SignInContainer = () => {
       register={register}
       handleSubmit={handleSubmit}
       signInHandler={signInHandler}
-      emailModalHandler={emailModalHandler}
-      emailErrorModalVisible={emailErrorModalVisible}
-      passwordModalHandler={passwordModalHandler}
-      passwordErrorModalVisible={passwordErrorModalVisible}
-      isComplete={isComplete}
+      errorModalHandler={errorModalHandler}
+      errorModalVisible={errorModalVisible}
+      errorMsg={errorMsg}
     />
   );
 };

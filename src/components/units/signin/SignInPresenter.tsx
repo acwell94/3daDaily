@@ -14,40 +14,29 @@ interface IProps {
   register: any;
   handleSubmit: any;
   signInHandler: (data: any) => void;
-  emailModalHandler: () => void;
-  emailErrorModalVisible: boolean;
-  passwordModalHandler: () => void;
-  passwordErrorModalVisible: boolean;
-  isComplete: boolean;
+  errorModalHandler: () => void;
+  errorModalVisible: boolean;
+  errorMsg: string;
 }
 
 const SignInPresenter = ({
   register,
   handleSubmit,
   signInHandler,
-  emailModalHandler,
-  emailErrorModalVisible,
-  passwordModalHandler,
-  passwordErrorModalVisible,
-  isComplete,
+  errorModalHandler,
+  errorModalVisible,
+  errorMsg,
 }: IProps) => {
   return (
     <CommonMain>
       <CommonMainBox>
         <ConfirmModal
-          title="이메일이 올바르지 않습니다."
-          type="email"
-          isVisible={emailErrorModalVisible}
-          handler={emailModalHandler}
+          title={errorMsg}
+          isVisible={errorModalVisible}
+          handler={errorModalHandler}
           buttonTitle="확인"
         />
-        <ConfirmModal
-          title="비밀번호가 올바르지 않습니다."
-          type="password"
-          isVisible={passwordErrorModalVisible}
-          handler={passwordModalHandler}
-          buttonTitle="확인"
-        />
+
         <UserFlowTitle title="로그인" />
         <form onSubmit={handleSubmit(signInHandler)}>
           <S.InputBox>
@@ -63,11 +52,7 @@ const SignInPresenter = ({
             />
           </S.InputBox>
 
-          <UserFlowButton
-            type="submit"
-            title="로그인"
-            isComplete={isComplete}
-          />
+          <UserFlowButton type="submit" title="로그인" isComplete={true} />
           <S.UserSelectBox>
             <S.UserSelectText onClick={useLink("/findId")}>
               아이디 찾기

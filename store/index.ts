@@ -1,3 +1,4 @@
+import { ILogin } from "@src/components/units/signin/SignInContainer";
 import { atom } from "recoil";
 import { v4 as uuidv4 } from "uuid";
 export const writeFormState = atom({
@@ -14,5 +15,14 @@ export const writeFormState = atom({
     what: "",
     feeling: "",
     image: "",
+  },
+});
+
+export const accessTokenState = atom<ILogin>({
+  key: `${uuidv4()}`,
+  default: {
+    userId: "",
+    email: "",
+    accessToken: "",
   },
 });

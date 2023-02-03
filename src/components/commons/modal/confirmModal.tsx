@@ -6,7 +6,7 @@ import ModalButton from "../button/modalButton";
 
 interface IProps {
   title: string;
-  type?: string;
+
   isVisible: boolean;
   handler: () => void;
   buttonTitle: string;
@@ -47,7 +47,7 @@ const ModalTitle = styled.div`
 
 const ConfirmModal = ({
   title,
-  type,
+
   isVisible,
   handler,
   buttonTitle,
