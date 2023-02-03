@@ -10,10 +10,22 @@ import FilterBox from "@src/components/commons/filter/filterBox";
 import MyPageStory from "@src/components/commons/items/myPageStory";
 import useLink from "@src/components/commons/hooks/useLink";
 import LogoItem from "@src/components/commons/items/logoItem";
+import ChatBot from "@src/components/commons/items/chatBot";
+import Bot from "../../../../public/icon/botIcon.png";
+interface IProps {
+  isChatBotVisible: boolean;
+  chatBotHandler: () => void;
+}
 
-const MyPagePresenter = () => {
+const MyPagePresenter = ({ isChatBotVisible, chatBotHandler }: IProps) => {
   return (
     <S.LogoMain>
+      <ChatBot isVisible={isChatBotVisible} chatBotHandler={chatBotHandler} />
+      <S.BotVisibleButton onClick={chatBotHandler}>
+        <S.BotProfileBox>
+          <S.BotProfile src={Bot} alt="bot" fill={true} />
+        </S.BotProfileBox>
+      </S.BotVisibleButton>
       <LogoMainBox>
         <LogoItem />
         <S.InfoBox>

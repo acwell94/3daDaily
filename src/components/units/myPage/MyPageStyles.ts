@@ -18,6 +18,26 @@ export const LogoMain = styled.div`
   }
 `;
 
+export const BotVisibleButton = styled.div`
+  ${flexBox("row", "center", "center")}
+  width: 7rem;
+  height: 7rem;
+  background-color: ${theme.colors.white};
+  border-radius: 50%;
+  right: 2%;
+  bottom: 2%;
+  position: absolute;
+  cursor: pointer;
+`;
+
+export const BotProfileBox = styled.div`
+  width: 60%;
+  height: 60%;
+  position: relative;
+`;
+
+export const BotProfile = styled(Image)``;
+
 export const InfoBox = styled.div`
   ${flexBox("row", "between", "center")}
   margin-bottom: 4rem;
