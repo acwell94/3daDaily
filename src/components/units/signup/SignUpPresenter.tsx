@@ -8,6 +8,7 @@ import {
   CommonMainBox,
 } from "@src/components/commons/styles/commonStyles";
 import UserFlowTitle from "@src/components/commons/title/userFlowTitle";
+import { KeyboardEvent } from "react";
 import fileUploadDefault from "../../../../public/icon/profileForm.png";
 
 import * as S from "./SignUpStyles";
@@ -33,11 +34,17 @@ const SignUpPresenter = ({
   pickedHandler,
   pickImageHandler,
 }: IProps) => {
+  const checkKeyDown = (e: KeyboardEvent) => {
+    if (e.code === "Enter") e.preventDefault();
+  };
   return (
     <CommonMain>
       <CommonMainBox>
         <UserFlowTitle title="회원가입" />
-        <form onSubmit={handleSubmit(signUpHandler)}>
+        <form
+          onSubmit={handleSubmit(signUpHandler)}
+          onKeyDown={(e) => checkKeyDown(e)}
+        >
           <S.InputBox>
             {previewFile ? (
               <S.ImageBox>

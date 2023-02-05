@@ -5,6 +5,7 @@ import styled from "styled-components";
 
 interface IProps {
   type?: any;
+  name?: string;
   placeholder?: string;
   error?: string;
   isLast?: boolean;
@@ -41,6 +42,7 @@ const Error = styled.div<IProps>`
 
 const UserFlowInput = ({
   type,
+  name,
   placeholder,
   error,
   isLast,
@@ -52,7 +54,7 @@ const UserFlowInput = ({
       <Input
         type={type}
         placeholder={placeholder}
-        {...register}
+        {...register(`${name}`)}
         onChange={inputHandler}
       />
       <Error error={error}>{error}</Error>

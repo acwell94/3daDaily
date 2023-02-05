@@ -44,7 +44,7 @@ const SignUpContainer = () => {
   });
   const filePickerRef = useRef<any>();
   const { file, previewFile, pickedHandler } = useFileUpload(fileUploadDefault);
-  console.log(file);
+  // console.log(file);
   const pickImageHandler = () => {
     if (!filePickerRef.current.click()) {
       return;

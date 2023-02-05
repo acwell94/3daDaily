@@ -8,7 +8,7 @@ import { useRecoilState } from "recoil";
 import { accessTokenState } from "store";
 import SignInPresenter from "./SignInPresenter";
 
-interface FormValue {
+interface IFormValue {
   email: string;
   password: string;
 }
@@ -17,6 +17,7 @@ export interface ILogin {
   userId: string;
   email: string;
   accessToken: string;
+  refreshToken: string;
 }
 
 const SignInContainer = () => {
@@ -25,7 +26,7 @@ const SignInContainer = () => {
   const router = useRouter();
   const [accessToken, setAccessToken] =
     useRecoilState<ILogin>(accessTokenState);
-  const { register, handleSubmit } = useForm<FormValue>({
+  const { register, handleSubmit } = useForm<IFormValue>({
     mode: "onChange",
   });
   console.log(accessToken);
@@ -33,7 +34,7 @@ const SignInContainer = () => {
     setErrorModalVisible((prev) => !prev);
   }, []);
 
-  const signInHandler = async (form: FormValue) => {
+  const signInHandler = async (form: IFormValue) => {
     try {
       const { data } = await axios.post(
         `${process.env.NEXT_PUBLIC_API}users/login`,
@@ -42,11 +43,13 @@ const SignInContainer = () => {
           password: form.password,
         },
       );
-      localStorage.setItem("token", JSON.stringify(data.token));
+      console.log(data);
+      localStorage.setItem("data", JSON.stringify(data));
       setAccessToken({
         userId: data.userId,
         email: data.email,
         accessToken: data.token,
+        refreshToken: data.refreshToken,
       });
       router.push(`/mypage/${data.userId}`);
     } catch (error: any) {

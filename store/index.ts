@@ -24,5 +24,6 @@ export const accessTokenState = atom<ILogin>({
     userId: "",
     email: "",
     accessToken: "",
+    refreshToken: "",
   },
 });

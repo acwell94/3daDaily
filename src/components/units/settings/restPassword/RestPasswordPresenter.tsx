@@ -5,6 +5,7 @@ import {
   CommonMainBox,
 } from "@src/components/commons/styles/commonStyles";
 import UserFlowTitle from "@src/components/commons/title/userFlowTitle";
+import { KeyboardEvent } from "react";
 
 import * as S from "./RestPasswordStyles";
 
@@ -21,11 +22,17 @@ const RestPasswordPresenter = ({
   formState,
   resetPasswordHandler,
 }: IProps) => {
+  const checkKeyDown = (e: KeyboardEvent) => {
+    if (e.code === "Enter") e.preventDefault();
+  };
   return (
     <CommonMain>
       <CommonMainBox>
         <UserFlowTitle title="비밀번호 재설정" />
-        <form onSubmit={handleSubmit(resetPasswordHandler)}>
+        <form
+          onSubmit={handleSubmit(resetPasswordHandler)}
+          onKeyDown={(e) => checkKeyDown(e)}
+        >
           <S.InputBox>
             <UserFlowInput
               type="password"
