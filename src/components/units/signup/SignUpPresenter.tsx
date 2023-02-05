@@ -72,27 +72,32 @@ const SignUpPresenter = ({
               onChange={pickedHandler}
               style={{ display: "none" }}
             />
+
             <UserFlowInput
               type="text"
-              register={register("name")}
+              name="name"
+              register={register}
               placeholder="닉네임(10자 이내)"
               error={formState.errors.name?.message}
             />
             <UserFlowInput
               type="text"
-              register={register("email")}
+              name="email"
+              register={register}
               placeholder="이메일"
               error={formState.errors.email?.message}
             />
             <UserFlowInput
               type="password"
-              register={register("password")}
+              name="password"
+              register={register}
               placeholder="비밀번호"
               error={formState.errors.password?.message}
             />
             <UserFlowInput
               type="password"
-              register={register("passwordConfirm")}
+              name="passwordConfirm"
+              register={register}
               placeholder="비밀번호 확인"
               error={formState.errors.passwordConfirm?.message}
               isLast={true}

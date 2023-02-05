@@ -3,10 +3,11 @@ import * as yup from "yup";
 import { useForm } from "react-hook-form";
 import SignUpPresenter from "./SignUpPresenter";
 import { yupResolver } from "@hookform/resolvers/yup";
-import { useRef } from "react";
+import { useRef, useState } from "react";
 
 import useFileUpload from "@src/components/commons/hooks/useFileUpload";
 import fileUploadDefault from "../../../../public/icon/profileForm.png";
+import axios from "axios";
 const schema = yup.object({
   email: yup
     .string()
@@ -51,10 +52,30 @@ const SignUpContainer = () => {
     }
     filePickerRef.current.click();
   };
-  const signUpHandler = (data: FormValue) => {
-    console.log(data, "data");
-    // router.push("/signin");
-    // api요청 signup
+
+  const signUpHandler = async (form: FormValue) => {
+    console.log(form, "form");
+    console.log(file);
+    try {
+      const formData = new FormData();
+      formData.append("name", form.name);
+      formData.append("email", form.email);
+      formData.append("password", form.password);
+      formData.append("profileImg", file);
+
+      const { data } = await axios.post(
+        `${process.env.NEXT_PUBLIC_API}users/signup`,
+        formData,
+        // {
+        //   headers: {
+        //     "Content-Type": "multipart/form-data",
+        //   },
+        // },
+      );
+      console.log(data);
+    } catch (err) {
+      console.log(err);
+    }
   };
 
   return (

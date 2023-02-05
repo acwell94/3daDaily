@@ -30,13 +30,13 @@ const useAuth = () => {
             },
           },
         );
-
+        console.log(data, "dd");
         localStorage.setItem("data", JSON.stringify(data));
       } catch (err) {
         console.log(err, "err");
       }
     } else {
-      console.log("err");
+      console.log("");
     }
   };
   checkAuth();
