@@ -36,20 +36,23 @@ const RestPasswordPresenter = ({
           <S.InputBox>
             <UserFlowInput
               type="password"
+              name="password"
               placeholder="현재 비밀번호"
-              register={register("password")}
+              register={register}
               error={formState.errors.password?.message}
             />
             <UserFlowInput
               type="password"
+              name="newPassword"
               placeholder="새로운 비밀번호"
-              register={register("newPassword")}
+              register={register}
               error={formState.errors.newPassword?.message}
             />
             <UserFlowInput
               type="password"
+              name="newPasswordConfirm"
               placeholder="새로운 비밀번호 확인"
-              register={register("newPasswordConfirm")}
+              register={register}
               error={formState.errors.newPasswordConfirm?.message}
             />
           </S.InputBox>
