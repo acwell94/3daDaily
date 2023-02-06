@@ -1,6 +1,7 @@
 "use client";
 
 import theme from "@src/utils/theme";
+
 import { memo } from "react";
 import styled from "styled-components";
 interface IProps {

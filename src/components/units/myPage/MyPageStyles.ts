@@ -49,14 +49,16 @@ export const UserBox = styled.div`
 `;
 
 export const ProfileImgBox = styled.div`
-  width: 3rem;
-  height: 3rem;
+  width: 5rem;
+  height: 5rem;
   margin-right: 1rem;
+  position: relative;
 `;
 
 export const Profile = styled(Image)`
   width: 100%;
   height: 100%;
+  border-radius: 50%;
 `;
 
 export const UserInfoText = styled.div`
@@ -70,8 +72,11 @@ export const UserName = styled.div`
 `;
 
 export const FeedBox = styled.div`
-  ${flexBox("col", "center", "center")}
-  width: 100%;
+  display: grid;
+  grid-template-columns: 30% 30% 30%;
+  justify-content: space-between;
+  grid-row-gap: 4rem;
+  width: 98%;
 `;
 
 export const NoneDailyBox = styled.div`

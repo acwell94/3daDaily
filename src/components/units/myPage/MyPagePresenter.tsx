@@ -12,15 +12,57 @@ import Bot from "../../../../public/icon/botIcon.png";
 interface IProps {
   isChatBotVisible: boolean;
   chatBotHandler: () => void;
+  storyData:
+    | {
+        user: {
+          _id: string;
+          name: string;
+          email: string;
+          profileImg: string;
+        };
+        story: [
+          {
+            address: string;
+            creator: string;
+            date: string;
+            feeling: string;
+            firstContents: string;
+            secondContents: string;
+            thirdContents: string;
+            id: string;
+            image: string;
+            location: {
+              lat: number;
+              lng: number;
+            };
+            title: string;
+            weather: string;
+            what: string;
+            withWhom: string;
+            _id: string;
+          },
+        ];
+      }
+    | undefined;
 }
 
-const MyPagePresenter = ({ isChatBotVisible, chatBotHandler }: IProps) => {
+const MyPagePresenter = ({
+  isChatBotVisible,
+  chatBotHandler,
+  storyData,
+}: IProps) => {
+  console.log(storyData?.user, "11");
   return (
     <S.LogoMain>
       <ChatBot isVisible={isChatBotVisible} chatBotHandler={chatBotHandler} />
       <S.BotVisibleButton onClick={chatBotHandler}>
         <S.BotProfileBox>
-          <S.BotProfile src={Bot} alt="bot" fill={true} />
+          <S.BotProfile
+            src={Bot}
+            alt="bot"
+            fill={true}
+            sizes="(max-width: 500px) 50vw, 100vw"
+          />
         </S.BotProfileBox>
       </S.BotVisibleButton>
       <LogoMainBox>
@@ -28,10 +70,16 @@ const MyPagePresenter = ({ isChatBotVisible, chatBotHandler }: IProps) => {
         <S.InfoBox>
           <S.UserBox>
             <S.ProfileImgBox>
-              <S.Profile src={Profile} alt="profile" />
+              <S.Profile
+                src={storyData?.user.profileImg || Profile}
+                alt="profile"
+                fill={true}
+                sizes="(max-width: 500px) 50vw, 100vw"
+              />
             </S.ProfileImgBox>
             <S.UserInfoText>
-              <S.UserName>민영</S.UserName>님, 어떤 하루를 보내셨나요?
+              <S.UserName>{storyData?.user.name || "유저"}</S.UserName>님, 어떤
+              하루를 보내셨나요?
             </S.UserInfoText>
           </S.UserBox>
           <>
@@ -39,26 +87,21 @@ const MyPagePresenter = ({ isChatBotVisible, chatBotHandler }: IProps) => {
           </>
         </S.InfoBox>
         <FilterBox />
-        <S.FeedBox>
-          <MyPageStory />
-          <MyPageStory />
-          <MyPageStory />
-          <MyPageStory />
-          <MyPageStory />
-          <MyPageStory />
-          <MyPageStory />
-          <MyPageStory />
-          <MyPageStory />
-          <MyPageStory />
-        </S.FeedBox>
-        {/* 피드가 없을 경우 */}
-        {/* <S.NoneDailyBox>
-          <S.NoneDailyText>아직 일기가 없습니다.</S.NoneDailyText>
-          <S.NoneDailyTextSecond>
-            첫 번째 일기를 작성해 주세요.
-          </S.NoneDailyTextSecond>
-          <WriteButton handler={useLink("/write")} />
-        </S.NoneDailyBox> */}
+        {storyData?.story ? (
+          <S.FeedBox>
+            {storyData?.story.map((el) => (
+              <MyPageStory key={el.id} data={el} />
+            ))}
+          </S.FeedBox>
+        ) : (
+          <S.NoneDailyBox>
+            <S.NoneDailyText>아직 일기가 없습니다.</S.NoneDailyText>
+            <S.NoneDailyTextSecond>
+              첫 번째 일기를 작성해 주세요.
+            </S.NoneDailyTextSecond>
+            <WriteButton handler={useLink("/write")} />
+          </S.NoneDailyBox>
+        )}
       </LogoMainBox>
     </S.LogoMain>
   );

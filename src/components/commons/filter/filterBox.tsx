@@ -124,7 +124,12 @@ const FilterBox = () => {
         <RightBox>
           날씨별, 기분별, 누구와 함께 했는지로 추억을 찾아보세요!
           <DownArrowBox onClick={optionOpenHandler} open={optionOpen}>
-            <DownArrow src="/icon/downArrow.png" alt="downArrow" fill={true} />
+            <DownArrow
+              src="/icon/downArrow.png"
+              alt="downArrow"
+              fill={true}
+              sizes="(max-width: 500px) 50vw, 100vw"
+            />
           </DownArrowBox>
         </RightBox>
       </Filter>
@@ -136,7 +141,12 @@ const FilterBox = () => {
           <OptionRightBox>
             {Feeling.map((el) => (
               <OptionImgBox key={el.id}>
-                <OptionImg src={el.img} alt={el.title} fill={true} />
+                <OptionImg
+                  src={el.img}
+                  alt={el.title}
+                  fill={true}
+                  sizes="(max-width: 500px) 50vw, 100vw"
+                />
               </OptionImgBox>
             ))}
           </OptionRightBox>
@@ -148,7 +158,12 @@ const FilterBox = () => {
           <OptionRightBox>
             {Weather.map((el) => (
               <OptionImgBox key={el.id}>
-                <OptionImg src={el.img} alt={el.title} fill={true} />
+                <OptionImg
+                  src={el.img}
+                  alt={el.title}
+                  fill={true}
+                  sizes="(max-width: 500px) 50vw, 100vw"
+                />
               </OptionImgBox>
             ))}
           </OptionRightBox>
@@ -160,7 +175,12 @@ const FilterBox = () => {
           <OptionRightBox>
             {WithWhom.map((el) => (
               <OptionImgBox key={el.id}>
-                <OptionImg src={el.img} alt={el.title} fill={true} />
+                <OptionImg
+                  src={el.img}
+                  alt={el.title}
+                  fill={true}
+                  sizes="(max-width: 500px) 50vw, 100vw"
+                />
               </OptionImgBox>
             ))}
           </OptionRightBox>

@@ -20,7 +20,11 @@ const Logo = styled(Image)`
 const LogoItem = () => {
   return (
     <LogoBox onClick={useLink("/write")}>
-      <Logo src={TitleLogo} alt="titleLogo" />
+      <Logo
+        src={TitleLogo}
+        alt="titleLogo"
+        sizes="(max-width: 500px) 50vw, 100vw"
+      />
     </LogoBox>
   );
 };
