@@ -9,7 +9,7 @@ const useDateForm = (dateForm: string): IProps => {
   const splitDate = dateForm.split("-");
 
   let month;
-  let day = splitDate[3].toUpperCase();
+  const day = splitDate[3].toUpperCase();
 
   switch (splitDate[1]) {
     case "01": {

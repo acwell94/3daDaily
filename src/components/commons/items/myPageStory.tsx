@@ -2,7 +2,6 @@ import { flexBox } from "@src/utils/flexBox";
 import theme from "@src/utils/theme";
 import Image from "next/image";
 import styled from "styled-components";
-import TestImg from "../../../../public/testImg/tImg.jpg";
 import useDateForm from "../hooks/useDateForm";
 
 interface IProps {

@@ -3,7 +3,7 @@ import * as yup from "yup";
 import { useForm } from "react-hook-form";
 import SignUpPresenter from "./SignUpPresenter";
 import { yupResolver } from "@hookform/resolvers/yup";
-import { useRef, useState } from "react";
+import { useRef } from "react";
 
 import useFileUpload from "@src/components/commons/hooks/useFileUpload";
 import fileUploadDefault from "../../../../public/icon/profileForm.png";

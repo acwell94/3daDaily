@@ -1,11 +1,9 @@
 "use client";
-import axios from "axios";
-import jwt from "jsonwebtoken";
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 
 const useAuth = () => {
-  const [refresh, setRefresh] = useState<any>(null);
+  const [_, setRefresh] = useState<any>(null);
   const router = useRouter();
   useEffect(() => {
     const storedData = localStorage.getItem("data");
