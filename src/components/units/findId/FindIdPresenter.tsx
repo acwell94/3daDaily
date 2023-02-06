@@ -20,10 +20,7 @@ const FindIdPresenter = ({ findNameHandler, name }: IProps) => {
       <CommonMainBox>
         <UserFlowTitle title="아이디 찾기" />
         <S.InputBox>
-          <UserFlowInput
-            placeholder="이름"
-            inputHandler={(e) => findNameHandler(e)}
-          />
+          <S.Input placeholder="이름" onChange={(e) => findNameHandler(e)} />
         </S.InputBox>
         <UserFlowButton title="아이디 찾기" isComplete={!!name} />
       </CommonMainBox>
