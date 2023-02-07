@@ -8,6 +8,10 @@ const nextConfig = {
         protocol: "http",
         hostname: "t1.daumcdn.net",
       },
+      {
+        protocol: "http",
+        hostname: "localhost",
+      },
     ],
   },
 };

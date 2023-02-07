@@ -20,6 +20,7 @@ const Container = styled.div<StyleProps>`
   ${flexBox("row", "center", "center")}
   display: ${(props) => (props.isVisible ? "flex" : "none")};
   width: 100%;
+
   height: 100%;
   position: absolute;
   padding: 10rem 0;
@@ -29,8 +30,9 @@ const Container = styled.div<StyleProps>`
 
 const Modal = styled.div`
   ${flexBox("col", "center", "center")}
-  max-width: 340px;
-  max-height: 240px;
+  max-width: 34rem;
+  max-height: 24rem;
+  min-width: 20rem;
   padding: 4rem 3rem;
   background-color: ${theme.colors.white};
   border-radius: 16px;
