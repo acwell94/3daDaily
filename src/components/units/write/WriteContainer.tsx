@@ -1,23 +1,41 @@
 "use client";
 import axios from "axios";
+import { useRouter } from "next/router";
 import {
   ChangeEvent,
   MouseEvent,
   useCallback,
   useEffect,
+  useRef,
   useState,
 } from "react";
 import { useRecoilState } from "recoil";
 import { writeFormState } from "store";
 import WritePresenter from "./WritePresenter";
 
+interface ILocal {
+  email: string;
+  refreshToken: string;
+  token: string;
+  userId: string;
+}
+
 const WriteContainer = () => {
+  const dateRef = useRef<HTMLInputElement>(null);
+  const weatherRef = useRef<HTMLInputElement>(null);
+  const whereRef = useRef<HTMLInputElement>(null);
+  const whoRef = useRef<HTMLInputElement>(null);
+  const whatRef = useRef<HTMLInputElement>(null);
+  const feelRef = useRef<HTMLInputElement>(null);
+  const pictureRef = useRef<HTMLInputElement>(null);
+  const dailyRef = useRef<HTMLInputElement>(null);
+  const router = useRouter();
   const [writeState, setWriteState] = useRecoilState(writeFormState);
-  const [token, setToken] = useState("");
+  const [userData, setUserData] = useState<ILocal>();
   useEffect(() => {
     const storedData = localStorage.getItem("data");
     if (storedData) {
-      setToken(JSON.parse(storedData).token);
+      setUserData(JSON.parse(storedData));
     }
   }, []);
   // console.log(writeState);
@@ -82,19 +100,50 @@ const WriteContainer = () => {
         formData,
         {
           headers: {
-            Authorization: `Bearer ${token}`,
+            Authorization: `Bearer ${userData?.token}`,
           },
         },
       );
       console.log(data);
+      router.push(`/mypage/${userData?.userId}`);
     } catch (err) {
       console.log(err);
+      let errorRef;
+      if (
+        !writeState.title ||
+        !writeState.firstContents ||
+        !writeState.secondContents ||
+        !writeState.thirdContents
+      ) {
+        errorRef = dailyRef;
+      } else if (!writeState.weather) {
+        errorRef = weatherRef;
+      } else if (!writeState.address) {
+        errorRef = whereRef;
+      } else if (!writeState.withWhom) {
+        errorRef = whoRef;
+      } else if (!writeState.what) {
+        errorRef = whatRef;
+      } else if (!writeState.feeling) {
+        errorRef = feelRef;
+      } else if (!writeState.image) {
+        errorRef = pictureRef;
+      }
+      errorRef?.current?.scrollIntoView({ behavior: "smooth", block: "start" });
     }
   };
 
   console.log(writeState);
   return (
     <WritePresenter
+      dateRef={dateRef}
+      weatherRef={weatherRef}
+      whereRef={whereRef}
+      whoRef={whoRef}
+      whatRef={whatRef}
+      feelRef={feelRef}
+      pictureRef={pictureRef}
+      dailyRef={dailyRef}
       currentData={writeState}
       changeDateHandler={changeDateHandler}
       changeSelectImgHandler={changeSelectImgHandler}

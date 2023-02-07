@@ -12,9 +12,17 @@ import {
   WriteMain,
   LogoMainBox,
 } from "@src/components/commons/styles/commonStyles";
-import { ChangeEvent, MouseEvent, useRef } from "react";
+import { ChangeEvent, MouseEvent } from "react";
 
 interface IProps {
+  dateRef: any;
+  weatherRef: any;
+  whereRef: any;
+  whoRef: any;
+  whatRef: any;
+  feelRef: any;
+  pictureRef: any;
+  dailyRef: any;
   currentData: {
     title: string;
     firstContents: string;
@@ -42,6 +50,14 @@ export interface IWriteProps {
 }
 
 const WritePresenter = ({
+  dateRef,
+  weatherRef,
+  whereRef,
+  whoRef,
+  whatRef,
+  feelRef,
+  pictureRef,
+  dailyRef,
   currentData,
   changeDateHandler,
   changeSelectImgHandler,
@@ -51,14 +67,6 @@ const WritePresenter = ({
   createContentsHandler,
 }: IProps) => {
   // console.log(currentData, "ccc");
-  const dateRef = useRef<HTMLInputElement>(null);
-  const weatherRef = useRef<HTMLInputElement>(null);
-  const whereRef = useRef<HTMLInputElement>(null);
-  const whoRef = useRef<HTMLInputElement>(null);
-  const whatRef = useRef<HTMLInputElement>(null);
-  const feelRef = useRef<HTMLInputElement>(null);
-  const pictureRef = useRef<HTMLInputElement>(null);
-  const dailyRef = useRef<HTMLInputElement>(null);
 
   return (
     <WriteMain>

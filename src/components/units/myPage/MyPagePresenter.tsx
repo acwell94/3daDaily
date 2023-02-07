@@ -51,7 +51,6 @@ const MyPagePresenter = ({
   chatBotHandler,
   storyData,
 }: IProps) => {
-  console.log(storyData?.user, "11");
   return (
     <S.LogoMain>
       <ChatBot isVisible={isChatBotVisible} chatBotHandler={chatBotHandler} />

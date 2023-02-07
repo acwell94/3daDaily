@@ -8,10 +8,11 @@ import { useEffect, useState } from "react";
 import MyPagePresenter from "./MyPagePresenter";
 
 const MyPageContainer = () => {
+  useAuth();
   const [isChatBotVisible, setIsChatBotVisible] = useState(false);
   const [story, setStory] = useState();
   const router = useRouter();
-  console.log(router.query, "123");
+
   const chatBotHandler = () => {
     setIsChatBotVisible((prev) => !prev);
   };
@@ -20,18 +21,15 @@ const MyPageContainer = () => {
 
   // }
 
-  useAuth();
   useEffect(() => {
     if (router.isReady) {
       const { userId } = router.query;
-      console.log(router.query);
+
       const getContents = async () => {
         try {
-          console.log(1);
           const { data } = await axios.get(
             `${process.env.NEXT_PUBLIC_API}contents/${userId}`,
           );
-          console.log(data, "data");
           setStory(data);
         } catch (err) {
           console.log(err);

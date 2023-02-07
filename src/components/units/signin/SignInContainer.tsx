@@ -43,7 +43,6 @@ const SignInContainer = () => {
           password: form.password,
         },
       );
-      console.log(data);
       localStorage.setItem("data", JSON.stringify(data));
       setAccessToken({
         userId: data.userId,
