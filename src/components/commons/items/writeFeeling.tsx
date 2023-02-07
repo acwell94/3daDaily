@@ -16,9 +16,10 @@ interface IWriteProps {
   prevHandler?: () => void;
   nextHandler?: () => void;
   handler: (e: MouseEvent<HTMLDivElement>, name: string) => void;
+  current: string;
 }
 const WriteFeeling = (
-  { prevHandler, nextHandler, handler }: IWriteProps,
+  { prevHandler, nextHandler, handler, current }: IWriteProps,
   ref: any,
 ) => {
   return (
@@ -32,9 +33,15 @@ const WriteFeeling = (
               key={el.id}
               onClick={(e) => handler(e, "feeling")}
               id={`${el.id}`}
+              current={current === String(el.id)}
             >
               <WriteImgLimit>
-                <WriteImg src={el.img} alt={el.title} fill={true} />
+                <WriteImg
+                  src={el.img}
+                  alt={el.title}
+                  fill={true}
+                  sizes="(max-width: 500px) 50vw, 100vw"
+                />
               </WriteImgLimit>
               <WriteImgTitle>{el.title}</WriteImgTitle>
             </WriteItem>

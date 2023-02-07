@@ -87,6 +87,7 @@ const WritePicture = (
               alt="default"
               onClick={pickImageHandler}
               fill={true}
+              sizes="(max-width: 500px) 50vw, 100vw"
             />
           </DefaultImageBox>
         )}

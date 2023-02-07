@@ -80,7 +80,7 @@ const MyPageStory = ({ data }: IProps) => {
     <Container>
       <ImgBox>
         <StoryImg
-          src={data.image}
+          src={`http://localhost:5000/${data.image}`}
           alt="피드이미지"
           fill={true}
           sizes="(max-width: 500px) 50vw, 100vw"

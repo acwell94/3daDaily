@@ -77,9 +77,15 @@ export const WriteImgBox = styled.div`
   height: 100%;
 `;
 
-export const WriteItem = styled.div`
+interface IStyle {
+  current: boolean;
+}
+
+export const WriteItem = styled.div<IStyle>`
   ${flexBox("col", "center", "center")}
   cursor: pointer;
+  box-shadow: ${(props) =>
+    props.current ? `0px 0px 1rem rgba(97, 100, 187, 0.3)` : null};
 `;
 
 export const WriteImgLimit = styled.div`

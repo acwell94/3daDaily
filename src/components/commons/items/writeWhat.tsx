@@ -11,13 +11,17 @@ interface IWriteProps {
   prevHandler?: () => void;
   nextHandler?: () => void;
   handler: (e: MouseEvent<HTMLDivElement>, name: string) => void;
+  current: string;
+}
+interface IStyle {
+  current?: boolean;
 }
 const WhatPickBox = styled.div`
   ${flexBox("col", "start", "center")}
   background-color: ${theme.colors.white};
   box-shadow: 0px 0px 1rem rgba(97, 100, 187, 0.3);
   border-radius: 8px;
-  padding: 3rem 8rem;
+  padding: 4rem 6rem;
   width: 98%;
   height: 100%;
   max-height: 50rem;
@@ -27,15 +31,18 @@ const WhatImgBox = styled.div`
   display: grid;
   justify-content: space-between;
   grid-template-columns: 20% 20% 20% 20% 20%;
+  padding: 2rem;
+  grid-row-gap: 4rem;
   width: 100%;
-  height: 100%;
   overflow-y: scroll;
 `;
 
-const WhatItem = styled.div`
+const WhatItem = styled.div<IStyle>`
   ${flexBox("col", "center", "center")}
-  margin-bottom: 4rem;
+
   cursor: pointer;
+  box-shadow: ${(props) =>
+    props.current ? `0px 0px 1rem rgba(97, 100, 187, 0.3)` : null};
 `;
 
 const WhatImgLimit = styled.div`
@@ -57,7 +64,7 @@ const WhatImgTitle = styled.div`
 `;
 
 const WriteWhat = (
-  { prevHandler, nextHandler, handler }: IWriteProps,
+  { prevHandler, nextHandler, handler, current }: IWriteProps,
   ref: any,
 ) => {
   return (
@@ -71,9 +78,15 @@ const WriteWhat = (
               key={el.id}
               onClick={(e) => handler(e, "what")}
               id={`${el.id}`}
+              current={current === String(el.id)}
             >
               <WhatImgLimit>
-                <WhatImg src={el.img} alt={el.title} fill={true} />
+                <WhatImg
+                  src={el.img}
+                  alt={el.title}
+                  fill={true}
+                  sizes="(max-width: 500px) 50vw, 100vw"
+                />
               </WhatImgLimit>
               <WhatImgTitle>{el.title}</WhatImgTitle>
             </WhatItem>

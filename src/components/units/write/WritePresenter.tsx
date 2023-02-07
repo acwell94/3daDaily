@@ -33,6 +33,7 @@ interface IProps {
   changeLocationHandler: (address: string) => void;
   changeDailyHandler: (e: ChangeEvent<HTMLInputElement>, name: string) => void;
   changePictureHandler: (image: any) => void;
+  createContentsHandler: () => void;
 }
 
 export interface IWriteProps {
@@ -47,7 +48,9 @@ const WritePresenter = ({
   changeLocationHandler,
   changeDailyHandler,
   changePictureHandler,
+  createContentsHandler,
 }: IProps) => {
+  // console.log(currentData, "ccc");
   const dateRef = useRef<HTMLInputElement>(null);
   const weatherRef = useRef<HTMLInputElement>(null);
   const whereRef = useRef<HTMLInputElement>(null);
@@ -68,6 +71,7 @@ const WritePresenter = ({
         />
         <WriteWeather
           ref={weatherRef}
+          current={currentData.weather}
           prevHandler={useRefClick(dateRef)}
           nextHandler={useRefClick(whereRef)}
           handler={changeSelectImgHandler}
@@ -80,18 +84,21 @@ const WritePresenter = ({
         />
         <WriteWho
           ref={whoRef}
+          current={currentData.withWhom}
           prevHandler={useRefClick(whereRef)}
           nextHandler={useRefClick(whatRef)}
           handler={changeSelectImgHandler}
         />
         <WriteWhat
           ref={whatRef}
+          current={currentData.what}
           prevHandler={useRefClick(whoRef)}
           nextHandler={useRefClick(feelRef)}
           handler={changeSelectImgHandler}
         />
         <WriteFeeling
           ref={feelRef}
+          current={currentData.feeling}
           prevHandler={useRefClick(whatRef)}
           nextHandler={useRefClick(pictureRef)}
           handler={changeSelectImgHandler}
@@ -104,8 +111,11 @@ const WritePresenter = ({
         />
         <WriteDaily
           ref={dailyRef}
+          first={currentData.firstContents}
+          second={currentData.secondContents}
+          third={currentData.thirdContents}
           prevHandler={useRefClick(pictureRef)}
-          // nextHandler={useRefClick(dailyRef)}
+          nextHandler={createContentsHandler}
           changeHandler={changeDailyHandler}
         />
       </LogoMainBox>
