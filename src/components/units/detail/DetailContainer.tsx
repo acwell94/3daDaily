@@ -38,6 +38,7 @@ const DetailContainer = () => {
   const [askModalVisible, setAskModalVisible] = useState(false);
   const [confirmModalVisible, setConfirmModalVisible] = useState(false);
   const [detail, setDetail] = useState<IDetail>();
+
   const askModalVisibleHandler = () => {
     setAskModalVisible((prev) => !prev);
   };
@@ -46,9 +47,11 @@ const DetailContainer = () => {
     setAskModalVisible((prev) => !prev);
     setConfirmModalVisible((prev) => !prev);
   };
-  console.log(router.query, "query");
+
+  // 데이터 불러오기 함수
   useEffect(() => {
     const storedData: any = localStorage.getItem("accessToken");
+
     if (router.isReady) {
       const getDetail = async () => {
         try {
@@ -60,7 +63,6 @@ const DetailContainer = () => {
               },
             },
           );
-          console.log(data, "data");
           setDetail(data);
         } catch (err) {
           console.log(err);
@@ -69,6 +71,22 @@ const DetailContainer = () => {
       getDetail();
     }
   }, [router.query]);
+  // 데이터 삭제
+
+  const deleteContentsHandler = async (id: string) => {
+    const storedData: any = localStorage.getItem("accessToken");
+    try {
+      await axios.delete(`${process.env.NEXT_PUBLIC_API}contents/${id}`, {
+        headers: {
+          Authorization: `Bearer ${JSON.parse(storedData)}`,
+        },
+      });
+      setAskModalVisible((prev) => !prev);
+      setConfirmModalVisible((prev) => !prev);
+    } catch (err) {
+      console.log(err);
+    }
+  };
 
   return (
     <DetailPresenter
@@ -77,6 +95,7 @@ const DetailContainer = () => {
       confirmModalVisible={confirmModalVisible}
       askModalSuccessHandler={askModalSuccessHandler}
       data={detail}
+      deleteContentsHandler={deleteContentsHandler}
     />
   );
 };

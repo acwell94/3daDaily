@@ -8,7 +8,7 @@ interface IProps {
   title: string;
   warning?: string;
   cancelHandler: () => void;
-  successHandler: () => void;
+  successHandler: any;
 }
 
 interface IStyleProps {

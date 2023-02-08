@@ -46,7 +46,7 @@ export const DetailContentsBox = styled.div`
 
 export const DetailImgBox = styled.div`
   width: 100%;
-  flex: 1;
+  height: 50%;
   position: relative;
 `;
 
@@ -58,7 +58,8 @@ export const DetailImg = styled(Image)`
 export const DetailContents = styled.div`
   ${flexBox("col", "center", "center")}
   width: 100%;
-  flex: 1;
+  height: 50%;
+  padding: 4rem;
 `;
 
 export const ContentsTitle = styled.div`
