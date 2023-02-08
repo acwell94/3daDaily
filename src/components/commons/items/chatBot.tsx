@@ -167,7 +167,7 @@ const ChatBot = ({ isVisible, chatBotHandler }: IProps) => {
     setQuestions(e.target.value);
   };
 
-  const submitQuestion = () => {
+  const submitQuestion = (): any => {
     if (!questions) {
       return null;
     }
