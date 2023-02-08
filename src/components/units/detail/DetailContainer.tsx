@@ -6,7 +6,7 @@ import DetailPresenter from "./DetailPresenter";
 
 interface IDetail {
   user: {
-    id: string;
+    _id: string;
     name: string;
     email: string;
   };
