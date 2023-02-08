@@ -1,6 +1,7 @@
 import { flexBox } from "@src/utils/flexBox";
 import theme from "@src/utils/theme";
 import Image from "next/image";
+import { useRouter } from "next/router";
 import styled from "styled-components";
 import useDateForm from "../hooks/useDateForm";
 
@@ -25,6 +26,7 @@ interface IProps {
     withWhom: string;
     _id: string;
   };
+  id: string;
 }
 
 const Container = styled.div`
@@ -73,11 +75,16 @@ const StoryImg = styled(Image)`
   border-radius: 8px 8px 0 0;
 `;
 
-const MyPageStory = ({ data }: IProps) => {
+const MyPageStory = ({ data, id }: IProps) => {
+  const router = useRouter();
+
+  const linkToDetail = () => {
+    router.push(`/detail/${id}`);
+  };
   const { month, date, day } = useDateForm(data.date);
 
   return (
-    <Container>
+    <Container onClick={linkToDetail}>
       <ImgBox>
         <StoryImg
           src={`http://localhost:5000/${data.image}`}

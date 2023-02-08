@@ -89,7 +89,7 @@ const MyPagePresenter = ({
         {storyData?.story ? (
           <S.FeedBox>
             {storyData?.story.map((el) => (
-              <MyPageStory key={el.id} data={el} />
+              <MyPageStory key={el.id} data={el} id={el._id} />
             ))}
           </S.FeedBox>
         ) : (

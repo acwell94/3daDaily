@@ -9,6 +9,7 @@ import MyPagePresenter from "./MyPagePresenter";
 
 const MyPageContainer = () => {
   useAuth();
+
   const [isChatBotVisible, setIsChatBotVisible] = useState(false);
   const [story, setStory] = useState();
   const router = useRouter();
@@ -22,6 +23,8 @@ const MyPageContainer = () => {
   // }
 
   useEffect(() => {
+    console.log("데이터 패치");
+    const storedData: any = localStorage.getItem("data");
     if (router.isReady) {
       const { userId } = router.query;
 
@@ -29,7 +32,13 @@ const MyPageContainer = () => {
         try {
           const { data } = await axios.get(
             `${process.env.NEXT_PUBLIC_API}contents/${userId}`,
+            {
+              headers: {
+                Authorization: `Bearer ${JSON.parse(storedData).token}`,
+              },
+            },
           );
+          // console.log(data, "dddddd");
           setStory(data);
         } catch (err) {
           console.log(err);

@@ -6,6 +6,9 @@ interface IProps {
 }
 
 const useDateForm = (dateForm: string): IProps => {
+  if (dateForm === "") {
+    return { year: "2023", month: "01", date: "01", day: "SAT" };
+  }
   const splitDate = dateForm.split("-");
 
   let month;
@@ -59,6 +62,9 @@ const useDateForm = (dateForm: string): IProps => {
     case "12": {
       month = "DEC";
       break;
+    }
+    default: {
+      console.log("error");
     }
   }
 

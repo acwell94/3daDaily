@@ -1,41 +1,50 @@
 "use client";
 import axios from "axios";
 import { useRouter } from "next/router";
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 
 const useAuth = () => {
   const router = useRouter();
 
   useEffect(() => {
-    const storedData: any = localStorage.getItem("data");
-    console.log(JSON.parse(storedData).refreshToken, "stored");
-    if (!storedData) {
+    const accessToken: any = localStorage.getItem("accessToken");
+    const refreshToken: any = localStorage.getItem("refreshToken");
+
+    if (!accessToken) {
       alert("로그인 후 이용해 주세요.");
       router.push("/signin");
     }
-    const checkAuth = async () => {
-      console.log("실행");
+    const checkUser = async (access: any, refresh: any) => {
       try {
-        const { data } = await axios.post(
-          `${process.env.NEXT_PUBLIC_API}users/checkUser`,
+        await axios.post(
+          `${process.env.NEXT_PUBLIC_API}users/token`,
           {
-            refreshToken: JSON.parse(storedData).refreshToken,
+            token: "hi",
           },
           {
             headers: {
-              Authorization: `Bearer ${JSON.parse(storedData).token}`,
+              Authorization: `Bearer ${access}`,
             },
           },
         );
-        console.log(data, "data");
-        console.log("끝");
-
-        localStorage.setItem("data", JSON.stringify(data));
       } catch (err) {
-        console.log(err);
+        try {
+          const response = await axios.post(
+            `${process.env.NEXT_PUBLIC_API}users/checkUser`,
+            {
+              refresh: JSON.parse(refreshToken),
+            },
+          );
+
+          const { token } = response.data;
+          localStorage.setItem("accessToken", JSON.stringify(token));
+        } catch (err) {
+          alert("인증이 만료되었습니다. 다시 로그인 해주세요.");
+          router.push("/signin");
+        }
       }
     };
-    checkAuth();
+    checkUser(JSON.parse(accessToken), JSON.parse(refreshToken));
   }, []);
 
   // 이후 체크

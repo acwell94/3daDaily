@@ -1,4 +1,5 @@
 "use client";
+import useAuth from "@src/components/commons/hooks/useAuth";
 import axios from "axios";
 import { useRouter } from "next/router";
 import {
@@ -15,12 +16,12 @@ import WritePresenter from "./WritePresenter";
 
 interface ILocal {
   email: string;
-  refreshToken: string;
-  token: string;
+
   userId: string;
 }
 
 const WriteContainer = () => {
+  useAuth();
   const dateRef = useRef<HTMLInputElement>(null);
   const weatherRef = useRef<HTMLInputElement>(null);
   const whereRef = useRef<HTMLInputElement>(null);
@@ -32,10 +33,13 @@ const WriteContainer = () => {
   const router = useRouter();
   const [writeState, setWriteState] = useRecoilState(writeFormState);
   const [userData, setUserData] = useState<ILocal>();
+  const [token, setToken] = useState<string>();
   useEffect(() => {
     const storedData = localStorage.getItem("data");
+    const accessToken = localStorage.getItem("accessToken");
     if (storedData) {
       setUserData(JSON.parse(storedData));
+      setToken(accessToken);
     }
   }, []);
   // console.log(writeState);
@@ -100,7 +104,7 @@ const WriteContainer = () => {
         formData,
         {
           headers: {
-            Authorization: `Bearer ${userData?.token}`,
+            Authorization: `Bearer ${JSON.parse(token)}`,
           },
         },
       );

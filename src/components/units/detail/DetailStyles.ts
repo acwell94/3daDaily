@@ -14,7 +14,7 @@ export const MainContainer = styled.div`
 export const MainPage = styled.div`
   ${flexBox("col", "start", "center")}
   padding: 10rem 0;
-  width: 40%;
+  width: 80rem;
   height: 100%;
 `;
 
@@ -56,7 +56,7 @@ export const DetailImg = styled(Image)`
 `;
 
 export const DetailContents = styled.div`
-  ${flexBox("col", "start", "center")}
+  ${flexBox("col", "center", "center")}
   width: 100%;
   flex: 1;
 `;
@@ -78,7 +78,20 @@ export const ContentsDate = styled.div`
 `;
 
 export const ContentsImg = styled.div`
+  ${flexBox("row")}
+  gap: 2rem;
   margin-bottom: 3rem;
+`;
+
+export const IconBox = styled.div`
+  width: 5rem;
+  height: 5rem;
+  position: relative;
+`;
+
+export const Icon = styled(Image)`
+  width: 100%;
+  height: 100%;
 `;
 
 export const ContentsText = styled.div`
@@ -96,10 +109,16 @@ export const ContentsAddressBox = styled.div`
   ${flexBox("row", "center", "center")}
 `;
 
-export const AddressPin = styled(Image)`
+export const AddressPinImgBox = styled.div`
   width: 2.2rem;
   height: 2.2rem;
   margin-right: 0.5rem;
+  position: relative;
+`;
+
+export const AddressPin = styled(Image)`
+  width: 100%;
+  height: 100%;
 `;
 
 export const ContentsAddress = styled.div`
