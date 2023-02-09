@@ -9,6 +9,7 @@ import useLink from "@src/components/commons/hooks/useLink";
 import LogoItem from "@src/components/commons/items/logoItem";
 import ChatBot from "@src/components/commons/items/chatBot";
 import Bot from "../../../../public/icon/botIcon.png";
+import Settings from "../../../../public/icon/settingPage.png";
 interface IProps {
   isChatBotVisible: boolean;
   chatBotHandler: () => void;
@@ -54,23 +55,39 @@ const MyPagePresenter = ({
   return (
     <S.LogoMain>
       <ChatBot isVisible={isChatBotVisible} chatBotHandler={chatBotHandler} />
-      <S.BotVisibleButton onClick={chatBotHandler}>
-        <S.BotProfileBox>
-          <S.BotProfile
-            src={Bot}
-            alt="bot"
-            fill={true}
-            sizes="(max-width: 500px) 50vw, 100vw"
-          />
-        </S.BotProfileBox>
-      </S.BotVisibleButton>
+      <S.SideButtonBox>
+        <S.BotVisibleButton onClick={chatBotHandler}>
+          <S.BotProfileBox>
+            <S.BotProfile
+              src={Bot}
+              alt="bot"
+              fill={true}
+              sizes="(max-width: 500px) 50vw, 100vw"
+            />
+          </S.BotProfileBox>
+        </S.BotVisibleButton>
+        <S.SettingVisibleButton onClick={useLink("/settings")}>
+          <S.SettingProfileBox>
+            <S.BotProfile
+              src={Settings}
+              alt="setting"
+              fill={true}
+              sizes="(max-width: 500px) 50vw, 100vw"
+            />
+          </S.SettingProfileBox>
+          <S.SettingText>설정</S.SettingText>
+        </S.SettingVisibleButton>
+      </S.SideButtonBox>
       <LogoMainBox>
-        <LogoItem userId={storyData?.user._id} />
+        <LogoItem />
         <S.InfoBox>
           <S.UserBox>
             <S.ProfileImgBox>
               <S.Profile
-                src={storyData?.user.profileImg || Profile}
+                src={
+                  `http://localhost:5000/${storyData?.user.profileImg}` ||
+                  Profile
+                }
                 alt="profile"
                 fill={true}
                 sizes="(max-width: 500px) 50vw, 100vw"
@@ -86,7 +103,7 @@ const MyPagePresenter = ({
           </>
         </S.InfoBox>
         <FilterBox count={storyData?.story ? storyData.story.length : 0} />
-        {storyData?.story ? (
+        {storyData?.story.length ? (
           <S.FeedBox>
             {storyData?.story.map((el) => (
               <MyPageStory key={el.id} data={el} id={el._id} />

@@ -29,7 +29,7 @@ const SignInContainer = () => {
   const { register, handleSubmit } = useForm<IFormValue>({
     mode: "onChange",
   });
-  console.log(accessToken);
+
   const errorModalHandler = useCallback(() => {
     setErrorModalVisible((prev) => !prev);
   }, []);
@@ -45,7 +45,11 @@ const SignInContainer = () => {
       );
       localStorage.setItem(
         "data",
-        JSON.stringify({ userId: data.userId, email: data.email }),
+        JSON.stringify({
+          userId: data.userId,
+          email: data.email,
+          name: data.name,
+        }),
       );
       localStorage.setItem("accessToken", JSON.stringify(data.token));
       localStorage.setItem("refreshToken", JSON.stringify(data.refreshToken));

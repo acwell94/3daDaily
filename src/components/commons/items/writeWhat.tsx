@@ -74,7 +74,7 @@ const WriteWhat = (
 ) => {
   return (
     <WriteContainer ref={ref}>
-      <LogoItem userId={userId} />
+      <LogoItem />
       <WriteTitle>{title}</WriteTitle>
       <WhatPickBox>
         <WhatImgBox>

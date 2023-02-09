@@ -34,7 +34,7 @@ const writeImageSelect = (
 ) => {
   return (
     <WriteContainer ref={ref}>
-      <LogoItem userId={userId} />
+      <LogoItem />
       {/* 제목 */}
       <WriteTitle>{title}</WriteTitle>
       <WritePickBox>

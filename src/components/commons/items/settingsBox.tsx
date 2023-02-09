@@ -28,10 +28,16 @@ const TitleBox = styled.div`
   font-weight: 400;
 `;
 
-const ItemImg = styled(Image)`
+const ImgBox = styled.div`
   width: 3rem;
   height: 3rem;
+  position: relative;
   margin-right: 1rem;
+`;
+
+const ItemImg = styled(Image)`
+  width: 100%;
+  height: 100%;
 `;
 
 const DownArrowImg = styled(Image)`
@@ -44,7 +50,14 @@ const SettingsBox = ({ src, children, handler }: IProps) => {
   return (
     <Container onClick={handler}>
       <TitleBox>
-        <ItemImg src={src} alt="" />
+        <ImgBox>
+          <ItemImg
+            src={src}
+            alt=""
+            fill={true}
+            sizes="(max-width: 500px) 50vw, 100vw"
+          />
+        </ImgBox>
         {children}
       </TitleBox>
       <DownArrowImg src={DownArrow} alt="downIcon" />

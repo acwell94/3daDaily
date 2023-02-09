@@ -47,13 +47,7 @@ const ModalTitle = styled.div`
   margin-bottom: 3rem;
 `;
 
-const ConfirmModal = ({
-  title,
-
-  isVisible,
-  handler,
-  buttonTitle,
-}: IProps) => {
+const ConfirmModal = ({ title, isVisible, handler, buttonTitle }: IProps) => {
   return (
     <Container isVisible={isVisible}>
       <Modal>

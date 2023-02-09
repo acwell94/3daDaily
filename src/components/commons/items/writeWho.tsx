@@ -24,7 +24,7 @@ const WriteWho = (
 ) => {
   return (
     <WriteContainer ref={ref}>
-      <LogoItem userId={userId} />
+      <LogoItem />
       <WriteTitle>누구와 함께 했나요?</WriteTitle>
       <WritePickBox>
         <WriteImgBox>

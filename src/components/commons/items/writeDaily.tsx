@@ -96,7 +96,7 @@ const WriteDaily = (
 ) => {
   return (
     <WriteContainer ref={ref}>
-      <LogoItem userId={userId} />
+      <LogoItem />
       <WriteTitle>오늘 남기고 싶은 이야기를 적어주세요!</WriteTitle>
       <TitleInputBox>
         <TitleInput

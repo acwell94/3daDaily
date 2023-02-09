@@ -37,6 +37,7 @@ const MyPageContainer = () => {
               },
             },
           );
+          console.log(data, "1");
           setStory(data);
         } catch (err) {
           console.log(err);

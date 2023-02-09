@@ -59,7 +59,7 @@ const WritePicture = (
   ref: any,
 ) => {
   const filePickerRef = useRef<any>();
-  const { file, previewFile, pickedHandler } = useFileUpload(fileUploadDefault);
+  const { file, previewFile, pickedHandler } = useFileUpload();
 
   useEffect(() => {
     handler(file);
@@ -74,7 +74,7 @@ const WritePicture = (
 
   return (
     <WriteContainer ref={ref}>
-      <LogoItem userId={userId} />
+      <LogoItem />
       <WriteTitle>오늘을 기념할 사진이 있나요?</WriteTitle>
       <PicturePickBox>
         {previewFile ? (

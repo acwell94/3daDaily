@@ -120,7 +120,7 @@ const WriteDate = (
 ) => {
   return (
     <WriteContainer ref={ref}>
-      <LogoItem userId={userId} />
+      <LogoItem />
       <WriteTitle>날짜를 선택해주세요</WriteTitle>
       <DatePickerBox>
         <DatePicker

@@ -8,6 +8,10 @@ import { useRef } from "react";
 import useFileUpload from "@src/components/commons/hooks/useFileUpload";
 import fileUploadDefault from "../../../../public/icon/profileForm.png";
 import axios from "axios";
+import { useRecoilState } from "recoil";
+import { accessTokenState } from "store";
+import { ILogin } from "../signin/SignInContainer";
+import { useRouter } from "next/router";
 const schema = yup.object({
   email: yup
     .string()
@@ -39,13 +43,16 @@ interface FormValue {
   passwordConfirm: string;
 }
 const SignUpContainer = () => {
+  const router = useRouter();
   const { register, handleSubmit, formState } = useForm<FormValue>({
     resolver: yupResolver(schema),
     mode: "onChange",
   });
+  const [accessToken, setAccessToken] =
+    useRecoilState<ILogin>(accessTokenState);
   const filePickerRef = useRef<any>();
-  const { file, previewFile, pickedHandler } = useFileUpload(fileUploadDefault);
-  // console.log(file);
+  const { file, previewFile, pickedHandler } = useFileUpload();
+
   const pickImageHandler = () => {
     if (!filePickerRef.current.click()) {
       return;
@@ -56,6 +63,10 @@ const SignUpContainer = () => {
   const signUpHandler = async (form: FormValue) => {
     console.log(form, "form");
     console.log(file);
+    if (!file) {
+      console.log("파일이 없네요");
+      return;
+    }
     try {
       const formData = new FormData();
       formData.append("name", form.name);
@@ -66,13 +77,36 @@ const SignUpContainer = () => {
       const { data } = await axios.post(
         `${process.env.NEXT_PUBLIC_API}users/signup`,
         formData,
-        // {
-        //   headers: {
-        //     "Content-Type": "multipart/form-data",
-        //   },
-        // },
       );
-      console.log(data);
+
+      if (data) {
+        const { data } = await axios.post(
+          `${process.env.NEXT_PUBLIC_API}users/login`,
+          {
+            email: form.email,
+            password: form.password,
+          },
+        );
+
+        localStorage.setItem(
+          "data",
+          JSON.stringify({
+            userId: data.userId,
+            email: data.email,
+            name: data.name,
+          }),
+        );
+
+        localStorage.setItem("accessToken", JSON.stringify(data.token));
+        localStorage.setItem("refreshToken", JSON.stringify(data.refreshToken));
+        setAccessToken({
+          userId: data.userId,
+          email: data.email,
+          accessToken: data.token,
+          refreshToken: data.refreshToken,
+        });
+        router.push(`/mypage/${data.userId}`);
+      }
     } catch (err) {
       console.log(err);
     }

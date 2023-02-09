@@ -1,9 +1,9 @@
 import imageCompression from "browser-image-compression";
 import { ChangeEvent, useState } from "react";
 
-const useFileUpload = ({ defaultImg }: any) => {
-  const [file, setFile] = useState(defaultImg || null);
-  const [previewFile, setPreviewFile] = useState(defaultImg || null);
+const useFileUpload = () => {
+  const [file, setFile] = useState(null);
+  const [previewFile, setPreviewFile] = useState(null);
 
   const options = {
     maxSizeMB: 0.5,

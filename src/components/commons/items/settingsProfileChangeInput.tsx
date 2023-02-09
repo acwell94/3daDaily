@@ -1,11 +1,14 @@
 import theme from "@src/utils/theme";
-import { ReactNode } from "react";
+import { ChangeEvent, ReactNode } from "react";
 import styled from "styled-components";
 
 interface IProps {
   children: ReactNode;
   disabled?: boolean;
-  placeHolder: string;
+  placeHolder?: string;
+  value?: string;
+  onChangeHandler?: (e: ChangeEvent<HTMLInputElement>) => void;
+  max?: number;
 }
 
 interface IStyleProps {
@@ -49,11 +52,20 @@ const SettingsProfileChangeInput = ({
   children,
   disabled,
   placeHolder,
+  value,
+  onChangeHandler,
+  max,
 }: IProps) => {
   return (
     <Container disabled={disabled}>
       <Title>{children}</Title>
-      <Input placeholder={placeHolder} disabled={disabled || false} />
+      <Input
+        placeholder={placeHolder}
+        disabled={disabled || false}
+        value={value}
+        onChange={onChangeHandler}
+        maxLength={max}
+      />
     </Container>
   );
 };

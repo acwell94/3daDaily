@@ -3,7 +3,7 @@ import Image from "next/image";
 import styled from "styled-components";
 import useLink from "../hooks/useLink";
 import TitleLogo from "../../../../public/titleLogo.png";
-import { memo } from "react";
+import { memo, useEffect, useState } from "react";
 const LogoBox = styled.div`
   padding-top: 5rem;
   position: relative;
@@ -17,12 +17,20 @@ const Logo = styled(Image)`
   height: auto;
 `;
 
-interface IProps {
+interface IUser {
   userId: string;
+  email: string;
 }
-const LogoItem = ({ userId }: IProps) => {
+
+const LogoItem = () => {
+  const [userData, setUserData] = useState<IUser>();
+
+  useEffect(() => {
+    const data = localStorage.getItem("data");
+    setUserData(JSON.parse(data));
+  }, []);
   return (
-    <LogoBox onClick={useLink(`/mypage/${userId}`)}>
+    <LogoBox onClick={useLink(`/mypage/${userData?.userId}`)}>
       <Logo
         src={TitleLogo}
         alt="titleLogo"

@@ -18,15 +18,19 @@ export const LogoMain = styled.div`
   }
 `;
 
+export const SideButtonBox = styled.div`
+  position: absolute;
+  right: 2%;
+  bottom: 2%;
+`;
+
 export const BotVisibleButton = styled.div`
   ${flexBox("row", "center", "center")}
   width: 7rem;
   height: 7rem;
   background-color: ${theme.colors.white};
   border-radius: 50%;
-  right: 2%;
-  bottom: 2%;
-  position: absolute;
+  margin-bottom: 2rem;
   cursor: pointer;
 `;
 
@@ -36,7 +40,31 @@ export const BotProfileBox = styled.div`
   position: relative;
 `;
 
-export const BotProfile = styled(Image)``;
+export const BotProfile = styled(Image)`
+  width: 100%;
+  height: 100%;
+`;
+
+export const SettingVisibleButton = styled.div`
+  ${flexBox("col", "center", "center")}
+  width: 7rem;
+  height: 7rem;
+  background-color: ${theme.colors.sliverGray};
+  border-radius: 50%;
+
+  cursor: pointer;
+`;
+
+export const SettingProfileBox = styled.div`
+  width: 50%;
+  height: 50%;
+  position: relative;
+`;
+
+export const SettingText = styled.div`
+  font-size: 1.2rem;
+  color: ${theme.colors.white};
+`;
 
 export const InfoBox = styled.div`
   ${flexBox("row", "between", "center")}

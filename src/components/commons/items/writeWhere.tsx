@@ -141,7 +141,7 @@ const WriteWhere = (
 
   return (
     <WriteContainer ref={ref}>
-      <LogoItem userId={userId} />
+      <LogoItem />
       <WriteTitle>어디에 있었나요?</WriteTitle>
       <WritePickBox>
         <MapBox>

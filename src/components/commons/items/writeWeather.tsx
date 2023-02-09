@@ -32,7 +32,7 @@ const WriteWeather = (
 ) => {
   return (
     <WriteContainer ref={ref}>
-      <LogoItem userId={userId} />
+      <LogoItem />
       <WriteTitle>오늘 날씨는 어땠나요?</WriteTitle>
       <WritePickBox>
         <WriteImgBox>

@@ -31,7 +31,7 @@ export const DetailBoldTitle = styled.div`
   font-size: 4rem;
   font-weight: 700;
   line-height: 5rem;
-  color: ${theme.colors.darkGray};
+  color: ${theme.colors.darkPurple};
 `;
 
 export const DetailContentsBox = styled.div`

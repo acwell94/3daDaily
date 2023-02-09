@@ -20,7 +20,7 @@ const WriteFeeling = (
 ) => {
   return (
     <WriteContainer ref={ref}>
-      <LogoItem userId={userId} />
+      <LogoItem />
       <WriteTitle>오늘 기분은 어땠나요?</WriteTitle>
       <WritePickBox>
         <WriteImgBox>

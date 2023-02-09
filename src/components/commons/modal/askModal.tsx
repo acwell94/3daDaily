@@ -13,6 +13,7 @@ interface IProps {
 
 interface IStyleProps {
   isVisible?: boolean;
+  warning?: string;
 }
 
 const Container = styled.div<IStyleProps>`
@@ -36,13 +37,13 @@ const Modal = styled.div`
   border-radius: 16px;
 `;
 
-const ModalTitle = styled.div`
+const ModalTitle = styled.div<IStyleProps>`
   color: ${theme.colors.darkGray};
   font-weight: 700;
   font-size: 2rem;
   text-align: center;
   width: 100%;
-  margin-bottom: 1rem;
+  margin-bottom: ${(props) => (props.warning ? "1rem" : "2rem")};
 `;
 
 const ModalWarning = styled.div`
@@ -67,7 +68,7 @@ const AskModal = ({
   return (
     <Container isVisible={isVisible}>
       <Modal>
-        <ModalTitle>{title}</ModalTitle>
+        <ModalTitle warning={warning}>{title}</ModalTitle>
         {warning && <ModalWarning>{warning}</ModalWarning>}
         <ModalButtonBox>
           <ModalButton title="취소" isCancel={true} handler={cancelHandler} />

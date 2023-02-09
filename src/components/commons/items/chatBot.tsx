@@ -147,7 +147,6 @@ const ChatBot = ({ isVisible, chatBotHandler }: IProps) => {
           },
         },
       );
-      console.log(pos);
 
       setChat((prev: any) => [
         ...prev,
