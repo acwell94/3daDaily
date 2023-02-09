@@ -65,7 +65,7 @@ const MyPagePresenter = ({
         </S.BotProfileBox>
       </S.BotVisibleButton>
       <LogoMainBox>
-        <LogoItem />
+        <LogoItem userId={storyData?.user._id} />
         <S.InfoBox>
           <S.UserBox>
             <S.ProfileImgBox>
@@ -85,7 +85,7 @@ const MyPagePresenter = ({
             <WriteButton handler={useLink("/write")} />
           </>
         </S.InfoBox>
-        <FilterBox />
+        <FilterBox count={storyData?.story ? storyData.story.length : 0} />
         {storyData?.story ? (
           <S.FeedBox>
             {storyData?.story.map((el) => (

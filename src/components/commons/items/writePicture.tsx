@@ -13,6 +13,12 @@ interface IWriteProps {
   prevHandler?: () => void;
   nextHandler?: () => void;
   handler?: any;
+  userId: string;
+  current: string;
+}
+
+interface IStyleProps {
+  current: string;
 }
 const PicturePickBox = styled.div`
   ${flexBox("col", "center", "center")}
@@ -24,9 +30,9 @@ const PicturePickBox = styled.div`
   height: 100%;
   max-height: 50rem;
 `;
-const DefaultImageBox = styled.div`
-  width: 12rem;
-  height: 12rem;
+const DefaultImageBox = styled.div<IStyleProps>`
+  width: ${(props) => (props.current ? "50rem" : "12rem")};
+  height: ${(props) => (props.current ? "50rem" : "12rem")};
   position: relative;
   margin-bottom: 3rem;
 `;
@@ -49,7 +55,7 @@ const FileUploadTitle = styled.div`
 `;
 
 const WritePicture = (
-  { prevHandler, nextHandler, handler }: IWriteProps,
+  { prevHandler, nextHandler, handler, userId, current }: IWriteProps,
   ref: any,
 ) => {
   const filePickerRef = useRef<any>();
@@ -68,7 +74,7 @@ const WritePicture = (
 
   return (
     <WriteContainer ref={ref}>
-      <LogoItem />
+      <LogoItem userId={userId} />
       <WriteTitle>오늘을 기념할 사진이 있나요?</WriteTitle>
       <PicturePickBox>
         {previewFile ? (
@@ -81,9 +87,11 @@ const WritePicture = (
             />
           </UploadedFileImageBox>
         ) : (
-          <DefaultImageBox>
+          <DefaultImageBox current={current}>
             <FileUploadImg
-              src={fileUploadDefault}
+              src={
+                current ? `http://localhost:5000/${current}` : fileUploadDefault
+              }
               alt="default"
               onClick={pickImageHandler}
               fill={true}

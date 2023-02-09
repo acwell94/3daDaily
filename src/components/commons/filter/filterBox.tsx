@@ -109,7 +109,11 @@ const OptionImg = styled(Image)`
   height: 100%;
 `;
 
-const FilterBox = () => {
+interface IProps {
+  count: number;
+}
+
+const FilterBox = ({ count }: IProps) => {
   const [optionOpen, setOptionOpen] = useState(false);
   const optionOpenHandler = () => {
     setOptionOpen((prev) => !prev);
@@ -119,7 +123,7 @@ const FilterBox = () => {
       <Filter>
         <LeftBox>
           <LogoText>3다일기</LogoText>
-          <Count>215</Count>
+          <Count>{count}</Count>
         </LeftBox>
         <RightBox>
           날씨별, 기분별, 누구와 함께 했는지로 추억을 찾아보세요!

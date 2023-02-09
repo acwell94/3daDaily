@@ -9,11 +9,15 @@ import { flexBox } from "@src/utils/flexBox";
 
 interface IWriteProps {
   prevHandler?: () => void;
-  nextHandler?: () => void;
+  createHandler?: () => void;
   changeHandler: (e: ChangeEvent<HTMLInputElement>, name: string) => void;
+  defaultTitle: string;
   first: string;
   second: string;
   third: string;
+  userId: string;
+  isEdit: boolean;
+  editContentsHandler: () => void;
 }
 
 const TitleInputBox = styled.div`
@@ -78,23 +82,28 @@ const LimitCharacter = styled.div<IStyle>`
 const WriteDaily = (
   {
     prevHandler,
-    nextHandler,
+    createHandler,
     changeHandler,
+    defaultTitle,
     first,
     second,
     third,
+    userId,
+    isEdit,
+    editContentsHandler,
   }: IWriteProps,
   ref: any,
 ) => {
   return (
     <WriteContainer ref={ref}>
-      <LogoItem />
+      <LogoItem userId={userId} />
       <WriteTitle>오늘 남기고 싶은 이야기를 적어주세요!</WriteTitle>
       <TitleInputBox>
         <TitleInput
           placeholder="20자 이내로 제목을 입력해주세요."
           onChange={(e) => changeHandler(e, "title")}
           maxLength={20}
+          defaultValue={defaultTitle ? defaultTitle : null}
         />
       </TitleInputBox>
       <DailyPickBox>
@@ -103,9 +112,10 @@ const WriteDaily = (
             placeholder="첫 번째 줄을 입력해주세요."
             onChange={(e) => changeHandler(e, "firstContents")}
             maxLength={30}
+            defaultValue={first ? first : null}
           />
-          <LimitCharacter warning={first.length === 30}>
-            {first.length}/ 30
+          <LimitCharacter warning={first?.length === 30}>
+            {first?.length}/ 30
           </LimitCharacter>
         </InputBox>
         <InputBox>
@@ -113,9 +123,10 @@ const WriteDaily = (
             placeholder="두 번째 줄을 입력해주세요."
             onChange={(e) => changeHandler(e, "secondContents")}
             maxLength={30}
+            defaultValue={second ? second : null}
           />
-          <LimitCharacter warning={second.length === 30}>
-            {second.length}/ 30
+          <LimitCharacter warning={second?.length === 30}>
+            {second?.length}/ 30
           </LimitCharacter>
         </InputBox>
         <InputBox>
@@ -123,17 +134,18 @@ const WriteDaily = (
             placeholder="세 번째 줄을 입력해주세요."
             onChange={(e) => changeHandler(e, "thirdContents")}
             maxLength={30}
+            defaultValue={third ? third : null}
           />
-          <LimitCharacter warning={third.length === 30}>
-            {third.length}/ 30
+          <LimitCharacter warning={third?.length === 30}>
+            {third?.length}/ 30
           </LimitCharacter>
         </InputBox>
       </DailyPickBox>
       <WriteCtrButton
         leftTitle="이전"
-        rightTitle="완료"
+        rightTitle={isEdit ? "수정" : "등록"}
         leftHandler={prevHandler}
-        rightHandler={nextHandler}
+        rightHandler={isEdit ? editContentsHandler : createHandler}
       />
     </WriteContainer>
   );

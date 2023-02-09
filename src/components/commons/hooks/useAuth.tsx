@@ -14,38 +14,40 @@ const useAuth = () => {
       alert("로그인 후 이용해 주세요.");
       router.push("/signin");
     }
-    const checkUser = async (access: any, refresh: any) => {
-      try {
-        await axios.post(
-          `${process.env.NEXT_PUBLIC_API}users/token`,
-          {
-            token: "hi",
-          },
-          {
-            headers: {
-              Authorization: `Bearer ${access}`,
-            },
-          },
-        );
-      } catch (err) {
+    if (router.isReady) {
+      const checkUser = async (access: any, refresh: any) => {
         try {
-          const response = await axios.post(
-            `${process.env.NEXT_PUBLIC_API}users/checkUser`,
+          await axios.post(
+            `${process.env.NEXT_PUBLIC_API}users/token`,
             {
-              refresh: JSON.parse(refreshToken),
+              token: "hi",
+            },
+            {
+              headers: {
+                Authorization: `Bearer ${access}`,
+              },
             },
           );
-
-          const { token } = response.data;
-          localStorage.setItem("accessToken", JSON.stringify(token));
         } catch (err) {
-          alert("인증이 만료되었습니다. 다시 로그인 해주세요.");
-          router.push("/signin");
+          try {
+            const response = await axios.post(
+              `${process.env.NEXT_PUBLIC_API}users/checkUser`,
+              {
+                refresh: JSON.parse(refreshToken),
+              },
+            );
+
+            const { token } = response.data;
+            localStorage.setItem("accessToken", JSON.stringify(token));
+          } catch (err) {
+            alert("인증이 만료되었습니다. 다시 로그인 해주세요.");
+            router.push("/signin");
+          }
         }
-      }
-    };
-    checkUser(JSON.parse(accessToken), JSON.parse(refreshToken));
-  }, []);
+      };
+      checkUser(JSON.parse(accessToken), JSON.parse(refreshToken));
+    }
+  }, [router.query]);
 
   // 이후 체크
 };

@@ -12,9 +12,10 @@ import LogoItem from "./logoItem";
 import { WriteContainer, WriteTitle } from "../styles/commonStyles";
 
 interface IProps {
-  currentDate: Date;
+  currentDate: string;
   changeDateHandler: (data: Date) => void;
   nextHandler: () => void;
+  userId: string;
 }
 
 const DatePickerBox = styled.div`
@@ -90,6 +91,7 @@ const DatePickerBox = styled.div`
     margin: 0;
   }
   .react-datepicker__day--today {
+    background-color: transparent;
     color: ${theme.colors.darkPurple};
   }
   .react-datepicker__day:hover {
@@ -103,6 +105,7 @@ const DatePickerBox = styled.div`
     color: ${theme.colors.white};
     background-color: ${theme.colors.deepPurple};
   }
+
   // 하단 날짜 선택
   .react-datepicker__month {
     ${flexBox("col", "around", "start")}
@@ -112,16 +115,16 @@ const DatePickerBox = styled.div`
   }
 `;
 const WriteDate = (
-  { currentDate, changeDateHandler, nextHandler }: IProps,
+  { currentDate, changeDateHandler, nextHandler, userId }: IProps,
   ref: any,
 ) => {
   return (
     <WriteContainer ref={ref}>
-      <LogoItem />
+      <LogoItem userId={userId} />
       <WriteTitle>날짜를 선택해주세요</WriteTitle>
       <DatePickerBox>
         <DatePicker
-          selected={currentDate}
+          selected={currentDate ? new Date(currentDate) : new Date()}
           locale={ko}
           onChange={changeDateHandler}
           inline

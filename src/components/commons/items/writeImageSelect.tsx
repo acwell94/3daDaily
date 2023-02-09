@@ -19,32 +19,33 @@ import {
 } from "../styles/commonStyles";
 import { IPickImageProps } from "@src/components/units/write/WritePresenter";
 
-const WriteWeather = (
+const writeImageSelect = (
   {
+    userId,
+    current,
+    refName,
+    title,
+    imgData,
     prevHandler,
     nextHandler,
     handler,
-    current,
-    userId,
-    defaultData,
   }: IPickImageProps,
   ref: any,
 ) => {
   return (
     <WriteContainer ref={ref}>
       <LogoItem userId={userId} />
-      <WriteTitle>오늘 날씨는 어땠나요?</WriteTitle>
+      {/* 제목 */}
+      <WriteTitle>{title}</WriteTitle>
       <WritePickBox>
         <WriteImgBox>
-          {Weather.map((el) => (
+          {/* 데이터 */}
+          {imgData.map((el) => (
             <WriteItem
               key={el.id}
-              onClick={(e) => handler("weather", String(el.id))}
-              current={
-                defaultData
-                  ? defaultData === String(el.id)
-                  : current === String(el.id)
-              }
+              //   이벤트 "name"
+              onClick={(e) => handler(refName, String(el.id))}
+              current={current ? current === String(el.id) : null}
             >
               <WriteImgLimit>
                 <WriteImg
@@ -69,4 +70,4 @@ const WriteWeather = (
   );
 };
 
-export default forwardRef(WriteWeather);
+export default forwardRef(writeImageSelect);

@@ -1,5 +1,6 @@
 "use client";
 
+import { IPickImageProps } from "@src/components/units/write/WritePresenter";
 import { WithWhom } from "@src/constants/contents";
 
 import { forwardRef, MouseEvent } from "react";
@@ -16,27 +17,21 @@ import {
   WriteTitle,
 } from "../styles/commonStyles";
 import LogoItem from "./logoItem";
-interface IWriteProps {
-  prevHandler?: () => void;
-  nextHandler?: () => void;
-  handler: (e: MouseEvent<HTMLDivElement>, name: string) => void;
-  current: string;
-}
+
 const WriteWho = (
-  { prevHandler, nextHandler, handler, current }: IWriteProps,
+  { prevHandler, nextHandler, handler, current, userId }: IPickImageProps,
   ref: any,
 ) => {
   return (
     <WriteContainer ref={ref}>
-      <LogoItem />
+      <LogoItem userId={userId} />
       <WriteTitle>누구와 함께 했나요?</WriteTitle>
       <WritePickBox>
         <WriteImgBox>
           {WithWhom.map((el) => (
             <WriteItem
               key={el.id}
-              onClick={(e) => handler(e, "withWhom")}
-              id={`${el.id}`}
+              onClick={(e) => handler("withWhom", String(el.id))}
               current={current === String(el.id)}
             >
               <WriteImgLimit>

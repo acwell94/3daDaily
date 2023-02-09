@@ -20,6 +20,12 @@ interface IWriteProps {
   prevHandler?: () => void;
   nextHandler?: () => void;
   handler: (e: string) => void;
+  userId: string;
+  current: {
+    lat: number;
+    lng: number;
+  };
+  isEdit: boolean;
 }
 
 const WritePickBox = styled.div`
@@ -90,24 +96,29 @@ const SearchedData = styled.div`
 `;
 
 const WriteWhere = (
-  { prevHandler, nextHandler, handler }: IWriteProps,
+  { prevHandler, nextHandler, handler, userId, current, isEdit }: IWriteProps,
   ref: any,
 ) => {
   const [lat, setLat] = useState(37.5666805);
   const [lng, setLng] = useState(126.9784147);
 
   useEffect(() => {
-    const success = (position: GeolocationPosition) => {
-      setLat(position.coords.latitude);
-      setLng(position.coords.longitude);
-    };
+    if (!isEdit) {
+      const success = (position: GeolocationPosition) => {
+        setLat(position.coords.latitude);
+        setLng(position.coords.longitude);
+      };
 
-    const fail = () => {
-      alert("위치 정보를 찾을 수 없습니다.");
-    };
+      const fail = () => {
+        alert("위치 정보를 찾을 수 없습니다.");
+      };
 
-    navigator.geolocation.getCurrentPosition(success, fail);
-  }, []);
+      navigator.geolocation.getCurrentPosition(success, fail);
+    } else {
+      setLat(current.lat);
+      setLng(current.lng);
+    }
+  }, [current]);
 
   const libraries = useMemo(() => ["places"], []);
   const mapCenter = useMemo(() => ({ lat: lat, lng: lng }), [lat, lng]);
@@ -130,7 +141,7 @@ const WriteWhere = (
 
   return (
     <WriteContainer ref={ref}>
-      <LogoItem />
+      <LogoItem userId={userId} />
       <WriteTitle>어디에 있었나요?</WriteTitle>
       <WritePickBox>
         <MapBox>
@@ -157,12 +168,9 @@ const WriteWhere = (
               borderRadius: "8px",
               position: "relative",
             }}
-            onLoad={() => console.log("Map Component Loaded...")}
+            onLoad={() => {}}
           >
-            <MarkerF
-              position={mapCenter}
-              onLoad={() => console.log("Marker Loaded")}
-            />
+            <MarkerF position={mapCenter} onLoad={() => {}} />
           </GoogleMap>
         </MapBox>
       </WritePickBox>

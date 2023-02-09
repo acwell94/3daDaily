@@ -1,3 +1,4 @@
+import { IPickImageProps } from "@src/components/units/write/WritePresenter";
 import { Feeling } from "@src/constants/contents";
 import { forwardRef, MouseEvent } from "react";
 import WriteCtrButton from "../button/writeCtrButton";
@@ -12,26 +13,21 @@ import {
   WriteTitle,
 } from "../styles/commonStyles";
 import LogoItem from "./logoItem";
-interface IWriteProps {
-  prevHandler?: () => void;
-  nextHandler?: () => void;
-  handler: (e: MouseEvent<HTMLDivElement>, name: string) => void;
-  current: string;
-}
+
 const WriteFeeling = (
-  { prevHandler, nextHandler, handler, current }: IWriteProps,
+  { prevHandler, nextHandler, handler, current, userId }: IPickImageProps,
   ref: any,
 ) => {
   return (
     <WriteContainer ref={ref}>
-      <LogoItem />
+      <LogoItem userId={userId} />
       <WriteTitle>오늘 기분은 어땠나요?</WriteTitle>
       <WritePickBox>
         <WriteImgBox>
           {Feeling.map((el) => (
             <WriteItem
               key={el.id}
-              onClick={(e) => handler(e, "feeling")}
+              onClick={(e) => handler("feeling", String(el.id))}
               id={`${el.id}`}
               current={current === String(el.id)}
             >

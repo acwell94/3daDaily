@@ -17,9 +17,12 @@ const Logo = styled(Image)`
   height: auto;
 `;
 
-const LogoItem = () => {
+interface IProps {
+  userId: string;
+}
+const LogoItem = ({ userId }: IProps) => {
   return (
-    <LogoBox onClick={useLink("/write")}>
+    <LogoBox onClick={useLink(`/mypage/${userId}`)}>
       <Logo
         src={TitleLogo}
         alt="titleLogo"

@@ -53,7 +53,6 @@ const DetailPresenter = ({
   data,
   deleteContentsHandler,
 }: IProps) => {
-  console.log(data, "props");
   const { year, month, date, day } = useDateForm(data?.foundData.date || "");
   const { feelImg, weatherImg, whoImg, whatImg } = useDailyIcon(
     data?.foundData.feeling,
@@ -154,9 +153,7 @@ const DetailPresenter = ({
           />
           <DetailButton
             title="수정"
-            handler={() => {
-              console.log(1);
-            }}
+            handler={useLink(`/detail/${data?.foundData._id}/edit`)}
             isDark={true}
           />
           <DetailButton

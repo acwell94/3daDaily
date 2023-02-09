@@ -23,7 +23,6 @@ const MyPageContainer = () => {
   // }
 
   useEffect(() => {
-    console.log("데이터 패치");
     const storedData: any = localStorage.getItem("data");
     if (router.isReady) {
       const { userId } = router.query;
@@ -38,7 +37,6 @@ const MyPageContainer = () => {
               },
             },
           );
-          // console.log(data, "dddddd");
           setStory(data);
         } catch (err) {
           console.log(err);

@@ -7,12 +7,8 @@ import theme from "@src/utils/theme";
 import WriteCtrButton from "../button/writeCtrButton";
 import Image from "next/image";
 import { What } from "@src/constants/contents";
-interface IWriteProps {
-  prevHandler?: () => void;
-  nextHandler?: () => void;
-  handler: (e: MouseEvent<HTMLDivElement>, name: string) => void;
-  current: string;
-}
+import { IPickImageProps } from "@src/components/units/write/WritePresenter";
+
 interface IStyle {
   current?: boolean;
 }
@@ -64,21 +60,30 @@ const WhatImgTitle = styled.div`
 `;
 
 const WriteWhat = (
-  { prevHandler, nextHandler, handler, current }: IWriteProps,
+  {
+    userId,
+    current,
+    refName,
+    title,
+    imgData,
+    prevHandler,
+    nextHandler,
+    handler,
+  }: IPickImageProps,
   ref: any,
 ) => {
   return (
     <WriteContainer ref={ref}>
-      <LogoItem />
-      <WriteTitle>무엇을 하셨나요?</WriteTitle>
+      <LogoItem userId={userId} />
+      <WriteTitle>{title}</WriteTitle>
       <WhatPickBox>
         <WhatImgBox>
-          {What.map((el) => (
+          {imgData.map((el) => (
             <WhatItem
               key={el.id}
-              onClick={(e) => handler(e, "what")}
+              onClick={(e) => handler(refName, String(el.id))}
               id={`${el.id}`}
-              current={current === String(el.id)}
+              current={current ? current === String(el.id) : null}
             >
               <WhatImgLimit>
                 <WhatImg
