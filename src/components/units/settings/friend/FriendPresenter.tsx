@@ -4,11 +4,10 @@ import SettingsSearchInput from "@src/components/commons/items/settingsSearchInp
 import SettingsSubTitle from "@src/components/commons/title/settingsSubTitle";
 import SettingsTitle from "@src/components/commons/title/settingsTitle";
 
-import Test from "../../../../../public/testImg/tImg.jpg";
 import * as S from "./FriendStyles";
 import FriendList from "@src/components/commons/items/friendList";
 import { ChangeEvent } from "react";
-import AskModal from "@src/components/commons/modal/askModal";
+
 import ConfirmModal from "@src/components/commons/modal/confirmModal";
 
 interface IProps {

@@ -20,7 +20,6 @@ interface IWriteProps {
   prevHandler?: () => void;
   nextHandler?: () => void;
   handler: (e: string) => void;
-  userId: string;
   current: {
     lat: number;
     lng: number;
@@ -96,7 +95,7 @@ const SearchedData = styled.div`
 `;
 
 const WriteWhere = (
-  { prevHandler, nextHandler, handler, userId, current, isEdit }: IWriteProps,
+  { prevHandler, nextHandler, handler, current, isEdit }: IWriteProps,
   ref: any,
 ) => {
   const [lat, setLat] = useState(37.5666805);
@@ -168,9 +167,16 @@ const WriteWhere = (
               borderRadius: "8px",
               position: "relative",
             }}
-            onLoad={() => {}}
+            onLoad={() => {
+              console.log("map");
+            }}
           >
-            <MarkerF position={mapCenter} onLoad={() => {}} />
+            <MarkerF
+              position={mapCenter}
+              onLoad={() => {
+                console.log("map");
+              }}
+            />
           </GoogleMap>
         </MapBox>
       </WritePickBox>

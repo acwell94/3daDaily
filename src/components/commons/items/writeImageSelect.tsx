@@ -1,9 +1,8 @@
 "use client";
 
-import { forwardRef, MouseEvent } from "react";
+import { forwardRef } from "react";
 
 import LogoItem from "./logoItem";
-import { Weather } from "../../../constants/contents";
 
 import WriteCtrButton from "../button/writeCtrButton";
 
@@ -21,7 +20,6 @@ import { IPickImageProps } from "@src/components/units/write/WritePresenter";
 
 const writeImageSelect = (
   {
-    userId,
     current,
     refName,
     title,
@@ -35,16 +33,14 @@ const writeImageSelect = (
   return (
     <WriteContainer ref={ref}>
       <LogoItem />
-      {/* 제목 */}
+
       <WriteTitle>{title}</WriteTitle>
       <WritePickBox>
         <WriteImgBox>
-          {/* 데이터 */}
           {imgData.map((el) => (
             <WriteItem
               key={el.id}
-              //   이벤트 "name"
-              onClick={(e) => handler(refName, String(el.id))}
+              onClick={() => handler(refName, String(el.id))}
               current={current ? current === String(el.id) : null}
             >
               <WriteImgLimit>

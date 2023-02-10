@@ -15,7 +15,6 @@ interface IProps {
   currentDate: string;
   changeDateHandler: (data: Date) => void;
   nextHandler: () => void;
-  userId: string;
 }
 
 const DatePickerBox = styled.div`
@@ -115,7 +114,7 @@ const DatePickerBox = styled.div`
   }
 `;
 const WriteDate = (
-  { currentDate, changeDateHandler, nextHandler, userId }: IProps,
+  { currentDate, changeDateHandler, nextHandler }: IProps,
   ref: any,
 ) => {
   return (

@@ -2,16 +2,8 @@
 import useAuth from "@src/components/commons/hooks/useAuth";
 import axios from "axios";
 import { useRouter } from "next/router";
-import {
-  ChangeEvent,
-  MouseEvent,
-  useCallback,
-  useEffect,
-  useRef,
-  useState,
-} from "react";
-import { useRecoilState } from "recoil";
-import { writeFormState } from "store";
+import { ChangeEvent, useCallback, useEffect, useRef, useState } from "react";
+
 import WritePresenter from "./WritePresenter";
 
 interface ILocal {

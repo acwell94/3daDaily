@@ -15,7 +15,6 @@ interface IWriteProps {
   first: string;
   second: string;
   third: string;
-  userId: string;
   isEdit: boolean;
   editContentsHandler: () => void;
 }
@@ -88,7 +87,7 @@ const WriteDaily = (
     first,
     second,
     third,
-    userId,
+
     isEdit,
     editContentsHandler,
   }: IWriteProps,

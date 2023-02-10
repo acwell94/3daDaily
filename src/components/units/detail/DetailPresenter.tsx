@@ -1,12 +1,11 @@
 import * as S from "./DetailStyles";
-import Test from "../../../../public/testImg/tImg.jpg";
+
 import Pin from "../../../../public/icon/pin.png";
 import DetailButton from "@src/components/commons/button/detailButton";
 import AskModal from "@src/components/commons/modal/askModal";
 import ConfirmModal from "@src/components/commons/modal/confirmModal";
 
 import useLink from "@src/components/commons/hooks/useLink";
-import { useCallback } from "react";
 import useDateForm from "@src/components/commons/hooks/useDateForm";
 import useDailyIcon from "@src/components/commons/hooks/useDailyIcon";
 
@@ -14,7 +13,7 @@ interface IProps {
   askModalVisible: boolean;
   askModalVisibleHandler: () => void;
   confirmModalVisible: boolean;
-  askModalSuccessHandler: () => void;
+
   data?: {
     user: {
       _id: string;
@@ -49,7 +48,7 @@ const DetailPresenter = ({
   askModalVisible,
   askModalVisibleHandler,
   confirmModalVisible,
-  askModalSuccessHandler,
+
   data,
   deleteContentsHandler,
 }: IProps) => {

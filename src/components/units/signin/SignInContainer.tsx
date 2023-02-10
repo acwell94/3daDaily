@@ -24,8 +24,7 @@ const SignInContainer = () => {
   const [errorModalVisible, setErrorModalVisible] = useState(false);
   const [errorMsg, setErrorMsg] = useState("");
   const router = useRouter();
-  const [accessToken, setAccessToken] =
-    useRecoilState<ILogin>(accessTokenState);
+  const [_, setAccessToken] = useRecoilState<ILogin>(accessTokenState);
   const { register, handleSubmit } = useForm<IFormValue>({
     mode: "onChange",
   });

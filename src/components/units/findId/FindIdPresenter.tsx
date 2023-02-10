@@ -7,7 +7,7 @@ import {
   CommonMainBox,
 } from "@src/components/commons/styles/commonStyles";
 import UserFlowTitle from "@src/components/commons/title/userFlowTitle";
-import { ChangeEvent, KeyboardEvent } from "react";
+import { KeyboardEvent } from "react";
 import * as S from "./FindIdStyles";
 
 interface IProps {

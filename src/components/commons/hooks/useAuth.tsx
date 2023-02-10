@@ -15,7 +15,7 @@ const useAuth = () => {
       router.replace("/signin");
     }
     if (router.isReady) {
-      const checkUser = async (access: any, refresh: any) => {
+      const checkUser = async (access: any) => {
         try {
           await axios.post(
             `${process.env.NEXT_PUBLIC_API}users/token`,
@@ -46,7 +46,7 @@ const useAuth = () => {
           }
         }
       };
-      checkUser(JSON.parse(accessToken), JSON.parse(refreshToken));
+      checkUser(JSON.parse(accessToken));
     }
   }, [router.query]);
 

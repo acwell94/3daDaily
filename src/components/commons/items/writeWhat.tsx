@@ -1,4 +1,4 @@
-import { forwardRef, MouseEvent } from "react";
+import { forwardRef } from "react";
 import { WriteContainer, WriteTitle } from "../styles/commonStyles";
 import LogoItem from "./logoItem";
 import styled from "styled-components";
@@ -6,7 +6,6 @@ import { flexBox } from "@src/utils/flexBox";
 import theme from "@src/utils/theme";
 import WriteCtrButton from "../button/writeCtrButton";
 import Image from "next/image";
-import { What } from "@src/constants/contents";
 import { IPickImageProps } from "@src/components/units/write/WritePresenter";
 
 interface IStyle {
@@ -61,7 +60,6 @@ const WhatImgTitle = styled.div`
 
 const WriteWhat = (
   {
-    userId,
     current,
     refName,
     title,

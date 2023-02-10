@@ -6,7 +6,7 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import { useRef, useState } from "react";
 
 import useFileUpload from "@src/components/commons/hooks/useFileUpload";
-import fileUploadDefault from "../../../../public/icon/profileForm.png";
+
 import axios from "axios";
 import { useRecoilState } from "recoil";
 import { accessTokenState } from "store";
@@ -51,8 +51,7 @@ const SignUpContainer = () => {
     resolver: yupResolver(schema),
     mode: "onChange",
   });
-  const [accessToken, setAccessToken] =
-    useRecoilState<ILogin>(accessTokenState);
+  const [_, setAccessToken] = useRecoilState<ILogin>(accessTokenState);
   const filePickerRef = useRef<any>();
   const { file, previewFile, pickedHandler } = useFileUpload();
 

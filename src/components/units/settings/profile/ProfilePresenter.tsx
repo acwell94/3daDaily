@@ -3,7 +3,7 @@ import { LogoMainBox } from "@src/components/commons/styles/commonStyles";
 import SettingsTitle from "@src/components/commons/title/settingsTitle";
 import { LogoMain } from "../../myPage/MyPageStyles";
 import * as S from "./ProfileStyles";
-import ProfileForm from "../../../../../public/icon/profileForm.png";
+
 import SettingsProfileChangeInput from "@src/components/commons/items/settingsProfileChangeInput";
 import UserFlowButton from "@src/components/commons/button/userFlowButton";
 import { ChangeEvent } from "react";

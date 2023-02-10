@@ -43,10 +43,10 @@ const DetailContainer = () => {
     setAskModalVisible((prev) => !prev);
   };
 
-  const askModalSuccessHandler = () => {
-    setAskModalVisible((prev) => !prev);
-    setConfirmModalVisible((prev) => !prev);
-  };
+  // const askModalSuccessHandler = () => {
+  //   setAskModalVisible((prev) => !prev);
+  //   setConfirmModalVisible((prev) => !prev);
+  // };
 
   // 데이터 불러오기 함수
   useEffect(() => {
@@ -93,7 +93,7 @@ const DetailContainer = () => {
       askModalVisible={askModalVisible}
       askModalVisibleHandler={askModalVisibleHandler}
       confirmModalVisible={confirmModalVisible}
-      askModalSuccessHandler={askModalSuccessHandler}
+      // askModalSuccessHandler={askModalSuccessHandler}
       data={detail}
       deleteContentsHandler={deleteContentsHandler}
     />

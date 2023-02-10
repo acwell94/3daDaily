@@ -13,7 +13,6 @@ interface IWriteProps {
   prevHandler?: () => void;
   nextHandler?: () => void;
   handler?: any;
-  userId: string;
   current: string;
 }
 
@@ -55,7 +54,7 @@ const FileUploadTitle = styled.div`
 `;
 
 const WritePicture = (
-  { prevHandler, nextHandler, handler, userId, current }: IWriteProps,
+  { prevHandler, nextHandler, handler, current }: IWriteProps,
   ref: any,
 ) => {
   const filePickerRef = useRef<any>();
