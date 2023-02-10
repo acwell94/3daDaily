@@ -12,7 +12,7 @@ interface ILocal {
   userId: string;
 }
 interface IProps {
-  isEdit: boolean;
+  isEdit?: boolean;
 }
 
 const WriteContainer = ({ isEdit }: IProps) => {
