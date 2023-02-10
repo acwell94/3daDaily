@@ -91,7 +91,6 @@ const WritePresenter = ({
     <WriteMain>
       <LogoMainBox>
         <WriteDate
-          userId={userId}
           ref={dateRef}
           currentDate={currentData.date}
           changeDateHandler={changeDateHandler}
@@ -110,7 +109,6 @@ const WritePresenter = ({
         />
 
         <WriteWhere
-          userId={userId}
           ref={whereRef}
           current={currentData.location}
           isEdit={isEdit}
@@ -152,7 +150,6 @@ const WritePresenter = ({
           handler={changeSelectImgHandler}
         />
         <WritePicture
-          userId={userId}
           ref={pictureRef}
           current={currentData.image}
           prevHandler={useRefClick(feelRef)}
@@ -160,7 +157,6 @@ const WritePresenter = ({
           handler={changePictureHandler}
         />
         <WriteDaily
-          userId={userId}
           ref={dailyRef}
           defaultTitle={currentData.title}
           isEdit={isEdit}
