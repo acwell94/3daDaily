@@ -37,7 +37,6 @@ const SettingsContainer = () => {
       console.log(err);
     }
   }, [logoutAskModalVisible]);
-  console.log(userData);
 
   const withDrawAskModalHandler = useCallback(() => {
     setWithDrawAskModalVisible((prev) => !prev);

@@ -7,6 +7,7 @@ interface IProps {
   data: any;
   id: string;
   buttonTitle: string;
+  buttonHandler?: any;
 }
 
 const Container = styled.div`
@@ -19,11 +20,17 @@ const InfoBox = styled.div`
   ${flexBox("row", "center", "center")}
 `;
 
-const ProfileImg = styled(Image)`
+const ProfileImgBox = styled.div`
   width: 5rem;
   height: 5rem;
-  border-radius: 50%;
   margin-right: 2rem;
+  position: relative;
+`;
+
+const ProfileImg = styled(Image)`
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
 `;
 
 const UserEmail = styled.div`
@@ -32,14 +39,22 @@ const UserEmail = styled.div`
   line-height: 2.75rem;
 `;
 
-const FriendList = ({ data, buttonTitle }: IProps) => {
+const FriendList = ({ data, buttonTitle, buttonHandler }: IProps) => {
+  console.log(data, "11");
   return (
     <Container>
       <InfoBox>
-        <ProfileImg src={data.img} alt={`${data.email}`} />
-        <UserEmail>{data.email}</UserEmail>
+        <ProfileImgBox>
+          <ProfileImg
+            src={`http://localhost:5000/${data.profileImg}`}
+            alt={`${data.email}`}
+            fill={true}
+            sizes="(max-width: 500px) 50vw, 100vw"
+          />
+        </ProfileImgBox>
+        <UserEmail>{data.name}</UserEmail>
       </InfoBox>
-      <SettingsButton title={buttonTitle} />
+      <SettingsButton title={buttonTitle} handler={buttonHandler} />
     </Container>
   );
 };

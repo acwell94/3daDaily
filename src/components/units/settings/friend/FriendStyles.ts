@@ -23,3 +23,10 @@ export const Data = styled.div`
   height: 60rem;
   overflow: scroll;
 `;
+
+export const NotFriend = styled.div`
+  text-align: center;
+  font-size: 3rem;
+  font-weight: 700;
+  color: ${theme.colors.deepPurple};
+`;

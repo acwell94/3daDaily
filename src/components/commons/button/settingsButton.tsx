@@ -3,6 +3,7 @@ import styled from "styled-components";
 
 interface IProps {
   title: string;
+  handler?: any;
 }
 
 interface IStyleProps {
@@ -26,9 +27,9 @@ const ButtonTitle = styled.div`
   color: ${theme.colors.white};
 `;
 
-const SettingsButton = ({ title }: IProps) => {
+const SettingsButton = ({ title, handler }: IProps) => {
   return (
-    <Button title={title}>
+    <Button title={title} onClick={handler}>
       <ButtonTitle>{title}</ButtonTitle>
     </Button>
   );

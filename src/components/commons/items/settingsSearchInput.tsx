@@ -1,6 +1,7 @@
 import { flexBox } from "@src/utils/flexBox";
 import theme from "@src/utils/theme";
 import Image from "next/image";
+import { ChangeEvent } from "react";
 import styled from "styled-components";
 import SearchIcon from "../../../../public/icon/search.png";
 
@@ -33,11 +34,15 @@ const Input = styled.input`
   margin: 0;
 `;
 
-const SettingsSearchInput = () => {
+interface IProps {
+  handler: (e: ChangeEvent<HTMLInputElement>) => void;
+}
+
+const SettingsSearchInput = ({ handler }: IProps) => {
   return (
     <Container>
       <SearchImg src={SearchIcon} alt="search" />
-      <Input placeholder="이메일을 입력해 주세요." />
+      <Input placeholder="이메일을 입력해 주세요." onChange={handler} />
     </Container>
   );
 };
