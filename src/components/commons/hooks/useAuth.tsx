@@ -12,7 +12,7 @@ const useAuth = () => {
 
     if (!accessToken) {
       alert("로그인 후 이용해 주세요.");
-      router.push("/signin");
+      router.replace("/signin");
     }
     if (router.isReady) {
       const checkUser = async (access: any, refresh: any) => {
@@ -39,9 +39,10 @@ const useAuth = () => {
 
             const { token } = response.data;
             localStorage.setItem("accessToken", JSON.stringify(token));
+            router.reload();
           } catch (err) {
             alert("인증이 만료되었습니다. 다시 로그인 해주세요.");
-            router.push("/signin");
+            router.replace("/signin");
           }
         }
       };

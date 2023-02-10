@@ -42,9 +42,12 @@ const ModalTitle = styled.div`
   color: ${theme.colors.darkGray};
   font-weight: 700;
   font-size: 2rem;
+  line-height: 3rem;
   text-align: center;
   width: 100%;
-  margin-bottom: 3rem;
+  margin-bottom: 2rem;
+  white-space: pre-wrap;
+  word-break: keep-all;
 `;
 
 const ConfirmModal = ({ title, isVisible, handler, buttonTitle }: IProps) => {

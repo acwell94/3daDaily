@@ -72,6 +72,7 @@ const ProfilePresenter = ({
                 alt="유저 프로필"
                 onClick={pickImageHandler}
                 fill={true}
+                sizes="(max-width: 500px) 50vw, 100vw"
               />
             </S.ImageBox>
           ) : (
@@ -81,6 +82,7 @@ const ProfilePresenter = ({
                 alt="기본 프로필"
                 onClick={pickImageHandler}
                 fill={true}
+                sizes="(max-width: 500px) 50vw, 100vw"
               />
             </S.ImageBox>
           )}

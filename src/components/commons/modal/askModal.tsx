@@ -44,6 +44,7 @@ const ModalTitle = styled.div<IStyleProps>`
   text-align: center;
   width: 100%;
   margin-bottom: ${(props) => (props.warning ? "1rem" : "2rem")};
+  word-break: keep-all;
 `;
 
 const ModalWarning = styled.div`

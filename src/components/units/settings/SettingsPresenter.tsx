@@ -7,33 +7,57 @@ import Profile from "../../../../public/icon/settingProfile.png";
 import Friend from "../../../../public/icon/settingFriend.png";
 import Password from "../../../../public/icon/settingPassword.png";
 import LogoutImg from "../../../../public/icon/logoutImg.png";
+import WithDrawerImg from "../../../../public/icon/withDrawer.png";
 import useLink from "@src/components/commons/hooks/useLink";
 import AskModal from "@src/components/commons/modal/askModal";
-
+import ConfirmModal from "@src/components/commons/modal/confirmModal";
 interface IProps {
   userData: {
     userId: string;
     email: string;
     name: string;
   };
-  askModalVisible: boolean;
-  modalHandler: () => void;
+  logoutAskModalVisible: boolean;
+  logoutModalHandler: () => void;
   logoutHandler: () => void;
+  withDrawAskModalVisible: boolean;
+  withDrawAskModalHandler: () => void;
+  withDrawConfirmModalVisible: boolean;
+  withDrawConfirmModalHandler: () => void;
+  withDrawUserHandler: () => void;
 }
 
 const SettingsPresenter = ({
   userData,
-  askModalVisible,
-  modalHandler,
+  logoutAskModalVisible,
+  logoutModalHandler,
   logoutHandler,
+  withDrawAskModalVisible,
+  withDrawAskModalHandler,
+  withDrawConfirmModalVisible,
+  withDrawConfirmModalHandler,
+  withDrawUserHandler,
 }: IProps) => {
   return (
     <>
       <AskModal
-        isVisible={askModalVisible}
+        isVisible={logoutAskModalVisible}
         title="로그아웃 하시겠습니까?"
-        cancelHandler={modalHandler}
+        cancelHandler={logoutModalHandler}
         successHandler={logoutHandler}
+      />
+      <AskModal
+        isVisible={withDrawAskModalVisible}
+        title="정말로 삼다일기를 탈퇴하시겠습니까?"
+        warning="작성된 모든 글이 사라집니다."
+        cancelHandler={withDrawAskModalHandler}
+        successHandler={withDrawUserHandler}
+      />
+      <ConfirmModal
+        isVisible={withDrawConfirmModalVisible}
+        title="삼다일기를 이용해 주셔서 감사합니다."
+        handler={withDrawConfirmModalHandler}
+        buttonTitle="확인"
       />
       <LogoMain>
         <LogoMainBox>
@@ -57,8 +81,11 @@ const SettingsPresenter = ({
           >
             비밀번호 재설정
           </SettingsBox>
-          <SettingsBox src={LogoutImg} handler={modalHandler}>
+          <SettingsBox src={LogoutImg} handler={logoutModalHandler}>
             로그아웃
+          </SettingsBox>
+          <SettingsBox src={WithDrawerImg} handler={withDrawAskModalHandler}>
+            회원탈퇴
           </SettingsBox>
         </LogoMainBox>
       </LogoMain>

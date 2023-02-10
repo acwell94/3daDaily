@@ -59,7 +59,7 @@ const SignInContainer = () => {
         accessToken: data.token,
         refreshToken: data.refreshToken,
       });
-      router.push(`/mypage/${data.userId}`);
+      router.replace(`/mypage/${data.userId}`);
     } catch (error: any) {
       setErrorMsg(error.response?.data?.message);
       errorModalHandler();
