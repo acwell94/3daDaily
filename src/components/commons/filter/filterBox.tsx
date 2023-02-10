@@ -102,6 +102,7 @@ const OptionImgBox = styled.div`
   height: 3rem;
   margin-right: 3rem;
   position: relative;
+  cursor: pointer;
 `;
 
 const OptionImg = styled(Image)`
@@ -111,9 +112,10 @@ const OptionImg = styled(Image)`
 
 interface IProps {
   count: number;
+  getSortedContents: (category: string, sort: string) => void;
 }
 
-const FilterBox = ({ count }: IProps) => {
+const FilterBox = ({ count, getSortedContents }: IProps) => {
   const [optionOpen, setOptionOpen] = useState(false);
   const optionOpenHandler = () => {
     setOptionOpen((prev) => !prev);
@@ -144,7 +146,12 @@ const FilterBox = ({ count }: IProps) => {
           </OptionLeftBox>
           <OptionRightBox>
             {Feeling.map((el) => (
-              <OptionImgBox key={el.id}>
+              <OptionImgBox
+                key={el.id}
+                onClick={() => {
+                  getSortedContents("feeling", String(el.id));
+                }}
+              >
                 <OptionImg
                   src={el.img}
                   alt={el.title}
@@ -161,7 +168,12 @@ const FilterBox = ({ count }: IProps) => {
           </OptionLeftBox>
           <OptionRightBox>
             {Weather.map((el) => (
-              <OptionImgBox key={el.id}>
+              <OptionImgBox
+                key={el.id}
+                onClick={() => {
+                  getSortedContents("weather", String(el.id));
+                }}
+              >
                 <OptionImg
                   src={el.img}
                   alt={el.title}
@@ -178,7 +190,12 @@ const FilterBox = ({ count }: IProps) => {
           </OptionLeftBox>
           <OptionRightBox>
             {WithWhom.map((el) => (
-              <OptionImgBox key={el.id}>
+              <OptionImgBox
+                key={el.id}
+                onClick={() => {
+                  getSortedContents("withWhom", String(el.id));
+                }}
+              >
                 <OptionImg
                   src={el.img}
                   alt={el.title}

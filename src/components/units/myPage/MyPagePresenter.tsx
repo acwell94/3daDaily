@@ -45,12 +45,14 @@ interface IProps {
         ];
       }
     | undefined;
+  getSortedContents: (category: string, sort: string) => void;
 }
 
 const MyPagePresenter = ({
   isChatBotVisible,
   chatBotHandler,
   storyData,
+  getSortedContents,
 }: IProps) => {
   return (
     <S.LogoMain>
@@ -102,7 +104,10 @@ const MyPagePresenter = ({
             <WriteButton handler={useLink("/write")} />
           </>
         </S.InfoBox>
-        <FilterBox count={storyData?.story ? storyData.story.length : 0} />
+        <FilterBox
+          count={storyData?.story ? storyData.story.length : 0}
+          getSortedContents={getSortedContents}
+        />
         {storyData?.story.length ? (
           <S.FeedBox>
             {storyData?.story.map((el) => (

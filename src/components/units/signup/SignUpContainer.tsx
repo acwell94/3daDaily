@@ -3,7 +3,7 @@ import * as yup from "yup";
 import { useForm } from "react-hook-form";
 import SignUpPresenter from "./SignUpPresenter";
 import { yupResolver } from "@hookform/resolvers/yup";
-import { useRef } from "react";
+import { useRef, useState } from "react";
 
 import useFileUpload from "@src/components/commons/hooks/useFileUpload";
 import fileUploadDefault from "../../../../public/icon/profileForm.png";
@@ -44,6 +44,9 @@ interface FormValue {
 }
 const SignUpContainer = () => {
   const router = useRouter();
+  const [errorConfirmModalVisible, setErrorConfirmModalVisible] =
+    useState(false);
+  const [errorText, setErrorText] = useState("");
   const { register, handleSubmit, formState } = useForm<FormValue>({
     resolver: yupResolver(schema),
     mode: "onChange",
@@ -60,11 +63,14 @@ const SignUpContainer = () => {
     filePickerRef.current.click();
   };
 
+  const errorConfirmModalHandler = () => {
+    setErrorConfirmModalVisible((prev) => !prev);
+  };
+
   const signUpHandler = async (form: FormValue) => {
-    console.log(form, "form");
-    console.log(file);
     if (!file) {
-      console.log("파일이 없네요");
+      setErrorText("프로필을 등록해 주세요.");
+      setErrorConfirmModalVisible((prev) => !prev);
       return;
     }
     try {
@@ -107,8 +113,9 @@ const SignUpContainer = () => {
         });
         router.push(`/mypage/${data.userId}`);
       }
-    } catch (err) {
-      console.log(err);
+    } catch (err: any) {
+      setErrorText(err.response.data.message);
+      setErrorConfirmModalVisible((prev) => !prev);
     }
   };
 
@@ -122,6 +129,9 @@ const SignUpContainer = () => {
       previewFile={previewFile}
       pickedHandler={pickedHandler}
       pickImageHandler={pickImageHandler}
+      errorConfirmModalVisible={errorConfirmModalVisible}
+      errorText={errorText}
+      errorConfirmModalHandler={errorConfirmModalHandler}
     />
   );
 };
