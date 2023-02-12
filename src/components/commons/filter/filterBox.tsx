@@ -1,6 +1,7 @@
 "use client";
 
 import { Feeling, Weather, WithWhom } from "@src/constants/contents";
+import { breakPoints } from "@src/styles/media";
 import { flexBox } from "@src/utils/flexBox";
 import theme from "@src/utils/theme";
 import Image from "next/image";
@@ -17,25 +18,47 @@ const FilterContainer = styled.div`
   background-color: ${theme.colors.white};
   border-radius: 8px;
   padding: 3rem 14rem;
+  @media ${breakPoints.mobileWidth} {
+    padding: 3rem 7rem;
+  }
+  @media ${breakPoints.mobileHeight} {
+    padding: 3rem 5rem;
+  }
   margin-bottom: 4rem;
   box-shadow: 0 0.4rem 0.4rem 0.4rem rgba(97, 100, 187, 0.1);
 `;
 
 const Filter = styled.div`
   ${flexBox("row", "start", "center")}
+  @media ${breakPoints.smallScreen} {
+    ${flexBox("col", "start", "center")}
+  }
   width: 100%;
 `;
 
 const LeftBox = styled.div`
   ${flexBox("col", "center", "center")}
+
   margin-right: 6rem;
+  @media ${breakPoints.mobileWidth} {
+    margin-right: 4rem;
+  }
+  @media ${breakPoints.mobileHeight} {
+    margin-right: 2rem;
+  }
   border-right: 1px solid ${theme.colors.gray};
+  @media ${breakPoints.smallScreen} {
+    border: none;
+    margin: 0;
+    margin-bottom: 2rem;
+  }
   flex: 2;
 `;
 
 const LogoText = styled.div`
   font-size: 2rem;
   font-weight: 400;
+  margin-bottom: 1rem;
   color: ${theme.colors.middleGray};
 `;
 
@@ -49,8 +72,19 @@ const RightBox = styled.div`
   ${flexBox("row", "between")}
   font-weight: 500;
   font-size: 2rem;
+  word-break: keep-all;
   line-height: 2.5rem;
   flex: 8;
+  @media ${breakPoints.mobileWidth} {
+    font-size: 1rem;
+  }
+  @media ${breakPoints.mobileHeight} {
+    font-size: 1rem;
+  }
+  @media ${breakPoints.smallScreen} {
+    ${flexBox("col", "center", "center")}
+    text-align: center;
+  }
 `;
 
 const DownArrowBox = styled.div<IStyleProps>`
@@ -60,6 +94,16 @@ const DownArrowBox = styled.div<IStyleProps>`
   transform: ${(props) => (props.open ? "rotate(180deg)" : "")};
   cursor: pointer;
   position: relative;
+  @media ${breakPoints.mobileWidth} {
+    margin-left: 4rem;
+  }
+  @media ${breakPoints.mobileHeight} {
+    margin-left: 2rem;
+  }
+  @media ${breakPoints.smallScreen} {
+    margin: 0;
+    margin-top: 1rem;
+  }
 `;
 
 const DownArrow = styled(Image)`
@@ -72,19 +116,36 @@ const OptionBox = styled.div<IStyleProps>`
   display: ${(props) => (props.open ? "flex" : "none")};
   width: 100%;
   margin-top: 3rem;
+  @media ${breakPoints.smallScreen} {
+    margin-top: 1rem;
+  }
 `;
 
 const Option = styled.div`
   ${flexBox("row", "start", "center")}
   width: 100%;
+  @media ${breakPoints.smallScreen} {
+    ${flexBox("col", "start", "center")}
+    margin-bottom: 1rem;
+  }
 `;
 
 const OptionLeftBox = styled.div`
   ${flexBox("col", "center", "center")}
   margin-right: 6rem;
   border-right: 1px solid ${theme.colors.gray};
-  flex: 2;
+  width: 20%;
   height: 6.6rem;
+  @media ${breakPoints.mobileWidth} {
+    margin-right: 4rem;
+  }
+  @media ${breakPoints.mobileHeight} {
+    margin-right: 2rem;
+  }
+  @media ${breakPoints.smallScreen} {
+    border: none;
+    margin: 0;
+  }
 `;
 
 const OptionFilterTitle = styled.div`
@@ -92,9 +153,14 @@ const OptionFilterTitle = styled.div`
   font-size: 1.6rem;
 `;
 
+const OptionRightBoxLimit = styled.div`
+  display: flex;
+`;
+
 const OptionRightBox = styled.div`
-  ${flexBox("row")}
-  flex: 8;
+  ${flexBox("row", "start", "center")}
+  overflow: scroll;
+  width: 80%;
 `;
 
 const OptionImgBox = styled.div`
@@ -145,21 +211,23 @@ const FilterBox = ({ count, getSortedContents }: IProps) => {
             <OptionFilterTitle>기분</OptionFilterTitle>
           </OptionLeftBox>
           <OptionRightBox>
-            {Feeling.map((el) => (
-              <OptionImgBox
-                key={el.id}
-                onClick={() => {
-                  getSortedContents("feeling", String(el.id));
-                }}
-              >
-                <OptionImg
-                  src={el.img}
-                  alt={el.title}
-                  fill={true}
-                  sizes="(max-width: 500px) 50vw, 100vw"
-                />
-              </OptionImgBox>
-            ))}
+            <OptionRightBoxLimit>
+              {Feeling.map((el) => (
+                <OptionImgBox
+                  key={el.id}
+                  onClick={() => {
+                    getSortedContents("feeling", String(el.id));
+                  }}
+                >
+                  <OptionImg
+                    src={el.img}
+                    alt={el.title}
+                    fill={true}
+                    sizes="(max-width: 500px) 50vw, 100vw"
+                  />
+                </OptionImgBox>
+              ))}
+            </OptionRightBoxLimit>
           </OptionRightBox>
         </Option>
         <Option>
@@ -167,21 +235,23 @@ const FilterBox = ({ count, getSortedContents }: IProps) => {
             <OptionFilterTitle>날씨</OptionFilterTitle>
           </OptionLeftBox>
           <OptionRightBox>
-            {Weather.map((el) => (
-              <OptionImgBox
-                key={el.id}
-                onClick={() => {
-                  getSortedContents("weather", String(el.id));
-                }}
-              >
-                <OptionImg
-                  src={el.img}
-                  alt={el.title}
-                  fill={true}
-                  sizes="(max-width: 500px) 50vw, 100vw"
-                />
-              </OptionImgBox>
-            ))}
+            <OptionRightBoxLimit>
+              {Weather.map((el) => (
+                <OptionImgBox
+                  key={el.id}
+                  onClick={() => {
+                    getSortedContents("weather", String(el.id));
+                  }}
+                >
+                  <OptionImg
+                    src={el.img}
+                    alt={el.title}
+                    fill={true}
+                    sizes="(max-width: 500px) 50vw, 100vw"
+                  />
+                </OptionImgBox>
+              ))}
+            </OptionRightBoxLimit>
           </OptionRightBox>
         </Option>
         <Option>
@@ -189,21 +259,23 @@ const FilterBox = ({ count, getSortedContents }: IProps) => {
             <OptionFilterTitle>누구와</OptionFilterTitle>
           </OptionLeftBox>
           <OptionRightBox>
-            {WithWhom.map((el) => (
-              <OptionImgBox
-                key={el.id}
-                onClick={() => {
-                  getSortedContents("withWhom", String(el.id));
-                }}
-              >
-                <OptionImg
-                  src={el.img}
-                  alt={el.title}
-                  fill={true}
-                  sizes="(max-width: 500px) 50vw, 100vw"
-                />
-              </OptionImgBox>
-            ))}
+            <OptionRightBoxLimit>
+              {WithWhom.map((el) => (
+                <OptionImgBox
+                  key={el.id}
+                  onClick={() => {
+                    getSortedContents("withWhom", String(el.id));
+                  }}
+                >
+                  <OptionImg
+                    src={el.img}
+                    alt={el.title}
+                    fill={true}
+                    sizes="(max-width: 500px) 50vw, 100vw"
+                  />
+                </OptionImgBox>
+              ))}
+            </OptionRightBoxLimit>
           </OptionRightBox>
         </Option>
       </OptionBox>

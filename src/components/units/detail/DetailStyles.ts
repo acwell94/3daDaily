@@ -1,3 +1,4 @@
+import { breakPoints } from "@src/styles/media";
 import { flexBox } from "@src/utils/flexBox";
 import theme from "@src/utils/theme";
 import Image from "next/image";
@@ -5,10 +6,16 @@ import styled from "styled-components";
 
 export const MainContainer = styled.div`
   ${flexBox("col", "start", "center")}
-
   background-color: ${theme.colors.ashBlue};
   height: 100vh;
   position: relative;
+  @media ${breakPoints.mobileHeight} {
+    ${flexBox("col", "center", "center")}
+  }
+  @media ${breakPoints.smallScreen} {
+    ${flexBox("col", "center", "center")}
+    padding: 0 4rem;
+  }
 `;
 
 export const MainPage = styled.div`
@@ -16,11 +23,23 @@ export const MainPage = styled.div`
   padding: 10rem 0;
   width: 80rem;
   height: 100%;
+  @media ${breakPoints.mobileWidth} {
+    width: 80rem;
+    height: 80%;
+  }
+  @media ${breakPoints.mobileHeight} {
+    width: 80rem;
+    height: 80%;
+  }
+  @media ${breakPoints.smallScreen} {
+    width: 100%;
+    height: 80%;
+  }
 `;
 
 export const DetailLightTitle = styled.div`
   ${flexBox("row")}
-  font-size: 4rem;
+  font-size: 5rem;
   font-weight: 400;
   line-height: 5rem;
   color: ${theme.colors.darkGray};
@@ -28,7 +47,7 @@ export const DetailLightTitle = styled.div`
 `;
 
 export const DetailBoldTitle = styled.div`
-  font-size: 4rem;
+  font-size: 5rem;
   font-weight: 700;
   line-height: 5rem;
   color: ${theme.colors.darkPurple};
@@ -56,17 +75,17 @@ export const DetailImg = styled(Image)`
 `;
 
 export const DetailContents = styled.div`
-  ${flexBox("col", "center", "center")}
+  ${flexBox("col", "between", "start")}
   width: 100%;
   height: 50%;
   padding: 4rem;
+  overflow: auto;
 `;
 
 export const ContentsTitle = styled.div`
   font-size: 3rem;
   font-weight: 700;
   line-height: 3.8rem;
-  padding-top: 3rem;
   margin-bottom: 1rem;
 `;
 
@@ -99,6 +118,7 @@ export const ContentsText = styled.div`
   font-size: 1.6rem;
   font-weight: 400;
   line-height: 2.4rem;
+  margin-bottom: 2rem;
   color: ${theme.colors.darkGray};
 `;
 
@@ -108,6 +128,7 @@ export const ContentsTextLast = styled(ContentsText)`
 
 export const ContentsAddressBox = styled.div`
   ${flexBox("row", "center", "center")}
+  width: 100%;
 `;
 
 export const AddressPinImgBox = styled.div`
@@ -125,8 +146,9 @@ export const AddressPin = styled(Image)`
 export const ContentsAddress = styled.div`
   font-size: 1.2rem;
   font-weight: 400;
-  line-height: 1.5rem;
   color: ${theme.colors.sliverGray};
+  line-height: 2rem;
+  word-break: keep-all;
 `;
 
 export const ButtonBox = styled.div`

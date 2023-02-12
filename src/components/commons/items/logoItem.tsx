@@ -4,11 +4,20 @@ import styled from "styled-components";
 import useLink from "../hooks/useLink";
 import TitleLogo from "../../../../public/titleLogo.png";
 import { memo, useEffect, useState } from "react";
+import { breakPoints } from "@src/styles/media";
 const LogoBox = styled.div`
   padding-top: 5rem;
   position: relative;
   width: 30rem;
   margin-bottom: 5rem;
+  @media ${breakPoints.mobileWidth} {
+    padding-top: 3rem;
+    margin-bottom: 3rem;
+  }
+  @media ${breakPoints.mobileHeight} {
+    padding-top: 2rem;
+    margin-bottom: 2rem;
+  }
   cursor: pointer;
 `;
 

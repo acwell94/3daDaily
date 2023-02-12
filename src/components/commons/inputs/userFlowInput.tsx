@@ -1,4 +1,5 @@
 "use client";
+import { breakPoints } from "@src/styles/media";
 import theme from "@src/utils/theme";
 import { ChangeEvent } from "react";
 import styled from "styled-components";
@@ -19,15 +20,33 @@ const InputBox = styled.div<IProps>`
 
 const Input = styled.input`
   width: 60rem;
+  @media ${breakPoints.mobileWidth} {
+    width: 100%;
+  }
+  @media ${breakPoints.mobileHeight} {
+    width: 100%;
+  }
   border: 1px solid #999999;
   border-radius: 8px;
   padding: 2rem 3rem;
   font-size: 2rem;
+  @media ${breakPoints.mobileWidth} {
+    font-size: 1rem;
+  }
+  @media ${breakPoints.mobileHeight} {
+    font-size: 1rem;
+  }
   font-weight: 600;
   margin-bottom: 1rem;
 
   ::placeholder {
     color: ${theme.colors.blackGray};
+    @media ${breakPoints.mobileWidth} {
+      font-size: 1rem;
+    }
+    @media ${breakPoints.mobileHeight} {
+      font-size: 1rem;
+    }
   }
 `;
 const Error = styled.div<IProps>`

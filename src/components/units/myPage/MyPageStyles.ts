@@ -3,11 +3,22 @@ import styled from "styled-components";
 import Image from "next/image";
 import { flexBox } from "@src/utils/flexBox";
 import theme from "@src/utils/theme";
+import { breakPoints } from "@src/styles/media";
 
 export const LogoMain = styled.div`
   ${flexBox("col", "start", "center")}
   padding: 10rem 20rem 0 20rem;
+  @media ${breakPoints.mobileWidth} {
+    padding: 10rem 10rem 0 10rem;
+  }
+  @media ${breakPoints.mobileHeight} {
+    padding: 10rem 10rem 0 10rem;
+  }
+  @media ${breakPoints.smallScreen} {
+    padding: 5rem 6rem 0 6rem;
+  }
   background-color: ${theme.colors.ashBlue};
+
   height: 100vh;
   position: relative;
   overflow-y: scroll;
@@ -22,6 +33,7 @@ export const SideButtonBox = styled.div`
   position: absolute;
   right: 2%;
   bottom: 2%;
+  z-index: 2;
 `;
 
 export const BotVisibleButton = styled.div`
@@ -64,16 +76,29 @@ export const SettingProfileBox = styled.div`
 export const SettingText = styled.div`
   font-size: 1.2rem;
   color: ${theme.colors.white};
+  @media ${breakPoints.mobileWidth} {
+    display: none;
+  }
+  @media ${breakPoints.mobileHeight} {
+    display: none;
+  }
 `;
 
 export const InfoBox = styled.div`
   ${flexBox("row", "between", "center")}
+  @media all and (max-width: 400px) {
+    ${flexBox("col", "center", "center")}
+  }
   margin-bottom: 4rem;
   width: 98%;
 `;
 
 export const UserBox = styled.div`
   ${flexBox("row", "center", "center")}
+  @media ${breakPoints.smallScreen} {
+    ${flexBox("col", "center", "center")}
+    margin-bottom: 2rem;
+  }
 `;
 
 export const ProfileImgBox = styled.div`
@@ -81,6 +106,12 @@ export const ProfileImgBox = styled.div`
   height: 5rem;
   margin-right: 1rem;
   position: relative;
+  @media ${breakPoints.smallScreen} {
+    width: 7rem;
+    height: 7rem;
+    margin: 0;
+    margin-bottom: 2rem;
+  }
 `;
 
 export const Profile = styled(Image)`
@@ -92,6 +123,13 @@ export const Profile = styled(Image)`
 export const UserInfoText = styled.div`
   ${flexBox("row", "center", "center")}
   font-size: 3rem;
+  @media ${breakPoints.smallScreen} {
+    ${flexBox("col", "center", "center")}
+  }
+`;
+
+export const UserNameBox = styled.div`
+  ${flexBox("row")}
 `;
 
 export const UserName = styled.div`
@@ -105,6 +143,13 @@ export const FeedBox = styled.div`
   justify-content: space-between;
   grid-row-gap: 4rem;
   width: 98%;
+
+  @media ${breakPoints.mobileHeight} {
+    grid-template-columns: 45% 45%;
+  }
+  @media ${breakPoints.smallScreen} {
+    ${flexBox("col", "center", "center")}
+  }
 `;
 
 export const NoneDailyBox = styled.div`

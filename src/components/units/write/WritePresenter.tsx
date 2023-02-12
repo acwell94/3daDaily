@@ -8,7 +8,7 @@ import WriteWhat from "@src/components/commons/items/writeWhat";
 import WriteWhere from "@src/components/commons/items/writeWhere";
 import {
   WriteMain,
-  LogoMainBox,
+  WriteMainBox,
 } from "@src/components/commons/styles/commonStyles";
 import {
   Feeling,
@@ -89,7 +89,7 @@ const WritePresenter = ({
 }: IProps) => {
   return (
     <WriteMain>
-      <LogoMainBox>
+      <WriteMainBox>
         <WriteDate
           ref={dateRef}
           currentDate={currentData.date}
@@ -168,7 +168,7 @@ const WritePresenter = ({
           changeHandler={changeDailyHandler}
           editContentsHandler={editContentsHandler}
         />
-      </LogoMainBox>
+      </WriteMainBox>
     </WriteMain>
   );
 };

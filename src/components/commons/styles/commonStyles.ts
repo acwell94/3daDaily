@@ -1,4 +1,5 @@
 "use client";
+import { breakPoints } from "@src/styles/media";
 import { flexBox } from "@src/utils/flexBox";
 import theme from "@src/utils/theme";
 import Image from "next/image";
@@ -15,6 +16,12 @@ export const CommonMain = styled.div`
 export const CommonMainBox = styled.div`
   ${flexBox("col", "center", "center")}
   padding: 8rem 20rem;
+  @media ${breakPoints.mobileWidth} {
+    padding: 8rem 10rem;
+  }
+  @media ${breakPoints.mobileHeight} {
+    padding: 8rem 8rem;
+  }
   background-color: ${theme.colors.white};
   box-shadow: 0px 0px 2rem rgba(97, 100, 187, 0.3);
   border-radius: 16px;
@@ -31,7 +38,15 @@ export const LogoMain = styled.div`
 export const LogoMainBox = styled.div`
   ${flexBox("col", "start", "center")}
   width: 100%;
+
   max-width: 124rem;
+  @media ${breakPoints.mobileWidth} {
+    max-width: 100%;
+  }
+  @media ${breakPoints.mobileHeight} {
+    max-width: 100%;
+  }
+
   overflow-y: scroll;
 `;
 
@@ -42,10 +57,24 @@ export const WriteMain = styled.div`
   overflow-y: scroll;
 `;
 
+export const WriteMainBox = styled.div`
+  ${flexBox("col", "start", "center")}
+  width: 100%;
+  max-width: 124rem;
+  @media ${breakPoints.mobileWidth} {
+    width: 100%;
+  }
+  @media ${breakPoints.mobileHeight} {
+    width: 100%;
+  }
+
+  overflow-y: scroll;
+`;
+
 // 글쓰기 컴포넌트 용
 
 export const WriteContainer = styled.div`
-  ${flexBox("col", "start", "center")}
+  ${flexBox("col", "center", "center")}
   width: 100%;
   height: 100vh;
 `;
@@ -59,7 +88,7 @@ export const WriteTitle = styled.div`
 `;
 
 export const WritePickBox = styled.div`
-  ${flexBox("col", "start", "center")}
+  ${flexBox("col", "center", "between")}
   background-color: ${theme.colors.white};
   box-shadow: 0px 0px 1rem rgba(97, 100, 187, 0.3);
   border-radius: 8px;
@@ -67,14 +96,26 @@ export const WritePickBox = styled.div`
   width: 98%;
   height: 100%;
   max-height: 50rem;
+  @media ${breakPoints.mobileHeight} {
+    padding: 3rem 10rem;
+  }
+  @media ${breakPoints.smallScreen} {
+    padding: 3rem 10rem;
+  }
 `;
 
 export const WriteImgBox = styled.div`
   display: grid;
   justify-content: space-between;
   grid-template-columns: 25% 25% 25% 25%;
+  grid-row-gap: 5rem;
   width: 100%;
-  height: 100%;
+  @media ${breakPoints.mobileHeight} {
+    grid-template-columns: 20% 20% 20% 20%;
+  }
+  @media ${breakPoints.smallScreen} {
+    grid-template-columns: 20% 20% 20% 20%;
+  }
 `;
 
 interface IStyle {
@@ -86,6 +127,7 @@ export const WriteItem = styled.div<IStyle>`
   cursor: pointer;
   box-shadow: ${(props) =>
     props.current ? `0px 0px 1rem rgba(97, 100, 187, 0.3)` : null};
+  padding: 1rem 0;
 `;
 
 export const WriteImgLimit = styled.div`
@@ -93,6 +135,14 @@ export const WriteImgLimit = styled.div`
   height: 10rem;
   margin-bottom: 2rem;
   position: relative;
+  @media ${breakPoints.mobileHeight} {
+    width: 8rem;
+    height: 8rem;
+  }
+  @media ${breakPoints.smallScreen} {
+    width: 7rem;
+    height: 7rem;
+  }
 `;
 
 export const WriteImg = styled(Image)`
@@ -104,4 +154,6 @@ export const WriteImgTitle = styled.div`
   font-size: 2rem;
   color: ${theme.colors.mainPurple};
   font-weight: 700;
+  word-break: keep-all;
+  text-align: center;
 `;

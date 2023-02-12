@@ -1,7 +1,9 @@
 import LogoItem from "@src/components/commons/items/logoItem";
-import { LogoMainBox } from "@src/components/commons/styles/commonStyles";
+import {
+  LogoMain,
+  LogoMainBox,
+} from "@src/components/commons/styles/commonStyles";
 import SettingsTitle from "@src/components/commons/title/settingsTitle";
-import { LogoMain } from "../../myPage/MyPageStyles";
 import * as S from "./ProfileStyles";
 
 import SettingsProfileChangeInput from "@src/components/commons/items/settingsProfileChangeInput";

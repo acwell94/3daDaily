@@ -13,6 +13,7 @@ import usePlacesAutocomplete, {
   getGeocode,
   getLatLng,
 } from "use-places-autocomplete";
+import { breakPoints } from "@src/styles/media";
 
 // import type { NextPage } from "next";
 
@@ -36,6 +37,15 @@ const WritePickBox = styled.div`
   width: 98%;
   height: 100%;
   max-height: 60rem;
+  @media ${breakPoints.mobileHeight} {
+    max-height: 100rem;
+  }
+  @media ${breakPoints.smallScreen} {
+    max-height: 100rem;
+  }
+  @media ${breakPoints.foldScreen} {
+    max-height: 100rem;
+  }
 `;
 
 const MapBox = styled.div`
@@ -45,14 +55,38 @@ const MapBox = styled.div`
   padding: 2rem;
   border-radius: 6px;
   background-color: ${theme.colors.lightPurple};
+  @media ${breakPoints.mobileHeight} {
+    ${flexBox("col", "between", "center")}
+  }
+  @media ${breakPoints.smallScreen} {
+    ${flexBox("col", "between", "center")}
+  }
+  @media ${breakPoints.foldScreen} {
+    ${flexBox("col", "between", "center")}
+  }
 `;
 
 const SearchBox = styled.div`
-  /* width: 30%; */
-  flex: 1;
+  width: 30%;
   height: 100%;
   margin-right: 2rem;
   ${flexBox("row")}
+  @media ${breakPoints.mobileHeight} {
+    width: 100%;
+    height: 30%;
+    margin: 0;
+    margin-bottom: 2rem;
+  }
+`;
+
+const GoogleMapBox = styled.div`
+  position: relative;
+  width: 70%;
+  height: 100%;
+  @media ${breakPoints.mobileHeight} {
+    width: 100%;
+    height: 70%;
+  }
 `;
 
 const SearchInputBox = styled.div`
@@ -73,6 +107,9 @@ const SearchInput = styled.input`
     padding-left: 0.2rem;
     color: ${theme.colors.blackGray};
   }
+  @media ${breakPoints.mobileHeight} {
+    height: 20%;
+  }
 `;
 
 const SearchedDataBox = styled.div`
@@ -80,6 +117,10 @@ const SearchedDataBox = styled.div`
   padding: 2rem 1rem;
   border-radius: 6px;
   height: calc(90% - 2rem);
+  overflow: auto;
+  @media ${breakPoints.mobileHeight} {
+    height: calc(80% - 2rem);
+  }
 `;
 
 const SearchedData = styled.div`
@@ -91,6 +132,9 @@ const SearchedData = styled.div`
   cursor: pointer;
   &:hover {
     background-color: ${theme.colors.ashBlue};
+  }
+  @media ${breakPoints.mobileHeight} {
+    line-height: 3rem;
   }
 `;
 
@@ -156,28 +200,30 @@ const WriteWhere = (
               }}
             />
           </SearchBox>
-          <GoogleMap
-            options={mapOptions}
-            zoom={17}
-            center={mapCenter}
-            mapTypeId={google.maps.MapTypeId.ROADMAP}
-            mapContainerStyle={{
-              flex: 1.2,
-              height: "100%",
-              borderRadius: "8px",
-              position: "relative",
-            }}
-            onLoad={() => {
-              console.log("map");
-            }}
-          >
-            <MarkerF
-              position={mapCenter}
+          <GoogleMapBox>
+            <GoogleMap
+              options={mapOptions}
+              zoom={17}
+              center={mapCenter}
+              mapTypeId={google.maps.MapTypeId.ROADMAP}
+              mapContainerStyle={{
+                width: "100%",
+                height: "100%",
+                borderRadius: "8px",
+                position: "relative",
+              }}
               onLoad={() => {
                 console.log("map");
               }}
-            />
-          </GoogleMap>
+            >
+              <MarkerF
+                position={mapCenter}
+                onLoad={() => {
+                  console.log("map");
+                }}
+              />
+            </GoogleMap>
+          </GoogleMapBox>
         </MapBox>
       </WritePickBox>
       <WriteCtrButton

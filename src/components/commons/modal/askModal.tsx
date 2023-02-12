@@ -29,10 +29,8 @@ const Container = styled.div<IStyleProps>`
 
 const Modal = styled.div`
   ${flexBox("col", "center", "center")}
-  width: 100%;
-  max-width: 340px;
-  max-height: 240px;
-  padding: 4rem 3rem;
+  max-width: 50rem;
+  padding: 4rem 5rem;
   background-color: ${theme.colors.white};
   border-radius: 16px;
 `;
@@ -40,18 +38,19 @@ const Modal = styled.div`
 const ModalTitle = styled.div<IStyleProps>`
   color: ${theme.colors.darkGray};
   font-weight: 700;
-  font-size: 2rem;
+  font-size: 2.5rem;
   text-align: center;
   width: 100%;
-  margin-bottom: ${(props) => (props.warning ? "1rem" : "2rem")};
+  margin-bottom: ${(props) => (props.warning ? "1.5rem" : "4rem")};
   word-break: keep-all;
 `;
 
 const ModalWarning = styled.div`
   font-weight: 400;
-  font-size: 1.4rem;
+  font-size: 1.8rem;
   line-height: 1.8rem;
-  margin-bottom: 2rem;
+  margin-bottom: 4rem;
+  color: ${theme.colors.inputBorder};
 `;
 
 const ModalButtonBox = styled.div`

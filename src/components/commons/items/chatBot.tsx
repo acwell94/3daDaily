@@ -9,6 +9,7 @@ import Loading from "../../../../public/icon/loading.gif";
 import Image from "next/image";
 import Bot from "../../../../public/icon/botIcon.png";
 import User from "../../../../public/icon/profile.png";
+import { breakPoints } from "@src/styles/media";
 
 interface IProps {
   isVisible: boolean;
@@ -20,8 +21,15 @@ const Title = styled.div`
   width: 100%;
   margin-bottom: 2rem;
   font-size: 2rem;
+  @media ${breakPoints.mobileWidth} {
+    font-size: 1rem;
+  }
+  @media ${breakPoints.mobileHeight} {
+    font-size: 1rem;
+  }
   font-weight: 700;
   color: ${theme.colors.darkGray};
+  word-break: keep-all;
 `;
 
 const Main = styled.div<IProps>`
@@ -29,6 +37,18 @@ const Main = styled.div<IProps>`
   display: ${(props) => (props.isVisible ? "flex" : "none")};
   width: 25%;
   height: 70%;
+  @media ${breakPoints.tablet} {
+    width: 40%;
+    height: 30%;
+  }
+  @media ${breakPoints.mobileWidth} {
+    width: 40%;
+    height: 50%;
+  }
+  @media ${breakPoints.mobileHeight} {
+    width: 40%;
+    height: 40%;
+  }
   padding: 3rem;
   background-color: ${theme.colors.lightPurple};
   border-radius: 16px;

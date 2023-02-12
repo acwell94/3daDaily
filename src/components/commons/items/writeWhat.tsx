@@ -7,6 +7,7 @@ import theme from "@src/utils/theme";
 import WriteCtrButton from "../button/writeCtrButton";
 import Image from "next/image";
 import { IPickImageProps } from "@src/components/units/write/WritePresenter";
+import { breakPoints } from "@src/styles/media";
 
 interface IStyle {
   current?: boolean;
@@ -30,6 +31,12 @@ const WhatImgBox = styled.div`
   grid-row-gap: 4rem;
   width: 100%;
   overflow-y: scroll;
+  @media ${breakPoints.mobileHeight} {
+    grid-template-columns: 20% 20% 20% 20%;
+  }
+  @media ${breakPoints.smallScreen} {
+    grid-template-columns: 20% 20% 20% 20%;
+  }
 `;
 
 const WhatItem = styled.div<IStyle>`
@@ -38,6 +45,7 @@ const WhatItem = styled.div<IStyle>`
   cursor: pointer;
   box-shadow: ${(props) =>
     props.current ? `0px 0px 1rem rgba(97, 100, 187, 0.3)` : null};
+  padding: 1rem 0;
 `;
 
 const WhatImgLimit = styled.div`
@@ -45,6 +53,14 @@ const WhatImgLimit = styled.div`
   height: 9rem;
   margin-bottom: 2rem;
   position: relative;
+  @media ${breakPoints.mobileHeight} {
+    width: 8rem;
+    height: 8rem;
+  }
+  @media ${breakPoints.smallScreen} {
+    width: 7rem;
+    height: 7rem;
+  }
 `;
 
 const WhatImg = styled(Image)`
@@ -56,6 +72,8 @@ const WhatImgTitle = styled.div`
   font-size: 1.5rem;
   color: ${theme.colors.mainPurple};
   font-weight: 700;
+  word-break: keep-all;
+  text-align: center;
 `;
 
 const WriteWhat = (

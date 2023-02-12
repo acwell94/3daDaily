@@ -29,6 +29,9 @@ const MainBox = styled.div`
 `;
 
 const LogoBox = styled.div`
+  width: 50rem;
+  height: 60rem;
+  position: relative;
   margin-right: 20rem;
 `;
 
@@ -49,6 +52,8 @@ const Intro = () => {
           <Image
             src={Logo}
             alt="user profile picture"
+            sizes="(max-width: 500px) 50vw, 100vw"
+            fill={true}
             // width={500}
             // height={500}
           />

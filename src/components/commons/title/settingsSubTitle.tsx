@@ -7,7 +7,7 @@ interface IProps {
 
 const Title = styled.div`
   width: 100%;
-  height: 70px;
+  height: 7rem;
   font-size: 2.6rem;
   font-weight: 500;
   color: ${theme.colors.darkGray};

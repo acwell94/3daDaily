@@ -96,8 +96,11 @@ const MyPagePresenter = ({
               />
             </S.ProfileImgBox>
             <S.UserInfoText>
-              <S.UserName>{storyData?.user.name || "유저"}</S.UserName>님, 어떤
-              하루를 보내셨나요?
+              <S.UserNameBox>
+                <S.UserName>{storyData?.user.name || "유저"}</S.UserName>
+                <>님,</>
+              </S.UserNameBox>
+              <>어떤 하루를 보내셨나요?</>
             </S.UserInfoText>
           </S.UserBox>
           <>

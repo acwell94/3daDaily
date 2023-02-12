@@ -1,3 +1,4 @@
+import { breakPoints } from "@src/styles/media";
 import { flexBox } from "@src/utils/flexBox";
 import theme from "@src/utils/theme";
 import Image from "next/image";
@@ -38,6 +39,12 @@ const Container = styled.div`
   border-radius: 8px;
   margin-bottom: 4rem;
   cursor: pointer;
+  @media ${breakPoints.smallScreen} {
+    height: 70rem;
+  }
+  @media ${breakPoints.foldScreen} {
+    height: 40rem;
+  }
 `;
 
 const DateBox = styled.div`

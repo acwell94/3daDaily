@@ -49,8 +49,10 @@ const FileUploadImg = styled(Image)`
 `;
 
 const FileUploadTitle = styled.div`
+  text-align: center;
   font-size: 1.6rem;
   color: ${theme.colors.middleGray};
+  word-break: keep-all;
 `;
 
 const WritePicture = (

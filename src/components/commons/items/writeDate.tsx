@@ -10,6 +10,7 @@ import WriteCtrButton from "../button/writeCtrButton";
 import LogoItem from "./logoItem";
 
 import { WriteContainer, WriteTitle } from "../styles/commonStyles";
+import { breakPoints } from "@src/styles/media";
 
 interface IProps {
   currentDate: string;
@@ -26,9 +27,44 @@ const DatePickerBox = styled.div`
   width: 98%;
   height: 100%;
   max-height: 50rem;
+  @media ${breakPoints.smallPc} {
+    padding: 4rem 10rem;
+    max-height: 60rem;
+  }
+  @media ${breakPoints.tablet} {
+    padding: 4rem 10rem;
+    max-height: 60rem;
+  }
+  @media ${breakPoints.mobileWidth} {
+    padding: 4rem 10rem;
+    max-height: 60rem;
+  }
+  @media ${breakPoints.mobileHeight} {
+    padding: 4rem 10rem;
+    max-height: 70rem;
+  }
+  @media ${breakPoints.smallScreen} {
+    padding: 10rem 8rem;
+    max-height: 80rem;
+  }
   > div {
     width: 60%;
     height: 100%;
+    @media ${breakPoints.smallPc} {
+      width: 80%;
+    }
+    @media ${breakPoints.tablet} {
+      width: 80%;
+    }
+    @media ${breakPoints.mobileWidth} {
+      width: 90%;
+    }
+    @media ${breakPoints.mobileHeight} {
+      width: 90%;
+    }
+    @media ${breakPoints.smallScreen} {
+      width: 100%;
+    }
   }
   .react-datepicker {
     width: 100%;
@@ -42,22 +78,51 @@ const DatePickerBox = styled.div`
   .react-datepicker__header {
     ${flexBox("col", "around", "center")}
     width: 100%;
-    height: 15%;
+    height: 20%;
     background-color: ${theme.colors.ashBlue};
     padding: 2rem 0;
+    @media ${breakPoints.smallPc} {
+      padding: 4rem 0;
+    }
+    @media ${breakPoints.tablet} {
+      padding: 2rem 0;
+    }
+    @media ${breakPoints.mobileWidth} {
+      padding: 2rem 0 3rem 0;
+    }
+    @media ${breakPoints.mobileHeight} {
+      padding: 2rem 0 3rem 0;
+    }
+    @media ${breakPoints.smallScreen} {
+      padding: 2rem 0 3rem 0;
+    }
   }
   .react-datepicker__navigation {
     top: 0;
   }
   .react-datepicker__navigation--next {
     right: 4rem;
+    /* background-color: red; */
+    @media ${breakPoints.smallPc} {
+      top: 0;
+    }
+    @media ${breakPoints.tablet} {
+      top: 0;
+    }
+    @media ${breakPoints.mobileWidth} {
+      top: 0;
+    }
+    @media ${breakPoints.mobileHeight} {
+      top: 0;
+    }
+    @media ${breakPoints.smallScreen} {
+      top: 0;
+    }
   }
   .react-datepicker__navigation--previous {
     left: 4rem;
   }
-  .react-datepicker__navigation-icon {
-    font-size: 2rem;
-  }
+
   // 최상단 월 연도
   .react-datepicker__current-month {
     font-size: 1.5rem;
@@ -84,7 +149,7 @@ const DatePickerBox = styled.div`
     ${flexBox("row", "center", "center")}
     width: 100%;
     height: 100%;
-    padding: 5px;
+    padding: 1rem;
     font-size: 1.4rem;
     font-weight: 700;
     margin: 0;
@@ -109,7 +174,7 @@ const DatePickerBox = styled.div`
   .react-datepicker__month {
     ${flexBox("col", "around", "start")}
     width: 100%;
-    height: 85%;
+    height: 80%;
     margin: 0;
   }
 `;

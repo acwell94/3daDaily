@@ -16,7 +16,7 @@ interface IStyleProps {
 const Button = styled.div<IStyleProps>`
   ${flexBox("row", "center", "center")}
   width: 40%;
-  padding: 1rem 0;
+  padding: 2rem 0;
   background-color: ${(props) =>
     props.isCancel ? `${theme.colors.gray}` : `${theme.colors.lightGray}`};
   border-radius: 8px;
@@ -27,7 +27,7 @@ const ButtonTitle = styled.div<IStyleProps>`
   color: ${(props) =>
     props.isCancel ? `${theme.colors.lightGray}` : `${theme.colors.white}`};
   font-weight: 500;
-  font-size: 1.4rem;
+  font-size: 2rem;
   line-height: 1.8rem;
 `;
 
