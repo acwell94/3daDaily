@@ -6,7 +6,10 @@ import Logo from "../../../../public/logo.png";
 import IntroButton from "../../commons/button/introButton";
 import theme from "@src/utils/theme";
 import { useRouter } from "next/router";
+import { breakPoints } from "@src/styles/media";
+import { flexBox } from "@src/utils/flexBox";
 const Main = styled.div`
+  ${flexBox("row", "center", "center")}
   width: 100%;
   height: 100vh;
   background: rgb(148, 150, 197);
@@ -16,16 +19,39 @@ const Main = styled.div`
     rgba(148, 150, 197, 1) 40%,
     rgba(224, 186, 205, 1) 100%
   );
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: center;
+  /* @media ${breakPoints.mobileWidth} {
+    
+  }
+  @media ${breakPoints.mobileHeight} {
+    
+  }
+  @media ${breakPoints.smallScreen} {
+    
+  }
+  @media ${breakPoints.foldScreen} {
+    
+  } */
 `;
 
 const MainBox = styled.div`
-  display: flex;
-  flex-direction: row;
-  align-items: center;
+  ${flexBox("row", "center", "center")}
+  width: 100%;
+  @media ${breakPoints.mobileWidth} {
+    ${flexBox("col", "center", "center")}
+    padding: 0 10rem;
+  }
+  @media ${breakPoints.mobileHeight} {
+    ${flexBox("col", "center", "center")}
+    padding: 0 10rem;
+  }
+  @media ${breakPoints.smallScreen} {
+    ${flexBox("col", "center", "center")}
+    padding: 0 10rem;
+  }
+  @media ${breakPoints.foldScreen} {
+    ${flexBox("col", "center", "center")}
+    padding: 0 10rem;
+  }
 `;
 
 const LogoBox = styled.div`
@@ -33,11 +59,40 @@ const LogoBox = styled.div`
   height: 60rem;
   position: relative;
   margin-right: 20rem;
+  @media ${breakPoints.mobileWidth} {
+    margin: 0;
+    margin-bottom: 10rem;
+  }
+  @media ${breakPoints.mobileHeight} {
+    margin: 0;
+    margin-bottom: 10rem;
+  }
+  @media ${breakPoints.smallScreen} {
+    margin: 0;
+    margin-bottom: 10rem;
+  }
+  @media ${breakPoints.foldScreen} {
+    width: 100%;
+    margin: 0;
+    margin-bottom: 10rem;
+  }
 `;
 
 const ButtonBox = styled.div`
   width: 46rem;
   height: 10rem;
+  @media ${breakPoints.mobileWidth} {
+    width: 100%;
+  }
+  @media ${breakPoints.mobileHeight} {
+    width: 100%;
+  }
+  @media ${breakPoints.smallScreen} {
+    width: 100%;
+  }
+  @media ${breakPoints.foldScreen} {
+    width: 100%;
+  }
 `;
 
 const Intro = () => {
