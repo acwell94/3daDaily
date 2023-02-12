@@ -1,8 +1,10 @@
 import LogoItem from "@src/components/commons/items/logoItem";
 import SettingsBox from "@src/components/commons/items/settingsBox";
-import { LogoMainBox } from "@src/components/commons/styles/commonStyles";
+import {
+  LogoMain,
+  LogoMainBox,
+} from "@src/components/commons/styles/commonStyles";
 import SettingsTitle from "@src/components/commons/title/settingsTitle";
-import { LogoMain } from "../myPage/MyPageStyles";
 import Profile from "../../../../public/icon/settingProfile.png";
 import Friend from "../../../../public/icon/settingFriend.png";
 import Password from "../../../../public/icon/settingPassword.png";

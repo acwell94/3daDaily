@@ -106,11 +106,14 @@ const FriendPresenter = ({
                           ? "본인"
                           : "추가"
                       }
-                      buttonHandler={() =>
-                        createPairHandler(
-                          findData.foundUser.email,
-                          findData.foundUser._id,
-                        )
+                      buttonHandler={
+                        findData.foundUser._id === userData.userId
+                          ? null
+                          : () =>
+                              createPairHandler(
+                                findData.foundUser.email,
+                                findData.foundUser._id,
+                              )
                       }
                     />
                   </>

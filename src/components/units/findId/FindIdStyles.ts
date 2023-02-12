@@ -11,6 +11,8 @@ export const InputBox = styled.div`
 export const ResultBox = styled.div`
   width: 100%;
   margin-top: 4rem;
+  height: 50rem;
+  overflow: auto;
 `;
 
 export const ResultTitle = styled.div`

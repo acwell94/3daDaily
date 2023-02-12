@@ -16,10 +16,11 @@ interface IProps {
 
 const InputBox = styled.div<IProps>`
   /* margin-bottom: ${(props) => (props.isLast ? "0px" : "3rem")}; */
+  width: 100%;
 `;
 
 const Input = styled.input`
-  width: 60rem;
+  width: 100%;
   @media ${breakPoints.mobileWidth} {
     width: 100%;
   }

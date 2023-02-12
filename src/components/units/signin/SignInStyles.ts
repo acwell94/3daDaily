@@ -3,14 +3,6 @@ import { flexBox } from "@src/utils/flexBox";
 import theme from "@src/utils/theme";
 import styled from "styled-components";
 
-export const CommonMain = styled.form`
-  ${flexBox("row", "center", "center")}
-  padding: 10rem 0;
-  background-color: ${theme.colors.ashBlue};
-  height: 100%;
-  position: relative;
-`;
-
 export const InputBox = styled.div`
   ${flexBox("col", "center", "center")}
   margin-bottom: 1rem;

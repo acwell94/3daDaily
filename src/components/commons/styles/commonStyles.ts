@@ -15,17 +15,32 @@ export const CommonMain = styled.div`
 
 export const CommonMainBox = styled.div`
   ${flexBox("col", "center", "center")}
-  padding: 8rem 20rem;
+  width: 50%;
+  padding: 8rem 10rem;
   @media ${breakPoints.mobileWidth} {
-    padding: 8rem 10rem;
+    width: 80%;
+    padding: 8rem 20rem;
   }
   @media ${breakPoints.mobileHeight} {
-    padding: 8rem 8rem;
+    width: 80%;
+    padding: 8rem 20rem;
+  }
+  @media ${breakPoints.smallScreen} {
+    width: 80%;
+    padding: 8rem 10rem;
+  }
+  @media ${breakPoints.foldScreen} {
+    width: 80%;
+    padding: 8rem 6rem;
   }
   background-color: ${theme.colors.white};
   box-shadow: 0px 0px 2rem rgba(97, 100, 187, 0.3);
   border-radius: 16px;
   /* height: 100%; */
+`;
+
+export const CommonFormBox = styled.form`
+  width: 100%;
 `;
 
 export const LogoMain = styled.div`
@@ -34,6 +49,15 @@ export const LogoMain = styled.div`
   background-color: ${theme.colors.ashBlue};
   height: 100vh;
   position: relative;
+  @media ${breakPoints.mobileWidth} {
+    padding: 10rem 10rem 0 10rem;
+  }
+  @media ${breakPoints.mobileHeight} {
+    padding: 10rem 10rem 0 10rem;
+  }
+  @media ${breakPoints.smallScreen} {
+    padding: 5rem 6rem 0 6rem;
+  }
 `;
 export const LogoMainBox = styled.div`
   ${flexBox("col", "start", "center")}

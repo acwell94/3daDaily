@@ -3,6 +3,7 @@ import { flexBox } from "@src/utils/flexBox";
 import theme from "@src/utils/theme";
 import Image from "next/image";
 import { useRouter } from "next/router";
+import { memo } from "react";
 import styled from "styled-components";
 import useDateForm from "../hooks/useDateForm";
 
@@ -40,35 +41,49 @@ const Container = styled.div`
   margin-bottom: 4rem;
   cursor: pointer;
   @media ${breakPoints.smallScreen} {
-    height: 70rem;
+    height: 90rem;
   }
   @media ${breakPoints.foldScreen} {
-    height: 40rem;
+    height: 70rem;
   }
 `;
 
 const DateBox = styled.div`
-  ${flexBox("col", "center", "center")}
+  ${flexBox("row", "center", "center")}
   border-radius: 0px 0px 8px 8px;
   width: 100%;
   height: 40%;
+  gap: 2rem;
+  @media ${breakPoints.smallScreen} {
+    height: 30%;
+    gap: 4rem;
+  }
 `;
 
 const Month = styled.div`
   color: ${theme.colors.sliverGray};
   font-size: 2rem;
   font-weight: 400;
+  @media ${breakPoints.smallScreen} {
+    font-size: 3rem;
+  }
 `;
 
 const Date = styled.div`
   font-size: 5rem;
   line-height: 7.5rem;
   font-weight: 700;
+  @media ${breakPoints.smallScreen} {
+    font-size: 7rem;
+  }
 `;
 
 const Day = styled.div`
   font-size: 2rem;
   font-weight: 400;
+  @media ${breakPoints.smallScreen} {
+    font-size: 3rem;
+  }
 `;
 
 const ImgBox = styled.div`
@@ -76,6 +91,10 @@ const ImgBox = styled.div`
   width: 100%;
   position: relative;
   height: 60%;
+  border-bottom: 1px solid ${theme.colors.gray};
+  @media ${breakPoints.smallScreen} {
+    height: 70%;
+  }
 `;
 
 const StoryImg = styled(Image)`
@@ -109,4 +128,4 @@ const MyPageStory = ({ data, id }: IProps) => {
   );
 };
 
-export default MyPageStory;
+export default memo(MyPageStory);

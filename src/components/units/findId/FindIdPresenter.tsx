@@ -3,6 +3,7 @@ import UserFlowButton from "@src/components/commons/button/userFlowButton";
 import UserFlowInput from "@src/components/commons/inputs/userFlowInput";
 import ConfirmModal from "@src/components/commons/modal/confirmModal";
 import {
+  CommonFormBox,
   CommonMain,
   CommonMainBox,
 } from "@src/components/commons/styles/commonStyles";
@@ -51,7 +52,7 @@ const FindIdPresenter = ({
       />
       <CommonMainBox>
         <UserFlowTitle title="아이디 찾기" />
-        <form
+        <CommonFormBox
           onSubmit={handleSubmit(findNameHandler)}
           onKeyDown={(e) => checkKeyDown(e)}
         >
@@ -65,7 +66,7 @@ const FindIdPresenter = ({
             />
           </S.InputBox>
           <UserFlowButton type="submit" title="아이디 찾기" isComplete={true} />
-        </form>
+        </CommonFormBox>
         {result && (
           <S.ResultBox>
             <S.ResultTitle>검색 결과</S.ResultTitle>

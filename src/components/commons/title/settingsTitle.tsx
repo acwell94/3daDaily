@@ -11,6 +11,7 @@ const Title = styled.div`
   font-weight: 700;
   color: ${theme.colors.darkGray};
   margin-bottom: 5rem;
+  margin-top: 5rem;
 `;
 
 const SettingsTitle = ({ children }: IProps) => {

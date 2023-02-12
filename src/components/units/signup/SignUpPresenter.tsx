@@ -5,6 +5,7 @@ import UserFlowInput from "@src/components/commons/inputs/userFlowInput";
 import ConfirmModal from "@src/components/commons/modal/confirmModal";
 
 import {
+  CommonFormBox,
   CommonMain,
   CommonMainBox,
 } from "@src/components/commons/styles/commonStyles";
@@ -55,7 +56,7 @@ const SignUpPresenter = ({
       <CommonMain>
         <CommonMainBox>
           <UserFlowTitle title="회원가입" />
-          <form
+          <CommonFormBox
             onSubmit={handleSubmit(signUpHandler)}
             onKeyDown={(e) => checkKeyDown(e)}
           >
@@ -125,7 +126,7 @@ const SignUpPresenter = ({
             </S.QuestionBox>
 
             <UserFlowButton type="submit" title="회원가입" isComplete={true} />
-          </form>
+          </CommonFormBox>
         </CommonMainBox>
       </CommonMain>
     </>

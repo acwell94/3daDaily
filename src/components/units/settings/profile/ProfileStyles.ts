@@ -7,10 +7,10 @@ export const ButtonBox = styled.div`
 `;
 
 export const ImageBox = styled.div`
-  width: 20rem;
-  height: 20rem;
+  width: 30rem;
+  height: 30rem;
   position: relative;
-  border: 1px solid ${theme.colors.inputBorder};
+  border: 2px solid ${theme.colors.inputBorder};
   border-radius: 50%;
   margin-bottom: 4rem;
 `;

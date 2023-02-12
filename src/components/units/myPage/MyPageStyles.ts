@@ -130,6 +130,9 @@ export const UserInfoText = styled.div`
 
 export const UserNameBox = styled.div`
   ${flexBox("row")}
+  @media ${breakPoints.smallScreen} {
+    margin-bottom: 2rem;
+  }
 `;
 
 export const UserName = styled.div`
@@ -144,9 +147,6 @@ export const FeedBox = styled.div`
   grid-row-gap: 4rem;
   width: 98%;
 
-  @media ${breakPoints.mobileHeight} {
-    grid-template-columns: 45% 45%;
-  }
   @media ${breakPoints.smallScreen} {
     ${flexBox("col", "center", "center")}
   }

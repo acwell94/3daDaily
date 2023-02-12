@@ -17,7 +17,6 @@ export const QuestionBox = styled.div`
 export const Question = styled.div`
   color: ${theme.colors.lightGray};
   font-size: 2rem;
-  margin-right: 3rem;
   font-weight: 400;
   line-height: 2.5rem;
 `;

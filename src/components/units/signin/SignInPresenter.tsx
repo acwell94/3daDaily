@@ -4,6 +4,7 @@ import useLink from "@src/components/commons/hooks/useLink";
 import UserFlowInput from "@src/components/commons/inputs/userFlowInput";
 import ConfirmModal from "@src/components/commons/modal/confirmModal";
 import {
+  CommonFormBox,
   CommonMain,
   CommonMainBox,
 } from "@src/components/commons/styles/commonStyles";
@@ -43,7 +44,7 @@ const SignInPresenter = ({
         />
 
         <UserFlowTitle title="로그인" />
-        <form
+        <CommonFormBox
           onSubmit={handleSubmit(signInHandler)}
           onKeyDown={(e) => checkKeyDown(e)}
         >
@@ -63,7 +64,7 @@ const SignInPresenter = ({
           </S.InputBox>
 
           <UserFlowButton type="submit" title="로그인" isComplete={true} />
-        </form>
+        </CommonFormBox>
         <S.UserSelectBox>
           <S.UserSelectText onClick={useLink("/findId")}>
             아이디 찾기
