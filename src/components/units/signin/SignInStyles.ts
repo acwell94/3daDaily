@@ -19,6 +19,7 @@ export const InputBox = styled.div`
 export const UserSelectBox = styled.div`
   ${flexBox("row", "center", "center")}
   margin-top: 4rem;
+  width: 100%;
 `;
 
 export const UserSelectText = styled.div`
@@ -27,9 +28,10 @@ export const UserSelectText = styled.div`
   line-height: 2.5rem;
   color: ${theme.colors.lightGray};
   cursor: pointer;
+  margin-right: 2rem;
 `;
 export const SignUpText = styled(UserSelectText)`
-  border-left: 2px solid ${theme.colors.lightGray};
-  margin-left: 3rem;
-  padding-left: 3rem;
+  border-left: 1px solid ${theme.colors.lightGray};
+  /* margin-left: 3rem; */
+  padding-left: 2rem;
 `;

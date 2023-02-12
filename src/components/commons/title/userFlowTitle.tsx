@@ -10,10 +10,16 @@ const Title = styled.div`
   text-align: center;
   font-size: 4rem;
   @media ${breakPoints.mobileWidth} {
-    font-size: 3rem;
+    font-size: 5rem;
   }
   @media ${breakPoints.mobileHeight} {
-    font-size: 2rem;
+    font-size: 5rem;
+  }
+  @media ${breakPoints.smallScreen} {
+    font-size: 5rem;
+  }
+  @media ${breakPoints.foldScreen} {
+    font-size: 4rem;
   }
   line-height: 5rem;
   font-weight: 700;

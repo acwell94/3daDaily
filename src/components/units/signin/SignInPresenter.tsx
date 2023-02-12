@@ -68,9 +68,7 @@ const SignInPresenter = ({
           <S.UserSelectText onClick={useLink("/findId")}>
             아이디 찾기
           </S.UserSelectText>
-          <S.SignUpText onClick={useLink("/signup")}>
-            이메일 회원가입
-          </S.SignUpText>
+          <S.SignUpText onClick={useLink("/signup")}>회원가입</S.SignUpText>
         </S.UserSelectBox>
       </CommonMainBox>
     </CommonMain>
