@@ -24,7 +24,6 @@ const ImageUpload = ({ profileImg }: IProps) => {
   // api요청 데이터
   const [file, setFile] = useState<any>(profileImg || null);
   // 미리보기 데이터
-  console.log(file);
   const [previewFile, setPreviewFile] = useState<any>(profileImg || null);
 
   const pickedHandler = async (event: ChangeEvent<HTMLInputElement>) => {
@@ -33,7 +32,6 @@ const ImageUpload = ({ profileImg }: IProps) => {
     }
 
     const imageFile = event.currentTarget.files[0];
-    console.log(imageFile);
     const options = {
       maxSizeMB: 0.5,
       maxWidthOrHeight: 1920,
@@ -48,7 +46,6 @@ const ImageUpload = ({ profileImg }: IProps) => {
         type: `${imageFile.type}`,
       });
       // api로 요청할 데이터
-      console.log(convert, "convert");
       setFile(convert);
 
       // preview 만들어줄 데이터

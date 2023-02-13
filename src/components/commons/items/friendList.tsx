@@ -40,7 +40,6 @@ const UserEmail = styled.div`
 `;
 
 const FriendList = ({ data, buttonTitle, buttonHandler }: IProps) => {
-  console.log(data, "11");
   return (
     <Container>
       <InfoBox>

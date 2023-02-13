@@ -38,7 +38,7 @@ const FriendContainer = () => {
         );
         setFriendData(data);
       } catch (err) {
-        console.log(err, "1");
+        console.log(err);
       }
     };
     getFriend();

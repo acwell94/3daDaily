@@ -51,7 +51,6 @@ const FriendPresenter = ({
   createFriendConfirmModalVisible,
   createConfirmModalHandler,
 }: IProps) => {
-  console.log(findData);
   return (
     <>
       <ConfirmModal

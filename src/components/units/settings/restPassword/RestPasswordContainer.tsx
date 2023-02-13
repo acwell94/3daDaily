@@ -64,7 +64,6 @@ const RestPasswordContainer = () => {
           },
         },
       );
-      console.log(data);
       setSuccessModalVisible((prev) => !prev);
     } catch (err: any) {
       console.log(err);

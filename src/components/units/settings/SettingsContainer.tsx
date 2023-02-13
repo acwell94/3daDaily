@@ -49,7 +49,6 @@ const SettingsContainer = () => {
 
   const withDrawUserHandler = useCallback(async () => {
     const storedData = localStorage.getItem("accessToken");
-    console.log(storedData);
     try {
       setWithDrawAskModalVisible((prev) => !prev);
       await axios.delete(
