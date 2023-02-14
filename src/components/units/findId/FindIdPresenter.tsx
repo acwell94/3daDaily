@@ -1,5 +1,6 @@
 "use client";
 import UserFlowButton from "@src/components/commons/button/userFlowButton";
+import useLink from "@src/components/commons/hooks/useLink";
 import UserFlowInput from "@src/components/commons/inputs/userFlowInput";
 import ConfirmModal from "@src/components/commons/modal/confirmModal";
 import {
@@ -61,10 +62,11 @@ const FindIdPresenter = ({
               type="text"
               register={register}
               name="name"
-              placeholder="이름"
+              placeholder="닉네임"
               error={formState.errors.name?.message}
             />
           </S.InputBox>
+
           <UserFlowButton type="submit" title="아이디 찾기" isComplete={true} />
         </CommonFormBox>
         {result && (
@@ -84,6 +86,14 @@ const FindIdPresenter = ({
               </S.Result>
             ))}
           </S.ResultBox>
+        )}
+        {result && (
+          <UserFlowButton
+            type="button"
+            title="로그인"
+            isComplete={true}
+            handler={useLink("/signin")}
+          />
         )}
       </CommonMainBox>
     </CommonMain>

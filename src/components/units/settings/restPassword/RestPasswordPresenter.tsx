@@ -55,6 +55,7 @@ const RestPasswordPresenter = ({
         <CommonMainBox>
           <UserFlowTitle title="비밀번호 재설정" />
           <form
+            style={{ width: "100%" }}
             onSubmit={handleSubmit(resetPasswordHandler)}
             onKeyDown={(e) => checkKeyDown(e)}
           >

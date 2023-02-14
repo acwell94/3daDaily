@@ -1,8 +1,5 @@
 import LogoItem from "@src/components/commons/items/logoItem";
-import {
-  LogoMain,
-  LogoMainBox,
-} from "@src/components/commons/styles/commonStyles";
+
 import SettingsTitle from "@src/components/commons/title/settingsTitle";
 import * as S from "./ProfileStyles";
 
@@ -63,8 +60,8 @@ const ProfilePresenter = ({
         handler={confirmModalHandler}
         buttonTitle="확인"
       />
-      <LogoMain>
-        <LogoMainBox>
+      <S.LogoMain>
+        <S.LogoMainBox>
           <LogoItem />
           <SettingsTitle>프로필 관리</SettingsTitle>
           {previewFile ? (
@@ -115,8 +112,8 @@ const ProfilePresenter = ({
               handler={askModalHandler}
             />
           </S.ButtonBox>
-        </LogoMainBox>
-      </LogoMain>
+        </S.LogoMainBox>
+      </S.LogoMain>
     </>
   );
 };

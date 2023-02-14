@@ -32,9 +32,9 @@ const schema = yup.object({
     .oneOf([yup.ref("password")], "비밀번호가 일치하지 않습니다."),
   name: yup
     .string()
-    .min(2, "이름은 최소 2글자 이상입니다.")
-    .max(6, "이름은 최대 6글자 입니다.")
-    .required("이름은 필수 입력 사항입니다."),
+    .min(2, "닉네임은 최소 2글자 이상입니다.")
+    .max(6, "닉네임은 최대 6글자 입니다.")
+    .required("닉네임은 필수 입력 사항입니다."),
 });
 interface FormValue {
   email: string;
