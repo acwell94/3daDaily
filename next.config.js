@@ -12,6 +12,14 @@ const nextConfig = {
         protocol: "http",
         hostname: "localhost",
       },
+      {
+        protocol: "https",
+        hostname: "3dadailyback.store",
+      },
+      {
+        protocol: "https",
+        hostname: "3dadaily.s3.ap-northeast-2.amazonaws.com",
+      },
     ],
   },
 };

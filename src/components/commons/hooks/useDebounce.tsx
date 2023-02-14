@@ -14,7 +14,6 @@ const useDebounce = (value: string, delay: number, url: string) => {
         });
         setSuccessData(data);
       } catch (err) {
-        console.log("데이터가 없습니다.");
         setSuccessData("");
       }
     }, delay);

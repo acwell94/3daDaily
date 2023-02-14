@@ -113,7 +113,7 @@ const MyPageStory = ({ data, id }: IProps) => {
     <Container onClick={linkToDetail}>
       <ImgBox>
         <StoryImg
-          src={`http://localhost:5000/${data.image}`}
+          src={data.image}
           alt="피드이미지"
           fill={true}
           sizes="(max-width: 500px) 50vw, 100vw"

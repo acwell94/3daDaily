@@ -80,7 +80,7 @@ const ProfilePresenter = ({
           ) : (
             <S.ImageBox>
               <S.DefaultImage
-                src={`http://localhost:5000/${userData?.foundUser.profileImg}`}
+                src={userData?.foundUser.profileImg}
                 alt="기본 프로필"
                 onClick={pickImageHandler}
                 fill={true}

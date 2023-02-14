@@ -45,7 +45,7 @@ const FriendList = ({ data, buttonTitle, buttonHandler }: IProps) => {
       <InfoBox>
         <ProfileImgBox>
           <ProfileImg
-            src={`http://localhost:5000/${data.profileImg}`}
+            src={data?.profileImg}
             alt={`${data.email}`}
             fill={true}
             sizes="(max-width: 500px) 50vw, 100vw"

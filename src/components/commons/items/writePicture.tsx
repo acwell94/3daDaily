@@ -90,9 +90,7 @@ const WritePicture = (
         ) : (
           <DefaultImageBox current={current}>
             <FileUploadImg
-              src={
-                current ? `http://localhost:5000/${current}` : fileUploadDefault
-              }
+              src={current ? current : fileUploadDefault}
               alt="default"
               onClick={pickImageHandler}
               fill={true}

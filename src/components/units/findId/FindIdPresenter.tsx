@@ -74,7 +74,7 @@ const FindIdPresenter = ({
               <S.Result key={el._id}>
                 <S.ResultProfileBox>
                   <S.ResultProfile
-                    src={`http://localhost:5000/${el.profileImg}`}
+                    src={el.profileImg}
                     alt="userProfile"
                     fill={true}
                   />

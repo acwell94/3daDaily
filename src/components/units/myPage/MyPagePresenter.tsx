@@ -86,10 +86,7 @@ const MyPagePresenter = ({
           <S.UserBox>
             <S.ProfileImgBox>
               <S.Profile
-                src={
-                  `http://localhost:5000/${storyData?.user.profileImg}` ||
-                  Profile
-                }
+                src={storyData?.user.profileImg || Profile}
                 alt="profile"
                 fill={true}
                 sizes="(max-width: 500px) 50vw, 100vw"

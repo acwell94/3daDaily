@@ -134,6 +134,34 @@ const WriteContainer = ({ isEdit }: IProps) => {
   );
 
   const createContentsHandler = async () => {
+    let errorRef;
+
+    if (!writeState.weather) {
+      errorRef = weatherRef;
+    } else if (!writeState.address) {
+      errorRef = whereRef;
+    } else if (!writeState.withWhom) {
+      errorRef = whoRef;
+    } else if (!writeState.what) {
+      errorRef = whatRef;
+    } else if (!writeState.feeling) {
+      errorRef = feelRef;
+    } else if (!writeState.image) {
+      errorRef = pictureRef;
+    } else if (
+      !writeState.title ||
+      !writeState.firstContents ||
+      !writeState.secondContents ||
+      !writeState.thirdContents
+    ) {
+      errorRef = dailyRef;
+    }
+
+    if (errorRef !== undefined) {
+      errorRef?.current?.scrollIntoView({ behavior: "smooth", block: "start" });
+      return;
+    }
+
     try {
       const formData = new FormData();
       formData.append("title", writeState.title);
@@ -155,28 +183,6 @@ const WriteContainer = ({ isEdit }: IProps) => {
       router.push(`/mypage/${userData?.userId}`);
     } catch (err) {
       console.log(err);
-      let errorRef;
-      if (
-        !writeState.title ||
-        !writeState.firstContents ||
-        !writeState.secondContents ||
-        !writeState.thirdContents
-      ) {
-        errorRef = dailyRef;
-      } else if (!writeState.weather) {
-        errorRef = weatherRef;
-      } else if (!writeState.address) {
-        errorRef = whereRef;
-      } else if (!writeState.withWhom) {
-        errorRef = whoRef;
-      } else if (!writeState.what) {
-        errorRef = whatRef;
-      } else if (!writeState.feeling) {
-        errorRef = feelRef;
-      } else if (!writeState.image) {
-        errorRef = pictureRef;
-      }
-      errorRef?.current?.scrollIntoView({ behavior: "smooth", block: "start" });
     }
   };
 

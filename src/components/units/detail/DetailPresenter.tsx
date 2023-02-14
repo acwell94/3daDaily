@@ -84,7 +84,8 @@ const DetailPresenter = ({
         <S.DetailContentsBox>
           <S.DetailImgBox>
             <S.DetailImg
-              src={`http://localhost:5000/${data?.foundData?.image}`}
+              // src={`http://localhost:5000/${data?.foundData?.image}`}
+              src={data?.foundData.image}
               alt="스토리이미지"
               fill={true}
               sizes="(max-width: 500px) 50vw, 100vw"
