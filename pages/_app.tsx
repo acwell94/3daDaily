@@ -53,7 +53,7 @@ export default function App({ Component, pageProps }: AppProps) {
           property="og:description"
           content="3 줄이면 다 끝나는 오늘의 기록 삼다일기"
         />
-        <meta property="og:image" content="../public/OgImage.png" />
+        <meta property="og:image" content="/ogImage.png" />
 
         <meta property="twitter:card" content="summary_large_image" />
         <meta property="twitter:url" content="https://www.3dadaily.store/" />
@@ -62,7 +62,7 @@ export default function App({ Component, pageProps }: AppProps) {
           property="twitter:description"
           content="3 줄이면 다 끝나는 오늘의 기록 삼다일기"
         />
-        <meta property="twitter:image" content="../public/OgImage.png" />
+        <meta property="twitter:image" content="/ogImage.png" />
       </Head>
       <>
         <RecoilRoot>
