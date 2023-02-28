@@ -30,6 +30,7 @@ const MyPageContainer = () => {
         const { data } = await axios.get(
           `${process.env.NEXT_PUBLIC_API}contents/${userId}`,
         );
+        setPrevSelect({ category: "", sort: "" });
         setStory(data);
       } catch (err) {
         console.log(err);
@@ -39,11 +40,11 @@ const MyPageContainer = () => {
         const { data } = await axios.get(
           `${process.env.NEXT_PUBLIC_API}contents/${userId}?category=${category}&sort=${sort}`,
         );
-        setStory(data);
         setPrevSelect({
           category,
           sort,
         });
+        setStory(data);
       } catch (err) {
         console.log(err);
       }
@@ -74,6 +75,7 @@ const MyPageContainer = () => {
       chatBotHandler={chatBotHandler}
       storyData={story}
       getSortedContents={getSortedContents}
+      prevSelect={prevSelect}
     />
   );
 };

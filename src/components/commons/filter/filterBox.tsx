@@ -5,11 +5,14 @@ import { breakPoints } from "@src/styles/media";
 import { flexBox } from "@src/utils/flexBox";
 import theme from "@src/utils/theme";
 import Image from "next/image";
-import { useState } from "react";
+import { memo, useState } from "react";
 import styled from "styled-components";
 
 interface IStyleProps {
   open?: boolean;
+  category?: string;
+  selected?: { category: string; sort: string };
+  id?: string;
 }
 
 const FilterContainer = styled.div`
@@ -75,6 +78,7 @@ const RightBox = styled.div`
   word-break: keep-all;
   line-height: 2.5rem;
   flex: 8;
+  padding-left: 2rem;
   @media ${breakPoints.mobileWidth} {
     font-size: 1rem;
   }
@@ -135,7 +139,7 @@ const OptionLeftBox = styled.div`
   margin-right: 6rem;
   border-right: 1px solid ${theme.colors.gray};
   width: 20%;
-  height: 6.6rem;
+  height: 100%;
   @media ${breakPoints.mobileWidth} {
     margin-right: 4rem;
   }
@@ -163,12 +167,28 @@ const OptionRightBox = styled.div`
   width: 80%;
 `;
 
-const OptionImgBox = styled.div`
-  width: 3rem;
-  height: 3rem;
+const OptionImgBoxLimit = styled.div<IStyleProps>`
   margin-right: 3rem;
+  padding: 1rem;
+  width: 8rem;
+  height: 8rem;
+  box-shadow: ${(props) =>
+    props.selected.category === props.category &&
+    props.selected.sort === props.id
+      ? "0rem 0.2rem 0.3rem #9496c5"
+      : null};
+
+  margin-bottom: 1rem;
+  margin-left: 1rem;
+  border-radius: 20rem;
+`;
+
+const OptionImgBox = styled.div`
+  width: 100%;
+  height: 100%;
   position: relative;
   cursor: pointer;
+  padding: 10px;
 `;
 
 const OptionImg = styled(Image)`
@@ -179,9 +199,10 @@ const OptionImg = styled(Image)`
 interface IProps {
   count: number;
   getSortedContents: (category: string, sort: string) => void;
+  selected: { category: string; sort: string };
 }
 
-const FilterBox = ({ count, getSortedContents }: IProps) => {
+const FilterBox = ({ count, getSortedContents, selected }: IProps) => {
   const [optionOpen, setOptionOpen] = useState(false);
   const optionOpenHandler = () => {
     setOptionOpen((prev) => !prev);
@@ -213,19 +234,26 @@ const FilterBox = ({ count, getSortedContents }: IProps) => {
           <OptionRightBox>
             <OptionRightBoxLimit>
               {Feeling.map((el) => (
-                <OptionImgBox
+                <OptionImgBoxLimit
+                  selected={selected}
                   key={el.id}
-                  onClick={() => {
-                    getSortedContents("feeling", String(el.id));
-                  }}
+                  category="feeling"
+                  id={String(el.id)}
                 >
-                  <OptionImg
-                    src={el.img}
-                    alt={el.title}
-                    fill={true}
-                    sizes="(max-width: 500px) 50vw, 100vw"
-                  />
-                </OptionImgBox>
+                  <OptionImgBox
+                    key={el.id}
+                    onClick={() => {
+                      getSortedContents("feeling", String(el.id));
+                    }}
+                  >
+                    <OptionImg
+                      src={el.img}
+                      alt={el.title}
+                      fill={true}
+                      sizes="(max-width: 500px) 50vw, 100vw"
+                    />
+                  </OptionImgBox>
+                </OptionImgBoxLimit>
               ))}
             </OptionRightBoxLimit>
           </OptionRightBox>
@@ -237,19 +265,25 @@ const FilterBox = ({ count, getSortedContents }: IProps) => {
           <OptionRightBox>
             <OptionRightBoxLimit>
               {Weather.map((el) => (
-                <OptionImgBox
+                <OptionImgBoxLimit
+                  selected={selected}
                   key={el.id}
-                  onClick={() => {
-                    getSortedContents("weather", String(el.id));
-                  }}
+                  category="weather"
+                  id={String(el.id)}
                 >
-                  <OptionImg
-                    src={el.img}
-                    alt={el.title}
-                    fill={true}
-                    sizes="(max-width: 500px) 50vw, 100vw"
-                  />
-                </OptionImgBox>
+                  <OptionImgBox
+                    onClick={() => {
+                      getSortedContents("weather", String(el.id));
+                    }}
+                  >
+                    <OptionImg
+                      src={el.img}
+                      alt={el.title}
+                      fill={true}
+                      sizes="(max-width: 500px) 50vw, 100vw"
+                    />
+                  </OptionImgBox>
+                </OptionImgBoxLimit>
               ))}
             </OptionRightBoxLimit>
           </OptionRightBox>
@@ -261,19 +295,26 @@ const FilterBox = ({ count, getSortedContents }: IProps) => {
           <OptionRightBox>
             <OptionRightBoxLimit>
               {WithWhom.map((el) => (
-                <OptionImgBox
+                <OptionImgBoxLimit
+                  selected={selected}
                   key={el.id}
-                  onClick={() => {
-                    getSortedContents("withWhom", String(el.id));
-                  }}
+                  category="withWhom"
+                  id={String(el.id)}
                 >
-                  <OptionImg
-                    src={el.img}
-                    alt={el.title}
-                    fill={true}
-                    sizes="(max-width: 500px) 50vw, 100vw"
-                  />
-                </OptionImgBox>
+                  <OptionImgBox
+                    key={el.id}
+                    onClick={() => {
+                      getSortedContents("withWhom", String(el.id));
+                    }}
+                  >
+                    <OptionImg
+                      src={el.img}
+                      alt={el.title}
+                      fill={true}
+                      sizes="(max-width: 500px) 50vw, 100vw"
+                    />
+                  </OptionImgBox>
+                </OptionImgBoxLimit>
               ))}
             </OptionRightBoxLimit>
           </OptionRightBox>
@@ -283,4 +324,4 @@ const FilterBox = ({ count, getSortedContents }: IProps) => {
   );
 };
 
-export default FilterBox;
+export default memo(FilterBox);

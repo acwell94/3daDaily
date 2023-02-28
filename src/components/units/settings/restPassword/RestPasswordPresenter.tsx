@@ -21,6 +21,7 @@ interface IProps {
   errorText: string;
   successModalVisible: boolean;
   successModalHandler: () => void;
+  loading: boolean;
 }
 
 const RestPasswordPresenter = ({
@@ -33,6 +34,7 @@ const RestPasswordPresenter = ({
   errorText,
   successModalVisible,
   successModalHandler,
+  loading,
 }: IProps) => {
   const checkKeyDown = (e: KeyboardEvent) => {
     if (e.code === "Enter") e.preventDefault();
@@ -86,6 +88,7 @@ const RestPasswordPresenter = ({
               type="submit"
               title="비밀번호 변경"
               isComplete={true}
+              loading={loading}
             />
           </form>
         </CommonMainBox>

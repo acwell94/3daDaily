@@ -20,6 +20,7 @@ interface IProps {
   errorModalHandler: () => void;
   errorModalVisible: boolean;
   errorMsg: string;
+  loading: boolean;
 }
 
 const SignInPresenter = ({
@@ -29,6 +30,7 @@ const SignInPresenter = ({
   errorModalHandler,
   errorModalVisible,
   errorMsg,
+  loading,
 }: IProps) => {
   const checkKeyDown = (e: KeyboardEvent) => {
     if (e.code === "Enter") e.preventDefault();
@@ -63,7 +65,12 @@ const SignInPresenter = ({
             />
           </S.InputBox>
 
-          <UserFlowButton type="submit" title="로그인" isComplete={true} />
+          <UserFlowButton
+            type="submit"
+            title="로그인"
+            isComplete={true}
+            loading={loading}
+          />
         </CommonFormBox>
         <S.UserSelectBox>
           <S.UserSelectText onClick={useLink("/findId")}>

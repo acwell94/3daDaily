@@ -40,17 +40,18 @@ const RestPasswordContainer = () => {
   const [failModalVisible, setFailModalVisible] = useState(false);
   const [errorText, setErrorText] = useState("");
   const [successModalVisible, setSuccessModalVisible] = useState(false);
-
+  const [loading, setLoading] = useState(false);
   const resetPassword = async (form: FormValue) => {
     const token = localStorage.getItem("accessToken");
     const userData = localStorage.getItem("data");
-
+    setLoading((prev) => !prev);
     try {
+      setLoading((prev) => !prev);
       const formData = new FormData();
       formData.append("password", form.password);
       formData.append("newPassword", form.newPassword);
 
-      const { data } = await axios.patch(
+      await axios.patch(
         `${process.env.NEXT_PUBLIC_API}users/resetPassword/${
           JSON.parse(userData).userId
         }`,
@@ -64,9 +65,11 @@ const RestPasswordContainer = () => {
           },
         },
       );
+      setLoading((prev) => !prev);
       setSuccessModalVisible((prev) => !prev);
     } catch (err: any) {
       console.log(err);
+      setLoading((prev) => !prev);
       setErrorText(err.response.data.message);
       setFailModalVisible((prev) => !prev);
     }
@@ -95,6 +98,7 @@ const RestPasswordContainer = () => {
       errorText={errorText}
       successModalVisible={successModalVisible}
       successModalHandler={successModalHandler}
+      loading={loading}
     />
   );
 };

@@ -46,6 +46,7 @@ interface IProps {
       }
     | undefined;
   getSortedContents: (category: string, sort: string) => void;
+  prevSelect: { category: string; sort: string };
 }
 
 const MyPagePresenter = ({
@@ -53,6 +54,7 @@ const MyPagePresenter = ({
   chatBotHandler,
   storyData,
   getSortedContents,
+  prevSelect,
 }: IProps) => {
   return (
     <S.LogoMain>
@@ -107,6 +109,7 @@ const MyPagePresenter = ({
         <FilterBox
           count={storyData?.story ? storyData.story.length : 0}
           getSortedContents={getSortedContents}
+          selected={prevSelect}
         />
         {storyData?.story.length ? (
           <S.FeedBox>

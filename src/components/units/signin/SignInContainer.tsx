@@ -23,6 +23,7 @@ export interface ILogin {
 const SignInContainer = () => {
   const [errorModalVisible, setErrorModalVisible] = useState(false);
   const [errorMsg, setErrorMsg] = useState("");
+  const [loading, setLoading] = useState(false);
   const router = useRouter();
   const [_, setAccessToken] = useRecoilState<ILogin>(accessTokenState);
   const { register, handleSubmit } = useForm<IFormValue>({
@@ -34,6 +35,7 @@ const SignInContainer = () => {
   }, []);
 
   const signInHandler = async (form: IFormValue) => {
+    setLoading((prev) => !prev);
     try {
       const { data } = await axios.post(
         `${process.env.NEXT_PUBLIC_API}users/login`,
@@ -58,8 +60,10 @@ const SignInContainer = () => {
         accessToken: data.token,
         refreshToken: data.refreshToken,
       });
+      setLoading((prev) => !prev);
       router.replace(`/mypage/${data.userId}`);
     } catch (error: any) {
+      setLoading((prev) => !prev);
       setErrorMsg(error.response?.data?.message);
       errorModalHandler();
     }
@@ -73,6 +77,7 @@ const SignInContainer = () => {
       errorModalHandler={errorModalHandler}
       errorModalVisible={errorModalVisible}
       errorMsg={errorMsg}
+      loading={loading}
     />
   );
 };

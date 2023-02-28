@@ -52,6 +52,7 @@ const SignUpContainer = () => {
     mode: "onChange",
   });
   const [_, setAccessToken] = useRecoilState<ILogin>(accessTokenState);
+  const [loading, setLoading] = useState(false);
   const filePickerRef = useRef<any>();
   const { file, previewFile, pickedHandler } = useFileUpload();
 
@@ -67,12 +68,15 @@ const SignUpContainer = () => {
   };
 
   const signUpHandler = async (form: FormValue) => {
+    setLoading((prev) => !prev);
     if (!file) {
       setErrorText("프로필을 등록해 주세요.");
       setErrorConfirmModalVisible((prev) => !prev);
+      setLoading((prev) => !prev);
       return;
     }
     try {
+      setLoading((prev) => !prev);
       const formData = new FormData();
       formData.append("name", form.name);
       formData.append("email", form.email);
@@ -110,9 +114,11 @@ const SignUpContainer = () => {
           accessToken: data.token,
           refreshToken: data.refreshToken,
         });
+        setLoading((prev) => !prev);
         router.push(`/mypage/${data.userId}`);
       }
     } catch (err: any) {
+      setLoading((prev) => !prev);
       setErrorText(err.response.data.message);
       setErrorConfirmModalVisible((prev) => !prev);
     }
@@ -131,6 +137,7 @@ const SignUpContainer = () => {
       errorConfirmModalVisible={errorConfirmModalVisible}
       errorText={errorText}
       errorConfirmModalHandler={errorConfirmModalHandler}
+      loading={loading}
     />
   );
 };
