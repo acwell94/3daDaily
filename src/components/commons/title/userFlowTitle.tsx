@@ -9,22 +9,27 @@ interface IProps {
 const Title = styled.div`
   text-align: center;
   font-size: 4rem;
+  font-weight: 700;
+  white-space: pre-wrap;
+  word-break: keep-all;
+  color: ${theme.colors.darkGray};
+  width: 100%;
+  margin-bottom: 4rem;
   @media ${breakPoints.mobileWidth} {
-    font-size: 5rem;
+    font-size: 8rem;
+    text-align: left;
+    margin-bottom: 7rem;
   }
   @media ${breakPoints.mobileHeight} {
-    font-size: 5rem;
+    font-size: 8rem;
+    text-align: left;
+    margin-bottom: 7rem;
   }
-  @media ${breakPoints.smallScreen} {
-    font-size: 5rem;
-  }
+
   @media ${breakPoints.foldScreen} {
-    font-size: 4rem;
+    font-size: 7rem;
+    margin-bottom: 7rem;
   }
-  line-height: 5rem;
-  font-weight: 700;
-  color: ${theme.colors.darkGray};
-  margin-bottom: 4rem;
 `;
 
 const UserFlowTitle = ({ title }: IProps) => {

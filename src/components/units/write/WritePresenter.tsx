@@ -17,7 +17,7 @@ import {
   What,
   WithWhom,
 } from "@src/constants/contents";
-import { ChangeEvent, forwardRef } from "react";
+import { ChangeEvent } from "react";
 
 interface IProps {
   dateRef: any;

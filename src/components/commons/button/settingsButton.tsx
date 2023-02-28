@@ -1,3 +1,4 @@
+import { breakPoints } from "@src/styles/media";
 import theme from "@src/utils/theme";
 import styled from "styled-components";
 
@@ -18,13 +19,25 @@ const Button = styled.div<IStyleProps>`
   border-radius: 8px;
   padding: 1rem 5rem;
   cursor: pointer;
+  @media ${breakPoints.mobileWidth} {
+    padding: 2rem 5rem;
+  }
+  @media ${breakPoints.mobileHeight} {
+    padding: 2rem 5rem;
+  }
 `;
 
 const ButtonTitle = styled.div`
   font-size: 2.2rem;
   font-weight: 400;
-  line-height: 2.75rem;
+
   color: ${theme.colors.white};
+  @media ${breakPoints.mobileWidth} {
+    font-size: 3rem;
+  }
+  @media ${breakPoints.mobileHeight} {
+    font-size: 4rem;
+  }
 `;
 
 const SettingsButton = ({ title, handler }: IProps) => {

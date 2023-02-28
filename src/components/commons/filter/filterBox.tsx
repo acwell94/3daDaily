@@ -21,14 +21,17 @@ const FilterContainer = styled.div`
   background-color: ${theme.colors.white};
   border-radius: 8px;
   padding: 3rem 14rem;
-  @media ${breakPoints.mobileWidth} {
-    padding: 3rem 7rem;
-  }
-  @media ${breakPoints.mobileHeight} {
-    padding: 3rem 5rem;
-  }
   margin-bottom: 4rem;
   box-shadow: 0 0.4rem 0.4rem 0.4rem rgba(97, 100, 187, 0.1);
+  @media ${breakPoints.mobileWidth} {
+    padding: 5rem 5rem 5rem 0;
+  }
+  @media ${breakPoints.mobileHeight} {
+    padding: 7rem 7rem 7rem 0;
+  }
+  @media ${breakPoints.smallScreen} {
+    padding: 6rem 4rem;
+  }
 `;
 
 const Filter = styled.div`
@@ -41,21 +44,21 @@ const Filter = styled.div`
 
 const LeftBox = styled.div`
   ${flexBox("col", "center", "center")}
-
+  width: 20%;
   margin-right: 6rem;
+  border-right: 1px solid ${theme.colors.gray};
   @media ${breakPoints.mobileWidth} {
     margin-right: 4rem;
   }
   @media ${breakPoints.mobileHeight} {
     margin-right: 2rem;
   }
-  border-right: 1px solid ${theme.colors.gray};
   @media ${breakPoints.smallScreen} {
     border: none;
     margin: 0;
     margin-bottom: 2rem;
+    width: 100%;
   }
-  flex: 2;
 `;
 
 const LogoText = styled.div`
@@ -63,31 +66,52 @@ const LogoText = styled.div`
   font-weight: 400;
   margin-bottom: 1rem;
   color: ${theme.colors.middleGray};
+  @media ${breakPoints.mobileWidth} {
+    font-size: 3rem;
+  }
+  @media ${breakPoints.mobileHeight} {
+    font-size: 3rem;
+  }
+  @media ${breakPoints.smallScreen} {
+    font-size: 5rem;
+    margin-bottom: 2rem;
+  }
 `;
 
 const Count = styled.div`
   font-size: 3.5rem;
   font-weight: 700;
-  line-height: 4.4rem;
+  @media ${breakPoints.mobileWidth} {
+    font-size: 4.5rem;
+  }
+  @media ${breakPoints.mobileHeight} {
+    font-size: 4.5rem;
+  }
+  @media ${breakPoints.smallScreen} {
+    font-size: 6.5rem;
+    margin-bottom: 2rem;
+  }
 `;
 
 const RightBox = styled.div`
   ${flexBox("row", "between")}
+  width: 80%;
   font-weight: 500;
   font-size: 2rem;
   word-break: keep-all;
-  line-height: 2.5rem;
-  flex: 8;
   padding-left: 2rem;
   @media ${breakPoints.mobileWidth} {
-    font-size: 1rem;
+    font-size: 3rem;
   }
   @media ${breakPoints.mobileHeight} {
-    font-size: 1rem;
+    font-size: 3rem;
   }
   @media ${breakPoints.smallScreen} {
     ${flexBox("col", "center", "center")}
     text-align: center;
+    width: 100%;
+    font-size: 4rem;
+    padding: 0 2rem;
   }
 `;
 
@@ -99,14 +123,20 @@ const DownArrowBox = styled.div<IStyleProps>`
   cursor: pointer;
   position: relative;
   @media ${breakPoints.mobileWidth} {
+    width: 3rem;
+    height: 3rem;
     margin-left: 4rem;
   }
   @media ${breakPoints.mobileHeight} {
+    width: 3rem;
+    height: 3rem;
     margin-left: 2rem;
   }
   @media ${breakPoints.smallScreen} {
+    width: 5rem;
+    height: 5rem;
     margin: 0;
-    margin-top: 1rem;
+    margin-top: 3rem;
   }
 `;
 
@@ -121,7 +151,7 @@ const OptionBox = styled.div<IStyleProps>`
   width: 100%;
   margin-top: 3rem;
   @media ${breakPoints.smallScreen} {
-    margin-top: 1rem;
+    margin-top: 3rem;
   }
 `;
 
@@ -149,22 +179,39 @@ const OptionLeftBox = styled.div`
   @media ${breakPoints.smallScreen} {
     border: none;
     margin: 0;
+    width: 100%;
   }
 `;
 
 const OptionFilterTitle = styled.div`
   font-weight: 700;
   font-size: 1.6rem;
-`;
-
-const OptionRightBoxLimit = styled.div`
-  display: flex;
+  @media ${breakPoints.mobileWidth} {
+    font-size: 3rem;
+  }
+  @media ${breakPoints.mobileHeight} {
+    font-size: 3rem;
+  }
+  @media ${breakPoints.smallScreen} {
+    font-size: 4rem;
+  }
 `;
 
 const OptionRightBox = styled.div`
   ${flexBox("row", "start", "center")}
   overflow: scroll;
   width: 80%;
+  height: 100%;
+`;
+const OptionRightBoxLimit = styled.div`
+  display: flex;
+  height: 100%;
+
+  @media ${breakPoints.smallScreen} {
+    justify-content: center;
+    align-items: center;
+    padding: 5rem 0;
+  }
 `;
 
 const OptionImgBoxLimit = styled.div<IStyleProps>`
@@ -172,15 +219,22 @@ const OptionImgBoxLimit = styled.div<IStyleProps>`
   padding: 1rem;
   width: 8rem;
   height: 8rem;
-  box-shadow: ${(props) =>
+  border: ${(props) =>
     props.selected.category === props.category &&
     props.selected.sort === props.id
-      ? "0rem 0.2rem 0.3rem #9496c5"
+      ? "1px solid #9496c5"
       : null};
-
   margin-bottom: 1rem;
   margin-left: 1rem;
-  border-radius: 20rem;
+  border-radius: 2rem;
+  @media ${breakPoints.mobileWidth} {
+  }
+  @media ${breakPoints.mobileHeight} {
+  }
+  @media ${breakPoints.smallScreen} {
+    width: 12rem;
+    height: 12rem;
+  }
 `;
 
 const OptionImgBox = styled.div`
@@ -209,14 +263,14 @@ const FilterBox = ({ count, getSortedContents, selected }: IProps) => {
   };
   return (
     <FilterContainer>
-      <Filter>
+      <Filter onClick={optionOpenHandler}>
         <LeftBox>
           <LogoText>3다일기</LogoText>
           <Count>{count}</Count>
         </LeftBox>
         <RightBox>
-          날씨별, 기분별, 누구와 함께 했는지로 추억을 찾아보세요!
-          <DownArrowBox onClick={optionOpenHandler} open={optionOpen}>
+          날씨별, 기분별, 누구와 함께 했는지 추억을 찾아보세요!
+          <DownArrowBox open={optionOpen}>
             <DownArrow
               src="/icon/downArrow.png"
               alt="downArrow"

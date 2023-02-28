@@ -1,3 +1,4 @@
+import { breakPoints } from "@src/styles/media";
 import theme from "@src/utils/theme";
 import { ChangeEvent, ReactNode } from "react";
 import styled from "styled-components";
@@ -18,12 +19,25 @@ interface IStyleProps {
 const Container = styled.div<IStyleProps>`
   width: 98%;
   margin-bottom: ${(props) => (props.disabled ? "6rem" : "3rem")};
+  @media ${breakPoints.mobileWidth} {
+    margin-bottom: ${(props) => (props.disabled ? "10rem" : "5rem")};
+  }
+  @media ${breakPoints.mobileHeight} {
+    margin-bottom: ${(props) => (props.disabled ? "10rem" : "5rem")};
+  }
 `;
 const Title = styled.div`
   font-size: 1.6rem;
   font-weight: 500;
-  line-height: 2rem;
   margin-bottom: 1rem;
+  @media ${breakPoints.mobileWidth} {
+    font-size: 4rem;
+    margin-bottom: 2rem;
+  }
+  @media ${breakPoints.mobileHeight} {
+    font-size: 5rem;
+    margin-bottom: 2rem;
+  }
 `;
 
 const Input = styled.input`
@@ -34,7 +48,6 @@ const Input = styled.input`
   color: ${theme.colors.blackGray};
   font-size: 2rem;
   font-weight: 500;
-  line-height: 2.5rem;
 
   ::placeholder {
     color: ${theme.colors.blackGray};
@@ -45,6 +58,12 @@ const Input = styled.input`
     ::placeholder {
       color: ${theme.colors.gray};
     }
+  }
+  @media ${breakPoints.mobileWidth} {
+    font-size: 4rem;
+  }
+  @media ${breakPoints.mobileHeight} {
+    font-size: 5rem;
   }
 `;
 

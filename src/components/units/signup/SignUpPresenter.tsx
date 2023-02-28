@@ -4,11 +4,6 @@ import useLink from "@src/components/commons/hooks/useLink";
 import UserFlowInput from "@src/components/commons/inputs/userFlowInput";
 import ConfirmModal from "@src/components/commons/modal/confirmModal";
 
-import {
-  CommonFormBox,
-  CommonMain,
-  CommonMainBox,
-} from "@src/components/commons/styles/commonStyles";
 import UserFlowTitle from "@src/components/commons/title/userFlowTitle";
 import { KeyboardEvent } from "react";
 import fileUploadDefault from "../../../../public/icon/profileForm.png";
@@ -55,10 +50,10 @@ const SignUpPresenter = ({
         handler={errorConfirmModalHandler}
         buttonTitle="확인"
       />
-      <CommonMain>
-        <CommonMainBox>
+      <S.CommonMain>
+        <S.CommonMainBox>
           <UserFlowTitle title="회원가입" />
-          <CommonFormBox
+          <S.CommonFormBox
             onSubmit={handleSubmit(signUpHandler)}
             onKeyDown={(e) => checkKeyDown(e)}
           >
@@ -133,9 +128,9 @@ const SignUpPresenter = ({
               isComplete={true}
               loading={loading}
             />
-          </CommonFormBox>
-        </CommonMainBox>
-      </CommonMain>
+          </S.CommonFormBox>
+        </S.CommonMainBox>
+      </S.CommonMain>
     </>
   );
 };

@@ -18,7 +18,6 @@ export const LogoMain = styled.div`
     padding: 5rem 6rem 0 6rem;
   }
   background-color: ${theme.colors.ashBlue};
-
   height: 100vh;
   position: relative;
   overflow-y: scroll;
@@ -34,6 +33,14 @@ export const SideButtonBox = styled.div`
   right: 2%;
   bottom: 2%;
   z-index: 2;
+  @media ${breakPoints.mobileWidth} {
+    right: 2%;
+    bottom: 8%;
+  }
+  @media ${breakPoints.mobileHeight} {
+    right: 2%;
+    bottom: 8%;
+  }
 `;
 
 export const BotVisibleButton = styled.div`
@@ -84,6 +91,20 @@ export const SettingText = styled.div`
   }
 `;
 
+export const LogoMainBox = styled.div`
+  ${flexBox("col", "start", "center")}
+  width: 100%;
+  max-width: 124rem;
+  @media ${breakPoints.mobileWidth} {
+    max-width: 100%;
+  }
+  @media ${breakPoints.mobileHeight} {
+    max-width: 100%;
+  }
+
+  overflow-y: scroll;
+`;
+
 export const InfoBox = styled.div`
   ${flexBox("row", "between", "center")}
   @media all and (max-width: 400px) {
@@ -91,13 +112,19 @@ export const InfoBox = styled.div`
   }
   margin-bottom: 4rem;
   width: 98%;
+  @media ${breakPoints.mobileWidth} {
+    margin-bottom: 8rem;
+  }
+  @media ${breakPoints.mobileHeight} {
+    margin-bottom: 8rem;
+  }
 `;
 
 export const UserBox = styled.div`
   ${flexBox("row", "center", "center")}
   @media ${breakPoints.smallScreen} {
     ${flexBox("col", "center", "center")}
-    margin-bottom: 2rem;
+    margin-bottom: 4rem;
   }
 `;
 
@@ -106,11 +133,21 @@ export const ProfileImgBox = styled.div`
   height: 5rem;
   margin-right: 1rem;
   position: relative;
+  @media ${breakPoints.mobileWidth} {
+    width: 10rem;
+    height: 10rem;
+    margin-right: 2rem;
+  }
+  @media ${breakPoints.mobileHeight} {
+    width: 10rem;
+    height: 10rem;
+    margin-right: 2rem;
+  }
   @media ${breakPoints.smallScreen} {
-    width: 7rem;
-    height: 7rem;
+    width: 10rem;
+    height: 10rem;
     margin: 0;
-    margin-bottom: 2rem;
+    margin-bottom: 4rem;
   }
 `;
 
@@ -118,11 +155,19 @@ export const Profile = styled(Image)`
   width: 100%;
   height: 100%;
   border-radius: 50%;
+  border: 1px solid #a6a6a6;
 `;
 
 export const UserInfoText = styled.div`
   ${flexBox("row", "center", "center")}
   font-size: 3rem;
+  @media ${breakPoints.mobileWidth} {
+    font-size: 4rem;
+  }
+  @media ${breakPoints.mobileHeight} {
+    font-size: 4rem;
+  }
+
   @media ${breakPoints.smallScreen} {
     ${flexBox("col", "center", "center")}
   }

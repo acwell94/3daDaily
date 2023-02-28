@@ -12,11 +12,16 @@ const LogoBox = styled.div`
   margin-bottom: 5rem;
   @media ${breakPoints.mobileWidth} {
     padding-top: 3rem;
-    margin-bottom: 3rem;
+    margin-bottom: 8rem;
+    width: 50rem;
   }
   @media ${breakPoints.mobileHeight} {
     padding-top: 2rem;
-    margin-bottom: 2rem;
+    margin-bottom: 8rem;
+    width: 50rem;
+  }
+  @media ${breakPoints.smallScreen} {
+    width: 40rem;
   }
   cursor: pointer;
 `;

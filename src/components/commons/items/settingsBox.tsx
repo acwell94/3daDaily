@@ -1,9 +1,10 @@
+import { breakPoints } from "@src/styles/media";
 import { flexBox } from "@src/utils/flexBox";
 import theme from "@src/utils/theme";
 import Image, { StaticImageData } from "next/image";
 import { ReactNode } from "react";
 import styled from "styled-components";
-import DownArrow from "../../../../public/icon/downArrow.png";
+import Arrow from "../../../../public/icon/rightArrow.png";
 interface IProps {
   src: StaticImageData;
   children: ReactNode;
@@ -19,13 +20,26 @@ const Container = styled.div`
   border-radius: 8px;
   margin-bottom: 2rem;
   cursor: pointer;
+  @media ${breakPoints.mobileWidth} {
+    padding: 5rem;
+    margin-bottom: 4rem;
+  }
+  @media ${breakPoints.mobileHeight} {
+    padding: 5rem;
+    margin-bottom: 4rem;
+  }
 `;
 
 const TitleBox = styled.div`
   ${flexBox("row", "center", "center")}
   font-size: 2.6rem;
-  line-height: 3.3rem;
   font-weight: 400;
+  @media ${breakPoints.mobileWidth} {
+    font-size: 5rem;
+  }
+  @media ${breakPoints.mobileHeight} {
+    font-size: 5rem;
+  }
 `;
 
 const ImgBox = styled.div`
@@ -33,6 +47,16 @@ const ImgBox = styled.div`
   height: 3rem;
   position: relative;
   margin-right: 1rem;
+  @media ${breakPoints.mobileWidth} {
+    width: 5rem;
+    height: 5rem;
+    margin-right: 2rem;
+  }
+  @media ${breakPoints.mobileHeight} {
+    width: 5rem;
+    height: 5rem;
+    margin-right: 3rem;
+  }
 `;
 
 const ItemImg = styled(Image)`
@@ -40,10 +64,17 @@ const ItemImg = styled(Image)`
   height: 100%;
 `;
 
-const DownArrowImg = styled(Image)`
+const ArrowImg = styled(Image)`
   width: 1.8rem;
   height: 1.8rem;
-  rotate: calc(-90deg);
+  @media ${breakPoints.mobileWidth} {
+    width: 4rem;
+    height: 4rem;
+  }
+  @media ${breakPoints.mobileHeight} {
+    width: 4rem;
+    height: 4rem;
+  }
 `;
 
 const SettingsBox = ({ src, children, handler }: IProps) => {
@@ -60,7 +91,7 @@ const SettingsBox = ({ src, children, handler }: IProps) => {
         </ImgBox>
         {children}
       </TitleBox>
-      <DownArrowImg src={DownArrow} alt="downIcon" />
+      <ArrowImg src={Arrow} alt="downIcon" />
     </Container>
   );
 };

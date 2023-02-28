@@ -1,3 +1,4 @@
+import { breakPoints } from "@src/styles/media";
 import { flexBox } from "@src/utils/flexBox";
 import theme from "@src/utils/theme";
 import styled from "styled-components";
@@ -33,6 +34,16 @@ const Modal = styled.div`
   padding: 4rem 5rem;
   background-color: ${theme.colors.white};
   border-radius: 16px;
+  @media ${breakPoints.mobileWidth} {
+    padding: 8rem 5rem;
+
+    max-width: 70rem;
+  }
+  @media ${breakPoints.mobileHeight} {
+    padding: 6rem 5rem;
+
+    max-width: 70rem;
+  }
 `;
 
 const ModalTitle = styled.div<IStyleProps>`
@@ -43,14 +54,25 @@ const ModalTitle = styled.div<IStyleProps>`
   width: 100%;
   margin-bottom: ${(props) => (props.warning ? "1.5rem" : "4rem")};
   word-break: keep-all;
+  @media ${breakPoints.mobileWidth} {
+    font-size: 4rem;
+  }
+  @media ${breakPoints.mobileHeight} {
+    font-size: 4rem;
+  }
 `;
 
 const ModalWarning = styled.div`
   font-weight: 400;
   font-size: 1.8rem;
-  line-height: 1.8rem;
   margin-bottom: 4rem;
   color: ${theme.colors.inputBorder};
+  @media ${breakPoints.mobileWidth} {
+    font-size: 2rem;
+  }
+  @media ${breakPoints.mobileHeight} {
+    font-size: 3rem;
+  }
 `;
 
 const ModalButtonBox = styled.div`

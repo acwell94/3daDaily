@@ -3,11 +3,6 @@ import UserFlowButton from "@src/components/commons/button/userFlowButton";
 import useLink from "@src/components/commons/hooks/useLink";
 import UserFlowInput from "@src/components/commons/inputs/userFlowInput";
 import ConfirmModal from "@src/components/commons/modal/confirmModal";
-import {
-  CommonFormBox,
-  CommonMain,
-  CommonMainBox,
-} from "@src/components/commons/styles/commonStyles";
 import UserFlowTitle from "@src/components/commons/title/userFlowTitle";
 import { KeyboardEvent } from "react";
 
@@ -36,8 +31,8 @@ const SignInPresenter = ({
     if (e.code === "Enter") e.preventDefault();
   };
   return (
-    <CommonMain>
-      <CommonMainBox>
+    <S.CommonMain>
+      <S.CommonMainBox>
         <ConfirmModal
           title={errorMsg}
           isVisible={errorModalVisible}
@@ -46,7 +41,7 @@ const SignInPresenter = ({
         />
 
         <UserFlowTitle title="로그인" />
-        <CommonFormBox
+        <S.CommonFormBox
           onSubmit={handleSubmit(signInHandler)}
           onKeyDown={(e) => checkKeyDown(e)}
         >
@@ -71,15 +66,15 @@ const SignInPresenter = ({
             isComplete={true}
             loading={loading}
           />
-        </CommonFormBox>
+        </S.CommonFormBox>
         <S.UserSelectBox>
           <S.UserSelectText onClick={useLink("/findId")}>
             아이디 찾기
           </S.UserSelectText>
           <S.SignUpText onClick={useLink("/signup")}>회원가입</S.SignUpText>
         </S.UserSelectBox>
-      </CommonMainBox>
-    </CommonMain>
+      </S.CommonMainBox>
+    </S.CommonMain>
   );
 };
 

@@ -109,6 +109,17 @@ export const WriteTitle = styled.div`
   font-weight: 500;
   line-height: 3.8rem;
   margin-bottom: 4rem;
+  @media ${breakPoints.mobileWidth} {
+    font-size: 4rem;
+    margin-bottom: 8rem;
+  }
+  @media ${breakPoints.mobileHeight} {
+    font-size: 4rem;
+    margin-bottom: 8rem;
+  }
+  @media ${breakPoints.smallScreen} {
+    font-size: 4rem;
+  }
 `;
 
 export const WritePickBox = styled.div`
@@ -152,6 +163,7 @@ export const WriteItem = styled.div<IStyle>`
   box-shadow: ${(props) =>
     props.current ? `0px 0px 1rem rgba(97, 100, 187, 0.3)` : null};
   padding: 1rem 0;
+  border-radius: 2rem;
 `;
 
 export const WriteImgLimit = styled.div`

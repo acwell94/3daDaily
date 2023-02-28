@@ -46,6 +46,7 @@ const WhatItem = styled.div<IStyle>`
   box-shadow: ${(props) =>
     props.current ? `0px 0px 1rem rgba(97, 100, 187, 0.3)` : null};
   padding: 1rem 0;
+  border-radius: 2rem;
 `;
 
 const WhatImgLimit = styled.div`

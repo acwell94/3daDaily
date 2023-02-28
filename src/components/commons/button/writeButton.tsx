@@ -1,3 +1,4 @@
+import { breakPoints } from "@src/styles/media";
 import { flexBox } from "@src/utils/flexBox";
 import theme from "@src/utils/theme";
 import styled from "styled-components";
@@ -12,10 +13,28 @@ const Button = styled.div`
   background-color: ${theme.colors.deepPurple};
   border-radius: 8px;
   cursor: pointer;
+  @media ${breakPoints.mobileWidth} {
+    padding: 2rem 5rem;
+  }
+  @media ${breakPoints.mobileHeight} {
+    padding: 2rem 5rem;
+  }
+  @media ${breakPoints.smallScreen} {
+    padding: 3rem 5rem;
+  }
 `;
 const FirstText = styled.div`
   font-size: 2rem;
   color: ${theme.colors.white};
+  @media ${breakPoints.mobileWidth} {
+    font-size: 3rem;
+  }
+  @media ${breakPoints.mobileHeight} {
+    font-size: 3rem;
+  }
+  @media ${breakPoints.smallScreen} {
+    font-size: 4rem;
+  }
 `;
 
 const SecondText = styled(FirstText)`

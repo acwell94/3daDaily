@@ -1,4 +1,5 @@
 "use client";
+import { breakPoints } from "@src/styles/media";
 import { flexBox } from "@src/utils/flexBox";
 import theme from "@src/utils/theme";
 import styled from "styled-components";
@@ -21,6 +22,12 @@ const Button = styled.div<IStyleProps>`
     props.isCancel ? `${theme.colors.gray}` : `${theme.colors.lightGray}`};
   border-radius: 8px;
   cursor: pointer;
+  @media ${breakPoints.mobileWidth} {
+    padding: 3rem 0;
+  }
+  @media ${breakPoints.mobileHeight} {
+    padding: 4rem 0;
+  }
 `;
 
 const ButtonTitle = styled.div<IStyleProps>`
@@ -29,6 +36,12 @@ const ButtonTitle = styled.div<IStyleProps>`
   font-weight: 500;
   font-size: 2rem;
   line-height: 1.8rem;
+  @media ${breakPoints.mobileWidth} {
+    font-size: 4rem;
+  }
+  @media ${breakPoints.mobileHeight} {
+    font-size: 4rem;
+  }
 `;
 
 const ModalButton = ({ handler, title, isCancel }: IProps) => {

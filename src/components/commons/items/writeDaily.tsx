@@ -6,6 +6,7 @@ import LogoItem from "./logoItem";
 import styled from "styled-components";
 import theme from "@src/utils/theme";
 import { flexBox } from "@src/utils/flexBox";
+import { breakPoints } from "@src/styles/media";
 
 interface IWriteProps {
   prevHandler?: () => void;
@@ -31,12 +32,20 @@ const TitleInputBox = styled.div`
 const TitleInput = styled.input`
   width: 100%;
   font-size: 2rem;
-
+  border: none;
   ::placeholder {
     color: ${theme.colors.sliverGray};
     padding-left: 0.3rem;
   }
-  border: none;
+  @media ${breakPoints.mobileWidth} {
+    font-size: 3rem;
+  }
+  @media ${breakPoints.mobileHeight} {
+    font-size: 4rem;
+  }
+  @media ${breakPoints.smallScreen} {
+    font-size: 5rem;
+  }
 `;
 
 const DailyPickBox = styled.div`
@@ -48,6 +57,17 @@ const DailyPickBox = styled.div`
   width: 98%;
   height: 100%;
   max-height: 50rem;
+  @media ${breakPoints.mobileWidth} {
+    padding: 5rem 8rem;
+    max-height: 70rem;
+  }
+  @media ${breakPoints.mobileHeight} {
+    padding: 5rem 8rem;
+    max-height: 70rem;
+  }
+  @media ${breakPoints.smallScreen} {
+    padding: 5rem 6rem;
+  }
 `;
 
 interface IStyle {
@@ -71,11 +91,31 @@ const DailyContents = styled.input`
     color: ${theme.colors.sliverGray};
     padding-left: 0.3rem;
   }
+  @media ${breakPoints.mobileWidth} {
+    font-size: 3rem;
+    margin-bottom: 2rem;
+  }
+  @media ${breakPoints.mobileHeight} {
+    font-size: 4rem;
+    margin-bottom: 2rem;
+  }
+  @media ${breakPoints.smallScreen} {
+    font-size: 5rem;
+  }
 `;
 
 const LimitCharacter = styled.div<IStyle>`
   font-size: 1.5rem;
   color: ${(props) => (props.warning ? `${theme.colors.red}` : null)};
+  @media ${breakPoints.mobileWidth} {
+    font-size: 3rem;
+  }
+  @media ${breakPoints.mobileHeight} {
+    font-size: 3rem;
+  }
+  @media ${breakPoints.smallScreen} {
+    font-size: 3rem;
+  }
 `;
 
 const WriteDaily = (

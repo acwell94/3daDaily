@@ -1,5 +1,4 @@
 "use client";
-import { LogoMainBox } from "@src/components/commons/styles/commonStyles";
 import Profile from "../../../../public/icon/profile.png";
 import * as S from "./MyPageStyles";
 import WriteButton from "@src/components/commons/button/writeButton";
@@ -82,7 +81,7 @@ const MyPagePresenter = ({
           <S.SettingText>설정</S.SettingText>
         </S.SettingVisibleButton>
       </S.SideButtonBox>
-      <LogoMainBox>
+      <S.LogoMainBox>
         <LogoItem />
         <S.InfoBox>
           <S.UserBox>
@@ -126,7 +125,7 @@ const MyPagePresenter = ({
             <WriteButton handler={useLink("/write")} />
           </S.NoneDailyBox>
         )}
-      </LogoMainBox>
+      </S.LogoMainBox>
     </S.LogoMain>
   );
 };
