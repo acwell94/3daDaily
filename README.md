@@ -3,12 +3,15 @@
 ### 개발기간
 #### [v1.0.0](https://github.com/acwell94/3daDaily/wiki/%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8-%EA%B0%9C%EC%9A%94) <span>2023.01.10 ~ 2023.02.28</span>
 
+##
+
 ### 목차
 1. [서비스 소개](#-서비스-소개)
 2. [사용 기술](#-사용-기술)
 3. [주요 기능](#-주요-기능)
 4. [배포](#-배포)
 5. [History](#-history)
+
 
 ## 📌 서비스 소개
 <p align='center'>
