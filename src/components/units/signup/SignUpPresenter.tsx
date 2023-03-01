@@ -89,7 +89,7 @@ const SignUpPresenter = ({
                 type="text"
                 name="name"
                 register={register}
-                placeholder="닉네임(10자 이내)"
+                placeholder="닉네임(최대 6자)"
                 error={formState.errors.name?.message}
               />
               <UserFlowInput

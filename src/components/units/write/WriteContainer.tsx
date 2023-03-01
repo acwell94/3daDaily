@@ -74,166 +74,166 @@ const WriteContainer = ({ isEdit }: IProps) => {
     }
   };
 
-  useEffect(() => {
-    const handleScroll = (e: any) => {
-      e.preventDefault();
+  // useEffect(() => {
+  //   const handleScroll = (e: any) => {
+  //     e.preventDefault();
 
-      const innerHeight = window.innerHeight;
-      const currentPageScroll = window.scrollY;
+  //     const innerHeight = window.innerHeight;
+  //     const currentPageScroll = window.scrollY;
 
-      if (e.deltaY > 0) {
-        // 스크롤 내릴 때
-        if (currentPageScroll < innerHeight - 2) {
-          window.scroll({
-            top: Math.ceil(
-              currentPageScroll +
-                weatherRef.current.getBoundingClientRect().top,
-            ),
-            behavior: "smooth",
-          });
-        } else if (
-          currentPageScroll >= innerHeight - 4 &&
-          currentPageScroll < innerHeight * 2
-        ) {
-          window.scroll({
-            top: Math.ceil(
-              currentPageScroll + whereRef.current.getBoundingClientRect().top,
-            ),
-            behavior: "smooth",
-          });
-        } else if (
-          currentPageScroll >= innerHeight * 2 - 4 &&
-          currentPageScroll < innerHeight * 3
-        ) {
-          window.scroll({
-            top: Math.ceil(
-              currentPageScroll + whoRef.current.getBoundingClientRect().top,
-            ),
-            behavior: "smooth",
-          });
-        } else if (
-          currentPageScroll >= innerHeight * 3 - 4 &&
-          currentPageScroll < innerHeight * 4
-        ) {
-          window.scroll({
-            top: Math.ceil(
-              currentPageScroll + whatRef.current.getBoundingClientRect().top,
-            ),
-            behavior: "smooth",
-          });
-        } else if (
-          currentPageScroll >= innerHeight * 4 - 4 &&
-          currentPageScroll < innerHeight * 5
-        ) {
-          window.scroll({
-            top: Math.ceil(
-              currentPageScroll + feelRef.current.getBoundingClientRect().top,
-            ),
-            behavior: "smooth",
-          });
-        } else if (
-          currentPageScroll >= innerHeight * 5 - 4 &&
-          currentPageScroll < innerHeight * 6
-        ) {
-          window.scroll({
-            top: Math.ceil(
-              currentPageScroll +
-                pictureRef.current.getBoundingClientRect().top,
-            ),
-            behavior: "smooth",
-          });
-        } else if (
-          currentPageScroll >= innerHeight * 6 - 4 &&
-          currentPageScroll < innerHeight * 7
-        ) {
-          window.scroll({
-            top: Math.ceil(
-              currentPageScroll + dailyRef.current.getBoundingClientRect().top,
-            ),
-            behavior: "smooth",
-          });
-        }
-      } else {
-        if (
-          currentPageScroll > innerHeight &&
-          currentPageScroll < innerHeight * 2
-        ) {
-          window.scroll({
-            top: Math.ceil(
-              currentPageScroll + dateRef.current.getBoundingClientRect().top,
-            ),
-            behavior: "smooth",
-          });
-        } else if (
-          currentPageScroll > innerHeight * 2 &&
-          currentPageScroll < innerHeight * 3
-        ) {
-          window.scroll({
-            top: Math.ceil(
-              currentPageScroll +
-                weatherRef.current.getBoundingClientRect().top,
-            ),
-            behavior: "smooth",
-          });
-        } else if (
-          currentPageScroll > innerHeight * 3 &&
-          currentPageScroll < innerHeight * 4
-        ) {
-          window.scroll({
-            top: Math.ceil(
-              currentPageScroll + whereRef.current.getBoundingClientRect().top,
-            ),
-            behavior: "smooth",
-          });
-        } else if (
-          currentPageScroll > innerHeight * 4 &&
-          currentPageScroll < innerHeight * 5
-        ) {
-          window.scroll({
-            top: Math.ceil(
-              currentPageScroll + whoRef.current.getBoundingClientRect().top,
-            ),
-            behavior: "smooth",
-          });
-        } else if (
-          currentPageScroll > innerHeight * 5 &&
-          currentPageScroll < innerHeight * 6
-        ) {
-          window.scroll({
-            top: Math.ceil(
-              currentPageScroll + whatRef.current.getBoundingClientRect().top,
-            ),
-            behavior: "smooth",
-          });
-        } else if (
-          currentPageScroll > innerHeight * 6 &&
-          currentPageScroll < innerHeight * 7
-        ) {
-          window.scroll({
-            top: Math.ceil(
-              currentPageScroll + feelRef.current.getBoundingClientRect().top,
-            ),
-            behavior: "smooth",
-          });
-        } else if (
-          currentPageScroll > innerHeight * 7 &&
-          currentPageScroll < innerHeight * 8
-        ) {
-          window.scroll({
-            top: Math.ceil(
-              currentPageScroll +
-                pictureRef.current.getBoundingClientRect().top,
-            ),
-            behavior: "smooth",
-          });
-        }
-      }
-    };
-    window.addEventListener("wheel", handleScroll, { passive: false });
-    return () => {
-      window.removeEventListener("wheel", handleScroll);
-    };
-  }, []);
+  //     if (e.deltaY > 0) {
+  //       // 스크롤 내릴 때
+  //       if (currentPageScroll < innerHeight - 2) {
+  //         window.scroll({
+  //           top: Math.ceil(
+  //             currentPageScroll +
+  //               weatherRef.current.getBoundingClientRect().top,
+  //           ),
+  //           behavior: "smooth",
+  //         });
+  //       } else if (
+  //         currentPageScroll >= innerHeight - 4 &&
+  //         currentPageScroll < innerHeight * 2
+  //       ) {
+  //         window.scroll({
+  //           top: Math.ceil(
+  //             currentPageScroll + whereRef.current.getBoundingClientRect().top,
+  //           ),
+  //           behavior: "smooth",
+  //         });
+  //       } else if (
+  //         currentPageScroll >= innerHeight * 2 - 4 &&
+  //         currentPageScroll < innerHeight * 3
+  //       ) {
+  //         window.scroll({
+  //           top: Math.ceil(
+  //             currentPageScroll + whoRef.current.getBoundingClientRect().top,
+  //           ),
+  //           behavior: "smooth",
+  //         });
+  //       } else if (
+  //         currentPageScroll >= innerHeight * 3 - 4 &&
+  //         currentPageScroll < innerHeight * 4
+  //       ) {
+  //         window.scroll({
+  //           top: Math.ceil(
+  //             currentPageScroll + whatRef.current.getBoundingClientRect().top,
+  //           ),
+  //           behavior: "smooth",
+  //         });
+  //       } else if (
+  //         currentPageScroll >= innerHeight * 4 - 4 &&
+  //         currentPageScroll < innerHeight * 5
+  //       ) {
+  //         window.scroll({
+  //           top: Math.ceil(
+  //             currentPageScroll + feelRef.current.getBoundingClientRect().top,
+  //           ),
+  //           behavior: "smooth",
+  //         });
+  //       } else if (
+  //         currentPageScroll >= innerHeight * 5 - 4 &&
+  //         currentPageScroll < innerHeight * 6
+  //       ) {
+  //         window.scroll({
+  //           top: Math.ceil(
+  //             currentPageScroll +
+  //               pictureRef.current.getBoundingClientRect().top,
+  //           ),
+  //           behavior: "smooth",
+  //         });
+  //       } else if (
+  //         currentPageScroll >= innerHeight * 6 - 4 &&
+  //         currentPageScroll < innerHeight * 7
+  //       ) {
+  //         window.scroll({
+  //           top: Math.ceil(
+  //             currentPageScroll + dailyRef.current.getBoundingClientRect().top,
+  //           ),
+  //           behavior: "smooth",
+  //         });
+  //       }
+  //     } else {
+  //       if (
+  //         currentPageScroll > innerHeight &&
+  //         currentPageScroll < innerHeight * 2
+  //       ) {
+  //         window.scroll({
+  //           top: Math.ceil(
+  //             currentPageScroll + dateRef.current.getBoundingClientRect().top,
+  //           ),
+  //           behavior: "smooth",
+  //         });
+  //       } else if (
+  //         currentPageScroll > innerHeight * 2 &&
+  //         currentPageScroll < innerHeight * 3
+  //       ) {
+  //         window.scroll({
+  //           top: Math.ceil(
+  //             currentPageScroll +
+  //               weatherRef.current.getBoundingClientRect().top,
+  //           ),
+  //           behavior: "smooth",
+  //         });
+  //       } else if (
+  //         currentPageScroll > innerHeight * 3 &&
+  //         currentPageScroll < innerHeight * 4
+  //       ) {
+  //         window.scroll({
+  //           top: Math.ceil(
+  //             currentPageScroll + whereRef.current.getBoundingClientRect().top,
+  //           ),
+  //           behavior: "smooth",
+  //         });
+  //       } else if (
+  //         currentPageScroll > innerHeight * 4 &&
+  //         currentPageScroll < innerHeight * 5
+  //       ) {
+  //         window.scroll({
+  //           top: Math.ceil(
+  //             currentPageScroll + whoRef.current.getBoundingClientRect().top,
+  //           ),
+  //           behavior: "smooth",
+  //         });
+  //       } else if (
+  //         currentPageScroll > innerHeight * 5 &&
+  //         currentPageScroll < innerHeight * 6
+  //       ) {
+  //         window.scroll({
+  //           top: Math.ceil(
+  //             currentPageScroll + whatRef.current.getBoundingClientRect().top,
+  //           ),
+  //           behavior: "smooth",
+  //         });
+  //       } else if (
+  //         currentPageScroll > innerHeight * 6 &&
+  //         currentPageScroll < innerHeight * 7
+  //       ) {
+  //         window.scroll({
+  //           top: Math.ceil(
+  //             currentPageScroll + feelRef.current.getBoundingClientRect().top,
+  //           ),
+  //           behavior: "smooth",
+  //         });
+  //       } else if (
+  //         currentPageScroll > innerHeight * 7 &&
+  //         currentPageScroll < innerHeight * 8
+  //       ) {
+  //         window.scroll({
+  //           top: Math.ceil(
+  //             currentPageScroll +
+  //               pictureRef.current.getBoundingClientRect().top,
+  //           ),
+  //           behavior: "smooth",
+  //         });
+  //       }
+  //     }
+  //   };
+  //   window.addEventListener("wheel", handleScroll, { passive: false });
+  //   return () => {
+  //     window.removeEventListener("wheel", handleScroll);
+  //   };
+  // }, []);
   useEffect(() => {
     const accessToken = localStorage.getItem("accessToken");
     if (isEdit) {
