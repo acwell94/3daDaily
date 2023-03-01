@@ -65,6 +65,10 @@
   <img src='https://user-images.githubusercontent.com/89783182/222108839-b181fdf5-ed20-4b81-add6-8c2fe1d1349b.gif'/>
 </p>
 
+* browser-image-compression을 이용하여 유저가 올린 이미지를 압축해서 서버에 저장합니다.<br>
+* google-maps-api를 이용하여 지도를 불러오고 use-places-autocomplete를 이용하여 위치검색을 지원합니다.<br>
+* Geolocation.getCurrentPosition() web API를 이용하여 현재 위치를 불러옵니다.<br>
+
 ### 🛠️ 작성한 일기 확인
 
 <p align='center'>
