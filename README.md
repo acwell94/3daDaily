@@ -28,18 +28,23 @@
 <p align='center'>
   <img src='https://user-images.githubusercontent.com/89783182/222052335-598d888c-7db9-4213-afaa-bc5892d04e1b.png'/>
 </p>
-* 개인정보 제공 없이 간단히 아이디와 닉네임으로 회원가입이 가능합니다.
-* 유저에게서 아이디, 닉네임, 비밀번호, 프로필사진을 받아서 비밀번호는 hash하고 프로필사진은 AWS에 저장하여 DB에 저장합니다.
-
+* 개인정보 제공 없이 간단히 아이디와 닉네임으로 회원가입이 가능합니다.<br>
+* 유저에게서 아이디, 닉네임, 비밀번호, 프로필사진을 받아서 비밀번호는 hash하여 저장, 프로필사진은 AWS에 저장하여 DB에 링크로 저장합니다.
 <p align='center'>
-  <img src='https://user-images.githubusercontent.com/89783182/222052335-598d888c-7db9-4213-afaa-bc5892d04e1b.png'/>
+  <img src='https://user-images.githubusercontent.com/89783182/222068824-5088d79e-4531-43a8-81b0-6a866c0dbbcf.png'/>
 </p>
-
 
 ### 🛠️ 로그인
 
 <p align='center'>
   <img src='https://user-images.githubusercontent.com/89783182/222051365-4d21ed7c-7ecc-43cf-b32d-0340ecddbdbf.png'/>
 </p>
-* 복잡한 
+* 회원가입시 등록된 정보로 로그인이 가능합니다.<br>
+* 간단히 이메일과 비밀번호로 로그인하고 DB에서 확인 후 JWT를 이용하여 AccessToken, RefreshToken을 발급합니다.<br>
+* AccessToken은 1시간 RefreshToken은 14일 유지가 되며 1시간이 지난 후 RefreshToken을 이용해 다시 AccessToken을 발급합니다.<br>
+<p align='center'>
+  <img src='https://user-images.githubusercontent.com/89783182/222075168-7d82cbc6-cd85-430f-b837-2e08c9565734.png'/>
+</p>
+
+
 
