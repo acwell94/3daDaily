@@ -1,5 +1,15 @@
 # 삼다일기 v1.0.0
 
+### 개발기간
+#### [v1.0.0](https://github.com/acwell94/3daDaily/wiki/%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8-%EA%B0%9C%EC%9A%94) <span>2023.02.28 배포</span>
+
+### 목차
+1. [서비스 소개](#-서비스-소개)
+2. [사용 기술](#-사용-기술)
+3. [주요 기능](#-주요-기능)
+4. [배포](#-배포)
+5. [History](#-history)
+
 ## 📌 서비스 소개
 <p align='center'>
 <img width='200px' src='https://user-images.githubusercontent.com/89783182/222035863-cd30cc07-2690-47b6-8cc7-7a829d95fd33.png'/>
@@ -108,4 +118,6 @@
 * 가비아에서 도메인을 구입하여 커스텀 도메인을 연결하여 배포하였습니다.
 
 ## 📌 History
-[v1.0.0](https://github.com/acwell94/3daDaily/wiki/%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8-%EA%B0%9C%EC%9A%94)
+#### [v1.0.0](https://github.com/acwell94/3daDaily/wiki/%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8-%EA%B0%9C%EC%9A%94) <span>2023.02.28 배포</span>
+
+
