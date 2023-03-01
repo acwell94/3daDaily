@@ -5,4 +5,6 @@
 <img width='200px' src='https://user-images.githubusercontent.com/89783182/222035863-cd30cc07-2690-47b6-8cc7-7a829d95fd33.png'/>
 </p>
 
-3줄이면 다 끝나는 오늘의 기록 3다일기
+🗒️ 간단하게 오늘 하루를 기록하는 서비스 웹 버전 🗒️
+
+사이트 : [https://www.3dadaily.store/](https://www.3dadaily.store/)
