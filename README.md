@@ -37,8 +37,13 @@
 ### 🛠️ 로그인
 
 <p align='center'>
-  <img src='https://user-images.githubusercontent.com/89783182/222051365-4d21ed7c-7ecc-43cf-b32d-0340ecddbdbf.png'/>
+  <img src='https://user-images.githubusercontent.com/89783182/222082594-2c6a95e0-5586-402d-87e2-5df64b9a3b0c.gif'/>
 </p>
+
+<p align='center'>
+  <img src='https://user-images.githubusercontent.com/89783182/222082607-bfd1bed6-8ae7-435f-b843-6d8e6a727540.gif'/>
+</p>
+
 * 회원가입시 등록된 정보로 로그인이 가능합니다.<br>
 * 간단히 이메일과 비밀번호로 로그인하고 DB에서 확인 후 JWT를 이용하여 AccessToken, RefreshToken을 발급합니다.<br>
 * AccessToken은 1시간 RefreshToken은 14일 유지가 되며 1시간이 지난 후 RefreshToken을 이용해 다시 AccessToken을 발급합니다.<br>
@@ -46,5 +51,50 @@
   <img src='https://user-images.githubusercontent.com/89783182/222075168-7d82cbc6-cd85-430f-b837-2e08c9565734.png'/>
 </p>
 
+### 🛠️ 메인 페이지
 
+<p align='center'>
+  <img src='https://user-images.githubusercontent.com/89783182/222083557-d7cf8ed0-e63e-4c0c-8a97-bed26ae04472.gif'/>
+</p>
 
+* 유저가 작성한 글을 리스트 형식으로 보여주고 조건을 이용하여 검색할 수 있습니다.
+
+### 🛠️ 일기 작성
+
+<p align='center'>
+  <img src='https://user-images.githubusercontent.com/89783182/222108839-b181fdf5-ed20-4b81-add6-8c2fe1d1349b.gif'/>
+</p>
+
+### 🛠️ 작성한 일기 확인
+
+<p align='center'>
+  <img src='https://user-images.githubusercontent.com/89783182/222110980-68aa804a-5c08-40c1-a833-1e1dd74e95c6.gif'/>
+</p>
+
+* 작성한 일기를 확인할 수 있습니다.<br>
+* 수정을 원하시면 수정 버튼을 눌러 수정할 수 있습니다.<br>
+* 삭제 버튼을 눌러 삭제할 수 있습니다.
+
+### 🛠️ 설정 페이지
+
+<p align='center'>
+  <img src='https://user-images.githubusercontent.com/89783182/222111913-933d753e-ba4c-4c8e-8740-2c2323b1f54b.png'/>
+</p>
+
+### 🛠️ openAI를 이용한 챗봇 시스템
+
+<p align='center'>
+  <img src='https://user-images.githubusercontent.com/89783182/222113170-6248a020-21b5-4f47-8dbc-b40840791fbc.gif'/>
+</p>
+
+* openAI의 ChatGPT api를 이용한 챗봇 시스템입니다.<br>
+* 아직은 정확하지 않은 검색결과로 공부 및 실험 목적으로 개발한 기능입니다.<br>
+
+## 📌 배포
+
+### Vercel
+* 이전에 배포를 해봤던 GCP는 무료 기간이 3개월로 짧아서 삼다일기는 무료로 이용가능하고 배포에 소요가 최대한 적은 클라우딩 플랫폼인 vercel을 이용하기로 하였습니다.<br>
+* 가비아에서 도메인을 구입하여 커스텀 도메인을 연결하여 배포하였습니다.
+
+## 📌 History
+[v1.0.0](https://github.com/acwell94/3daDaily/wiki/%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8-%EA%B0%9C%EC%9A%94)
