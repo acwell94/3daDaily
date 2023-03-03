@@ -74,53 +74,56 @@ const SignUpContainer = () => {
       setErrorConfirmModalVisible((prev) => !prev);
       setLoading((prev) => !prev);
       return;
-    }
-    try {
-      setLoading((prev) => !prev);
-      const formData = new FormData();
-      formData.append("name", form.name);
-      formData.append("email", form.email);
-      formData.append("password", form.password);
-      formData.append("profileImg", file);
+    } else {
+      try {
+        const formData = new FormData();
+        formData.append("name", form.name);
+        formData.append("email", form.email);
+        formData.append("password", form.password);
+        formData.append("profileImg", file);
 
-      const { data } = await axios.post(
-        `${process.env.NEXT_PUBLIC_API}users/signup`,
-        formData,
-      );
-
-      if (data) {
         const { data } = await axios.post(
-          `${process.env.NEXT_PUBLIC_API}users/login`,
-          {
-            email: form.email,
-            password: form.password,
-          },
+          `${process.env.NEXT_PUBLIC_API}users/signup`,
+          formData,
         );
 
-        localStorage.setItem(
-          "data",
-          JSON.stringify({
+        if (data) {
+          const { data } = await axios.post(
+            `${process.env.NEXT_PUBLIC_API}users/login`,
+            {
+              email: form.email,
+              password: form.password,
+            },
+          );
+
+          localStorage.setItem(
+            "data",
+            JSON.stringify({
+              userId: data.userId,
+              email: data.email,
+              name: data.name,
+            }),
+          );
+
+          localStorage.setItem("accessToken", JSON.stringify(data.token));
+          localStorage.setItem(
+            "refreshToken",
+            JSON.stringify(data.refreshToken),
+          );
+          setAccessToken({
             userId: data.userId,
             email: data.email,
-            name: data.name,
-          }),
-        );
-
-        localStorage.setItem("accessToken", JSON.stringify(data.token));
-        localStorage.setItem("refreshToken", JSON.stringify(data.refreshToken));
-        setAccessToken({
-          userId: data.userId,
-          email: data.email,
-          accessToken: data.token,
-          refreshToken: data.refreshToken,
-        });
+            accessToken: data.token,
+            refreshToken: data.refreshToken,
+          });
+          setLoading((prev) => !prev);
+          router.push(`/mypage/${data.userId}`);
+        }
+      } catch (err: any) {
         setLoading((prev) => !prev);
-        router.push(`/mypage/${data.userId}`);
+        setErrorText(err.response.data.message);
+        setErrorConfirmModalVisible((prev) => !prev);
       }
-    } catch (err: any) {
-      setLoading((prev) => !prev);
-      setErrorText(err.response.data.message);
-      setErrorConfirmModalVisible((prev) => !prev);
     }
   };
 

@@ -32,14 +32,13 @@ const SignInPresenter = ({
   };
   return (
     <S.CommonMain>
+      <ConfirmModal
+        title={errorMsg}
+        isVisible={errorModalVisible}
+        handler={errorModalHandler}
+        buttonTitle="확인"
+      />
       <S.CommonMainBox>
-        <ConfirmModal
-          title={errorMsg}
-          isVisible={errorModalVisible}
-          handler={errorModalHandler}
-          buttonTitle="확인"
-        />
-
         <UserFlowTitle title="로그인" />
         <S.CommonFormBox
           onSubmit={handleSubmit(signInHandler)}

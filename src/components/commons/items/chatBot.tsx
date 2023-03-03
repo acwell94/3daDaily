@@ -32,9 +32,19 @@ const Title = styled.div`
   word-break: keep-all;
 `;
 
-const Main = styled.div<IProps>`
+const BackGroundChatBot = styled.div<IProps>`
   ${flexBox("col", "center", "center")}
   display: ${(props) => (props.isVisible ? "flex" : "none")};
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  z-index: 2;
+  background: ${theme.colors.modalBackGround};
+`;
+
+const Main = styled.div`
+  ${flexBox("col", "center", "center")}
+
   width: 25%;
   height: 70%;
   @media ${breakPoints.tablet} {
@@ -52,9 +62,8 @@ const Main = styled.div<IProps>`
   padding: 3rem;
   background-color: ${theme.colors.lightPurple};
   border-radius: 16px;
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
+  /* top: 50%; */
+  /* transform: translateY(-50%); */
   z-index: 9;
   box-shadow: 0px 0.4rem 0.4rem rgba(0, 0, 0, 0.25);
 `;
@@ -202,59 +211,61 @@ const ChatBot = ({ isVisible, chatBotHandler }: IProps) => {
     }
   };
   return (
-    <Main isVisible={isVisible}>
-      <Title>
-        <div></div>
-        ChatBot에게 질문해 보세요
-        <div style={{ cursor: "pointer" }} onClick={chatBotHandler}>
-          X
-        </div>
-      </Title>
-      <Box>
-        {chat.map((el: any, idx: number) => (
-          <React.Fragment key={el.id}>
-            {idx % 2 === 0 ? (
-              <ChatBox>
-                <Chat>{el.text}</Chat>
-                <ChatUserProfileBox>
-                  <ChatProfile src={User} alt="User" fill={true} />
-                </ChatUserProfileBox>
-              </ChatBox>
-            ) : (
-              <ChatBox>
-                <ChatProfileBox>
-                  <ChatProfile src={Bot} alt="User" fill={true} />
-                </ChatProfileBox>
-                <AnswerChat>{el.text}</AnswerChat>
-              </ChatBox>
-            )}
-          </React.Fragment>
-        ))}
-      </Box>
+    <BackGroundChatBot isVisible={isVisible}>
+      <Main>
+        <Title>
+          <div></div>
+          ChatBot에게 질문해 보세요
+          <div style={{ cursor: "pointer" }} onClick={chatBotHandler}>
+            X
+          </div>
+        </Title>
+        <Box>
+          {chat.map((el: any, idx: number) => (
+            <React.Fragment key={el.id}>
+              {idx % 2 === 0 ? (
+                <ChatBox>
+                  <Chat>{el.text}</Chat>
+                  <ChatUserProfileBox>
+                    <ChatProfile src={User} alt="User" fill={true} />
+                  </ChatUserProfileBox>
+                </ChatBox>
+              ) : (
+                <ChatBox>
+                  <ChatProfileBox>
+                    <ChatProfile src={Bot} alt="User" fill={true} />
+                  </ChatProfileBox>
+                  <AnswerChat>{el.text}</AnswerChat>
+                </ChatBox>
+              )}
+            </React.Fragment>
+          ))}
+        </Box>
 
-      <QuestionBox>
-        <ChatInput
-          onChange={questionsHandler}
-          value={questions || ""}
-          onKeyDown={onKeyPress}
-          disabled={waitAnswer}
-          placeholder="챗봇에게 물어보기"
-        />
-        <SubmitButton
-          type="submit"
-          onClick={submitQuestion}
-          disabled={waitAnswer}
-        >
-          {waitAnswer ? (
-            <LoadingBox>
-              <LoadingIcon src={Loading} alt="Loading" fill={true} />
-            </LoadingBox>
-          ) : (
-            <>전송</>
-          )}
-        </SubmitButton>
-      </QuestionBox>
-    </Main>
+        <QuestionBox>
+          <ChatInput
+            onChange={questionsHandler}
+            value={questions || ""}
+            onKeyDown={onKeyPress}
+            disabled={waitAnswer}
+            placeholder="챗봇에게 물어보기"
+          />
+          <SubmitButton
+            type="submit"
+            onClick={submitQuestion}
+            disabled={waitAnswer}
+          >
+            {waitAnswer ? (
+              <LoadingBox>
+                <LoadingIcon src={Loading} alt="Loading" fill={true} />
+              </LoadingBox>
+            ) : (
+              <>전송</>
+            )}
+          </SubmitButton>
+        </QuestionBox>
+      </Main>
+    </BackGroundChatBot>
   );
 };
 
