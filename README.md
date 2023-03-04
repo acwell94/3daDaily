@@ -1,7 +1,7 @@
 # 삼다일기 v1.0.0
 
 ### 개발기간
-* #### [v1.0.0]((https://github.com/acwell94/3daDaily/wiki) <span>2023.01.10 ~ 2023.02.28</span>
+* #### [v1.0.0](https://github.com/acwell94/3daDaily/wiki) <span>2023.01.10 ~ 2023.02.28</span>
 
 ##
 
