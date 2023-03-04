@@ -122,5 +122,6 @@
 
 ## 📌 History
 #### [v1.0.0](https://github.com/acwell94/3daDaily/wiki) <span>2023.02.28 배포</span>
+#### [v1.0.1](https://github.com/acwell94/3daDaily/wiki/V1.0.1) <span>2023.03.03 배포</span>
 
 
