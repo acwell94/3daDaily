@@ -23,7 +23,7 @@ const Container = styled.div`
   }
 `;
 
-const LeftBtn = styled.div`
+const LeftBtn = styled.button`
   ${flexBox("col", "center", "center")}
   width: 16rem;
   padding: 2rem 0;

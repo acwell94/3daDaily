@@ -29,7 +29,7 @@ const PicturePickBox = styled.div`
   height: 100%;
   max-height: 50rem;
 `;
-const DefaultImageBox = styled.div<IStyleProps>`
+const DefaultImageBox = styled.button<IStyleProps>`
   width: ${(props) => (props.current ? "50rem" : "12rem")};
   height: ${(props) => (props.current ? "50rem" : "12rem")};
   position: relative;

@@ -7,7 +7,7 @@ interface IProps {
   handler?: () => void;
 }
 
-const Button = styled.div`
+const Button = styled.button`
   ${flexBox("row", "center", "center")}
   padding: 1.6rem 5rem;
   background-color: ${theme.colors.deepPurple};

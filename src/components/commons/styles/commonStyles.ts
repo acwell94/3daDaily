@@ -157,9 +157,9 @@ interface IStyle {
   current: boolean;
 }
 
-export const WriteItem = styled.div<IStyle>`
+export const WriteItem = styled.button<IStyle>`
   ${flexBox("col", "center", "center")}
-  cursor: pointer;
+
   box-shadow: ${(props) =>
     props.current ? `0px 0px 1rem rgba(97, 100, 187, 0.3)` : null};
   padding: 1rem 0;

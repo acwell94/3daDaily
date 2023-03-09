@@ -34,7 +34,7 @@ const FilterContainer = styled.div`
   }
 `;
 
-const Filter = styled.div`
+const Filter = styled.button`
   ${flexBox("row", "start", "center")}
   @media ${breakPoints.smallScreen} {
     ${flexBox("col", "start", "center")}
@@ -237,7 +237,7 @@ const OptionImgBoxLimit = styled.div<IStyleProps>`
   }
 `;
 
-const OptionImgBox = styled.div`
+const OptionImgBox = styled.button`
   width: 100%;
   height: 100%;
   position: relative;

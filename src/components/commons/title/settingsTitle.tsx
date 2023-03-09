@@ -6,7 +6,7 @@ interface IProps {
   children: ReactNode;
 }
 
-const Title = styled.div`
+const Title = styled.h1`
   width: 98%;
   font-size: 3rem;
   font-weight: 700;

@@ -17,7 +17,7 @@ interface StyleProps {
   };
 }
 
-const Button = styled.div<StyleProps>`
+const Button = styled.button<StyleProps>`
   cursor: pointer;
   ${flexBox("row", "center", "center")}
   width: 100%;

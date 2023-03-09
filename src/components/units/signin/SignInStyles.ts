@@ -72,11 +72,10 @@ export const UserSelectBox = styled.div`
   }
 `;
 
-export const UserSelectText = styled.div`
+export const UserSelectText = styled.button`
   font-size: 2rem;
   font-weight: 400;
   color: ${theme.colors.lightGray};
-  cursor: pointer;
   margin-right: 2rem;
   @media ${breakPoints.mobileWidth} {
     font-size: 4rem;

@@ -14,7 +14,7 @@ interface IStyleProps {
   isDark?: boolean;
 }
 
-const ButtonContainer = styled.div<IStyleProps>`
+const ButtonContainer = styled.button<IStyleProps>`
   ${flexBox("row", "center", "center")}
   flex: 1;
   background-color: ${(props) =>

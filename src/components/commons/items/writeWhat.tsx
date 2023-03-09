@@ -39,7 +39,7 @@ const WhatImgBox = styled.div`
   }
 `;
 
-const WhatItem = styled.div<IStyle>`
+const WhatItem = styled.button<IStyle>`
   ${flexBox("col", "center", "center")}
 
   cursor: pointer;
@@ -98,7 +98,7 @@ const WriteWhat = (
           {imgData.map((el) => (
             <WhatItem
               key={el.id}
-              onClick={(e) => handler(refName, String(el.id))}
+              onClick={() => handler(refName, String(el.id))}
               id={`${el.id}`}
               current={current ? current === String(el.id) : null}
             >

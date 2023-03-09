@@ -6,7 +6,7 @@ interface IProps {
   title: string;
 }
 
-const Title = styled.div`
+const Title = styled.h1`
   text-align: center;
   font-size: 4rem;
   font-weight: 700;

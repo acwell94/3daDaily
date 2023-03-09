@@ -31,7 +31,7 @@ const TitleInputBox = styled.div`
 
 const TitleInput = styled.input`
   width: 100%;
-  font-size: 2rem;
+  font-size: 3rem;
   border: none;
   ::placeholder {
     color: ${theme.colors.sliverGray};
@@ -85,7 +85,7 @@ const DailyContents = styled.input`
   border-bottom: 1px solid ${theme.colors.mainPurple};
   padding-bottom: 1rem;
   width: 100%;
-  font-size: 1.6rem;
+  font-size: 2.4rem;
   margin-bottom: 1rem;
   ::placeholder {
     color: ${theme.colors.sliverGray};
@@ -105,7 +105,7 @@ const DailyContents = styled.input`
 `;
 
 const LimitCharacter = styled.div<IStyle>`
-  font-size: 1.5rem;
+  font-size: 1.8rem;
   color: ${(props) => (props.warning ? `${theme.colors.red}` : null)};
   @media ${breakPoints.mobileWidth} {
     font-size: 3rem;

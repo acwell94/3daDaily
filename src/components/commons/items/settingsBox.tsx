@@ -11,7 +11,7 @@ interface IProps {
   handler: () => void;
 }
 
-const Container = styled.div`
+const Container = styled.button`
   ${flexBox("row", "between", "center")}
   width: 98%;
   background-color: ${theme.colors.white};

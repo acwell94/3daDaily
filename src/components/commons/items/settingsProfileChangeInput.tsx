@@ -27,7 +27,7 @@ const Container = styled.div<IStyleProps>`
   }
 `;
 const Title = styled.div`
-  font-size: 1.6rem;
+  font-size: 2.4rem;
   font-weight: 500;
   margin-bottom: 1rem;
   @media ${breakPoints.mobileWidth} {
@@ -46,7 +46,7 @@ const Input = styled.input`
   border: 1px solid ${theme.colors.inputBorder};
   border-radius: 8px;
   color: ${theme.colors.blackGray};
-  font-size: 2rem;
+  font-size: 3rem;
   font-weight: 500;
 
   ::placeholder {

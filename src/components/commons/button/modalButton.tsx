@@ -14,7 +14,7 @@ interface IStyleProps {
   isCancel?: boolean;
 }
 
-const Button = styled.div<IStyleProps>`
+const Button = styled.button<IStyleProps>`
   ${flexBox("row", "center", "center")}
   width: 40%;
   padding: 2rem 0;

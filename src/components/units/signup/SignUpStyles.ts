@@ -90,14 +90,13 @@ export const Question = styled.div`
   }
 `;
 
-export const LinkToLogin = styled.div`
+export const LinkToLogin = styled.button`
   color: #333333;
   font-size: 2rem;
   margin-right: 3rem;
   font-weight: 400;
   text-decoration: underline;
   text-underline-offset: 0.3rem;
-  cursor: pointer;
   @media ${breakPoints.mobileWidth} {
     font-size: 4rem;
   }

@@ -43,7 +43,7 @@ export const SideButtonBox = styled.div`
   }
 `;
 
-export const BotVisibleButton = styled.div`
+export const BotVisibleButton = styled.button`
   ${flexBox("row", "center", "center")}
   width: 7rem;
   height: 7rem;
@@ -54,7 +54,7 @@ export const BotVisibleButton = styled.div`
 `;
 
 export const BotProfileBox = styled.div`
-  width: 60%;
+  width: 70%;
   height: 60%;
   position: relative;
 `;
@@ -64,7 +64,7 @@ export const BotProfile = styled(Image)`
   height: 100%;
 `;
 
-export const SettingVisibleButton = styled.div`
+export const SettingVisibleButton = styled.button`
   ${flexBox("col", "center", "center")}
   width: 7rem;
   height: 7rem;
@@ -75,7 +75,7 @@ export const SettingVisibleButton = styled.div`
 `;
 
 export const SettingProfileBox = styled.div`
-  width: 50%;
+  width: 60%;
   height: 50%;
   position: relative;
 `;

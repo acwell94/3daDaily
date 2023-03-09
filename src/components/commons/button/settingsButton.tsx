@@ -11,7 +11,7 @@ interface IStyleProps {
   title: string;
 }
 
-const Button = styled.div<IStyleProps>`
+const Button = styled.button<IStyleProps>`
   background-color: ${(props) =>
     props.title === "삭제"
       ? `${theme.colors.mainPurple}`

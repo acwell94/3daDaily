@@ -216,9 +216,9 @@ const ChatBot = ({ isVisible, chatBotHandler }: IProps) => {
         <Title>
           <div></div>
           ChatBot에게 질문해 보세요
-          <div style={{ cursor: "pointer" }} onClick={chatBotHandler}>
+          <button style={{ cursor: "pointer" }} onClick={chatBotHandler}>
             X
-          </div>
+          </button>
         </Title>
         <Box>
           {chat.map((el: any, idx: number) => (

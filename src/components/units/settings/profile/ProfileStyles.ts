@@ -37,7 +37,7 @@ export const ButtonBox = styled.div`
   width: 98%;
 `;
 
-export const ImageBox = styled.div`
+export const ImageBox = styled.button`
   width: 20rem;
   height: 20rem;
   position: relative;
