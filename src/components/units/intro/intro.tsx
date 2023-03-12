@@ -141,4 +141,8 @@ const Intro = () => {
   );
 };
 
+export function getStaticProps() {
+  return {};
+}
+
 export default Intro;

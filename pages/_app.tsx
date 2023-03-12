@@ -38,7 +38,7 @@ export default function App({ Component, pageProps }: AppProps) {
         <link rel="icon" href="/favicon.png" />
         <meta
           name="Keywords"
-          content="삼다일기, 일기, 일기장, 간편한 일기장, 일기쓰기"
+          content="삼다일기, 일기, 일기장, 간편한 일기장, 일기쓰기, 일기어플, 일기서비스, 간편한, 일기장 프로그램, 세줄일기, 세줄일기 어플, 사진일기, 사진일기 어플, 일기어플추천, 일기쓰기어플추천"
         />
         <meta name="title" content="삼다일기" />
         <meta
