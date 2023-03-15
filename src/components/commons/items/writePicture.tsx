@@ -46,6 +46,7 @@ const UploadedFileImageBox = styled.div`
 const FileUploadImg = styled(Image)`
   cursor: pointer;
   border-radius: 8px;
+  object-fit: contain;
 `;
 
 const FileUploadTitle = styled.div`

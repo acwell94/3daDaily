@@ -142,7 +142,7 @@ const WriteDaily = (
           placeholder="20자 이내로 제목을 입력해주세요."
           onChange={(e) => changeHandler(e, "title")}
           maxLength={20}
-          defaultValue={defaultTitle ? defaultTitle : null}
+          value={defaultTitle ? defaultTitle : null}
         />
       </TitleInputBox>
       <DailyPickBox>
@@ -151,7 +151,7 @@ const WriteDaily = (
             placeholder="첫 번째 줄을 입력해주세요."
             onChange={(e) => changeHandler(e, "firstContents")}
             maxLength={30}
-            defaultValue={first ? first : null}
+            value={first ? first : null}
           />
           <LimitCharacter warning={first?.length === 30}>
             {first?.length}/ 30
@@ -162,7 +162,7 @@ const WriteDaily = (
             placeholder="두 번째 줄을 입력해주세요."
             onChange={(e) => changeHandler(e, "secondContents")}
             maxLength={30}
-            defaultValue={second ? second : null}
+            value={second ? second : null}
           />
           <LimitCharacter warning={second?.length === 30}>
             {second?.length}/ 30
@@ -173,7 +173,7 @@ const WriteDaily = (
             placeholder="세 번째 줄을 입력해주세요."
             onChange={(e) => changeHandler(e, "thirdContents")}
             maxLength={30}
-            defaultValue={third ? third : null}
+            value={third ? third : null}
           />
           <LimitCharacter warning={third?.length === 30}>
             {third?.length}/ 30

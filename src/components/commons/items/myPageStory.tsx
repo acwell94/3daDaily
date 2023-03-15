@@ -99,6 +99,7 @@ const ImgBox = styled.div`
 
 const StoryImg = styled(Image)`
   border-radius: 8px 8px 0 0;
+  object-fit: contain;
 `;
 
 const MyPageStory = ({ data, id }: IProps) => {
@@ -113,7 +114,7 @@ const MyPageStory = ({ data, id }: IProps) => {
     <Container onClick={linkToDetail}>
       <ImgBox>
         <StoryImg
-          src={data.image}
+          src={data.image ? data.image : "/noneDetailImg.png"}
           alt="피드이미지"
           fill={true}
           sizes="(max-width: 500px) 50vw, 100vw"

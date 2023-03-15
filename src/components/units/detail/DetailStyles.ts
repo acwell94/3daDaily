@@ -72,6 +72,7 @@ export const DetailImgBox = styled.div`
 export const DetailImg = styled(Image)`
   position: relative;
   border-radius: 8px 8px 0 0;
+  object-fit: contain;
 `;
 
 export const DetailContents = styled.div`

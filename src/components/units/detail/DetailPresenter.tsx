@@ -85,7 +85,11 @@ const DetailPresenter = ({
           <S.DetailImgBox>
             <S.DetailImg
               // src={`http://localhost:5000/${data?.foundData?.image}`}
-              src={data?.foundData.image}
+              src={
+                data?.foundData.image
+                  ? data?.foundData.image
+                  : "/noneDetailImg.png"
+              }
               alt="스토리이미지"
               fill={true}
               sizes="(max-width: 500px) 50vw, 100vw"
@@ -129,23 +133,43 @@ const DetailPresenter = ({
                   />
                 </S.IconBox>
               </S.ContentsImg>
-              <S.ContentsText>{data?.foundData.firstContents}</S.ContentsText>
-              <S.ContentsText>{data?.foundData.secondContents}</S.ContentsText>
-              <S.ContentsTextLast>
-                {data?.foundData.thirdContents}
-              </S.ContentsTextLast>
-            </div>
 
+              {data?.foundData.firstContents ||
+              data?.foundData.secondContents ||
+              data?.foundData.thirdContents ? (
+                <>
+                  <S.ContentsText>
+                    {data?.foundData.firstContents}
+                  </S.ContentsText>
+                  <S.ContentsText>
+                    {data?.foundData.secondContents}
+                  </S.ContentsText>
+                  <S.ContentsTextLast>
+                    {data?.foundData.thirdContents}
+                  </S.ContentsTextLast>
+                </>
+              ) : (
+                <S.ContentsText>등록된 일기가 없습니다.</S.ContentsText>
+              )}
+            </div>
             <S.ContentsAddressBox>
-              <S.AddressPinImgBox>
-                <S.AddressPin
-                  src={Pin}
-                  alt="지도마커"
-                  fill={true}
-                  sizes="(max-width: 500px) 50vw, 100vw"
-                />
-              </S.AddressPinImgBox>
-              <S.ContentsAddress>{data?.foundData.address}</S.ContentsAddress>
+              {data?.foundData.address ? (
+                <>
+                  <S.AddressPinImgBox>
+                    <S.AddressPin
+                      src={Pin}
+                      alt="지도마커"
+                      fill={true}
+                      sizes="(max-width: 500px) 50vw, 100vw"
+                    />
+                  </S.AddressPinImgBox>
+                  <S.ContentsAddress>
+                    {data?.foundData.address}
+                  </S.ContentsAddress>
+                </>
+              ) : (
+                <S.ContentsAddress>등록된 장소가 없습니다.</S.ContentsAddress>
+              )}
             </S.ContentsAddressBox>
           </S.DetailContents>
         </S.DetailContentsBox>

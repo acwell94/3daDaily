@@ -247,8 +247,12 @@ const WriteContainer = ({ isEdit }: IProps) => {
           weather: res?.foundData.weather,
           address: res?.foundData.address,
           location: {
-            lat: res?.foundData.location.lat,
-            lng: res?.foundData.location.lng,
+            lat: res?.foundData.location?.lat
+              ? res?.foundData.location.lat
+              : 37.5666805,
+            lng: res?.foundData.location?.lng
+              ? res?.foundData.location.lng
+              : 126.9784147,
           },
           withWhom: res?.foundData.withWhom,
           what: res?.foundData.what,
@@ -303,21 +307,26 @@ const WriteContainer = ({ isEdit }: IProps) => {
 
     if (!writeState.weather) {
       errorRef = weatherRef;
-    } else if (!writeState.address) {
-      errorRef = whereRef;
-    } else if (!writeState.withWhom) {
+    }
+    // else if (!writeState.address) {
+    //   errorRef = whereRef;
+    // }
+    else if (!writeState.withWhom) {
       errorRef = whoRef;
     } else if (!writeState.what) {
       errorRef = whatRef;
     } else if (!writeState.feeling) {
       errorRef = feelRef;
-    } else if (!writeState.image) {
-      errorRef = pictureRef;
-    } else if (
-      !writeState.title ||
-      !writeState.firstContents ||
-      !writeState.secondContents ||
-      !writeState.thirdContents
+    }
+    // else if (!writeState.image) {
+    //   errorRef = pictureRef;
+    // }
+    else if (
+      !writeState.title
+      // ||
+      // !writeState.firstContents ||
+      // !writeState.secondContents ||
+      // !writeState.thirdContents
     ) {
       errorRef = dailyRef;
     }
@@ -350,7 +359,6 @@ const WriteContainer = ({ isEdit }: IProps) => {
       console.log(err);
     }
   };
-
   const editContentsHandler = async () => {
     try {
       const formData = new FormData();
@@ -365,6 +373,7 @@ const WriteContainer = ({ isEdit }: IProps) => {
       formData.append("what", writeState.what);
       formData.append("feeling", writeState.feeling);
       formData.append("image", writeState.image);
+
       await axios.patch(
         `${process.env.NEXT_PUBLIC_API}contents/${router.query.storyId}`,
         formData,
