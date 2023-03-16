@@ -67,10 +67,11 @@
 ### 🛠️ 메인 페이지
 
 <p align='center'>
-  <img src='https://user-images.githubusercontent.com/89783182/222083557-d7cf8ed0-e63e-4c0c-8a97-bed26ae04472.gif'/>
+  <img src='https://user-images.githubusercontent.com/89783182/225495903-336091c5-39ce-44f7-ac15-b2f85848db47.gif'/>
 </p>
 
 * 유저가 작성한 글을 리스트 형식으로 보여주고 조건을 이용하여 검색할 수 있습니다.
+* 이미지 크기에 맞춰 썸네일 수정하였습니다.
 
 ### 🛠️ 일기 작성
 
@@ -82,6 +83,11 @@
 * google-maps-api를 이용하여 지도를 불러오고 use-places-autocomplete를 이용하여 위치검색을 지원합니다.<br>
 * Geolocation.getCurrentPosition() web API를 이용하여 현재 위치를 불러옵니다.<br>
 
+<p align='center'>
+  <img src='https://user-images.githubusercontent.com/89783182/225496079-3a97eecc-0fba-4517-a9a0-bb205c18427b.gif'/>
+</p>
+* 위치, 이미지, 일기내용 필수값에서 해제 하였습니다.
+
 ### 🛠️ 작성한 일기 확인
 
 <p align='center'>
@@ -91,6 +97,12 @@
 * 작성한 일기를 확인할 수 있습니다.<br>
 * 수정을 원하시면 수정 버튼을 눌러 수정할 수 있습니다.<br>
 * 삭제 버튼을 눌러 삭제할 수 있습니다.
+
+<p align='center'>
+  <img src='https://user-images.githubusercontent.com/89783182/225496320-31d69506-edcb-4232-a12e-b2fd6224433b.png'/>
+</p>
+
+* 이미지, 위치, 일기를 작성하지 않았을 경우
 
 ### 🛠️ 설정 페이지
 
