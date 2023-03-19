@@ -21,7 +21,7 @@ const Button = styled.button<StyleProps>`
   cursor: pointer;
   ${flexBox("row", "center", "center")}
   width: 100%;
-  height: 100%;
+  padding: 3rem 0;
   background-color: ${(props) => {
     return props.addStyle?.backgroundColor;
   }};
@@ -33,6 +33,7 @@ const Button = styled.button<StyleProps>`
 `;
 
 const ButtonTitle = styled.div<StyleProps>`
+  line-height: 3.8rem;
   font-size: ${(props) => {
     return props.addStyle?.fontSize;
   }};

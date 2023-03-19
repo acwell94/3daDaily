@@ -89,6 +89,9 @@ const SettingsPresenter = ({
           <SettingsBox src={WithDrawerImg} handler={withDrawAskModalHandler}>
             회원탈퇴
           </SettingsBox>
+          <SettingsBox src={Profile} handler={useLink(`/settings/developer`)}>
+            개발자 소개
+          </SettingsBox>
         </LogoMainBox>
       </LogoMain>
     </>

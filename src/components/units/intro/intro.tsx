@@ -19,18 +19,6 @@ const Main = styled.div`
     rgba(148, 150, 197, 1) 40%,
     rgba(224, 186, 205, 1) 100%
   );
-  /* @media ${breakPoints.mobileWidth} {
-    
-  }
-  @media ${breakPoints.mobileHeight} {
-    
-  }
-  @media ${breakPoints.smallScreen} {
-    
-  }
-  @media ${breakPoints.foldScreen} {
-    
-  } */
 `;
 
 const MainBox = styled.div`
@@ -79,8 +67,10 @@ const LogoBox = styled.div`
 `;
 
 const ButtonBox = styled.div`
+  align-items: center;
+  align-content: center;
+  justify-content: center;
   width: 46rem;
-  height: 10rem;
   @media ${breakPoints.mobileWidth} {
     width: 100%;
   }
@@ -125,9 +115,11 @@ const Intro = () => {
             title="회원가입"
             handler={() => linkHandler("signup")}
           />
+
           <IntroButton
             title="로그인"
             addStyle={{
+              marginBottom: "6rem",
               backgroundColor: theme.colors.darkPurple,
               fontSize: "3rem",
               titleColor: theme.colors.white,
@@ -135,14 +127,20 @@ const Intro = () => {
             }}
             handler={() => linkHandler("signin")}
           />
+          <IntroButton
+            title="안드로이드 다운로드"
+            addStyle={{
+              backgroundColor: theme.colors.sliverGray,
+              fontSize: "3rem",
+              titleColor: theme.colors.ashBlue,
+              fontWeight: 700,
+            }}
+            handler={() => window.open(`https://bit.ly/3ZlyLCF`)}
+          />
         </ButtonBox>
       </MainBox>
     </Main>
   );
 };
-
-export function getStaticProps() {
-  return {};
-}
 
 export default Intro;
