@@ -11,11 +11,11 @@ export const Main = styled.div`
 
 export const DeveloperContainer = styled.div`
   ${flexBox("row", "center", "center")}
-  width: 70%;
+  width: 50%;
 `;
 
 export const DeveloperBox = styled.div`
-  ${flexBox("row", "start", "start")}
+  ${flexBox("row", "center", "start")}
   width: 100%;
 `;
 
@@ -27,9 +27,7 @@ export const DeveloperImgBox = styled.div`
   margin-right: 10rem;
 `;
 
-export const DeveloperInfo = styled.div`
-  width: 50%;
-`;
+export const DeveloperInfo = styled.div``;
 
 export const TitleText = styled.div`
   font-size: 4rem;
